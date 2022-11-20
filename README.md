@@ -1,2 +1,3 @@
 # php-e-commerce
-bruh bruh
+bruh bruh   
+php -S 0.0.0.0:3000 -t .

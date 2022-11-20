@@ -1,0 +1,10 @@
+{
+    "name": "manga/ecommerce",
+    "description": "page ecommerce en php de vente de manga par Clause Axel et Marotta Titouan",
+    "autoload": {
+        "psr-4": {
+            "Manga\\Ecommerce\\": "src/"
+        }
+    },
+    "require": {}
+}
