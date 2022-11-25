@@ -1,1 +1,2 @@
-/vendor/
+/app/vendor/
+/bdd_sql/node_modules/
