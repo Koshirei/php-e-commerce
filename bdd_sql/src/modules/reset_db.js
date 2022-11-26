@@ -9,7 +9,7 @@ export function reset_db(connection, db_name) {
     //on la recréé
     connection.query('CREATE DATABASE ' + db_name, function (error, results, fields) {
         if (error) throw error;
-        if (results) console.log("La BDD a été crée");
+        if (results) console.log("La BDD a été créée");
     })
     
     //on se positionne dessus pour les prochaines queries
