@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon super site{% endblock %}
+
+{% block body %}
+    
+    bonsoir : <br/>
+
+    {% for volume in volumes %}
+        {{volume.id}} + {{volume.volume_number}}
+        <img src="{{volume.cover_url}}">
+        <br/>
+    {% endfor %}
+
+{% endblock %}

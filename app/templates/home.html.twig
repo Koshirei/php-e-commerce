@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon super site{% endblock %}
+
+{% block body %}
+    
+    {{get.abc}} <br/> bonjour : <br/>
+
+    {# {% for volume in volumes %}
+        {{volume.id}} + {{volume.volume_number}}
+        <img src="{{volume.cover_url}}">
+        <br/>
+    {% endfor %} #}
+
+    <form action="test" method="get">
+        <input type="text" name="abc"/>
+        <input type="submit" > 
+    </form>
+
+{% endblock %}
