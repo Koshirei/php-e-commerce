@@ -1,4 +1,4 @@
-import * as mysql from 'mysql'
+import * as mysql from 'mysql2'
 import * as config from "./config.js";
 
 import * as create_db from "./modules/create_db.js";
@@ -23,7 +23,7 @@ const create_manga_db = async () => {
     }
 
     console.timeLog("script_sql")
-
+    
     let nb_manga_inserted = 0
 
     //on prend les mangas dans ./modules/manga_list.js

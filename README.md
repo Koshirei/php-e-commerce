@@ -8,7 +8,9 @@ Une fois terminé
 ```cd src```    
 Changer la configuration dans ```config.js```.
 ```node index.js```
-Et prier que tout fonctionne.   
+Et prier que tout fonctionne.    
+
+NODE DOIT ETRE EN VERSION 15.0 MINIMUM POUR QUE DES FONCTIONS ReplaceAll() S'EXECUTENT
 
 # Lancer le projet
 Ouvrir un terminal dans ./app
