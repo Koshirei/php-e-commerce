@@ -9,10 +9,19 @@
     text-align: center;
 }
 
-#login_form{
-    height: 60vh;
+#login_form,
+#register_form{
+
+    height:100%;
+
+    @media (min-width:950px) {
+        height: 60vh;
+    }
 
     form{
-        padding-top:20vh;
+        padding: 10px;
+        @media (min-width:950px) {
+            padding-top: 20vh;
+        }
     }
 }

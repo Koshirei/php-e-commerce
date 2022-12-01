@@ -6,10 +6,9 @@ use Framework\Response\Response;
 use Services\mysql_PDO\LoginUser;
 
 class Login
-{
-  public function __invoke()
-  {
-      $error = false;
+{ 
+  public function checkLogin(){
+    $error = false;
 
       if ( isset($_POST["username"])){
 
@@ -20,9 +19,7 @@ class Login
 
           $hash = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
-          if(password_verify($_POST["password"], $user["password"])){
-            echo "faire session User ;)<br/>";
-          }else{
+          if(!password_verify($_POST["password"], $user["password"])){
             $error = true;
           }
         }else{
@@ -30,7 +27,17 @@ class Login
         }
       }
 
-      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error]);
+      return $error; 
+  }
+
+  public function __invoke()
+  {
+      $check = $this->checkLogin();
+
+      if ($check) echo "faire session ;)";
+
+      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$check]);
       
   }
+
 }

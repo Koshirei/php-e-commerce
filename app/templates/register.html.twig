@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon super site{% endblock %}
+
+{% block body %}
+
+<div class="container center" id="register_form">
+
+        <form method="post" action="/register">
+            <label>Username : </label><br/>
+            <input type="text" placeholder="Username" name="username"><br/>
+            <label>Email : </label><br/>
+            <input type="email" placeholder="email" name="email"><br/>
+            <label>Password : </label><br/>
+            <input type="password" placeholder="Password" name="password"><br/>
+            <input type="submit" class="btn">
+        </form
+
+    </div>
+
+{% endblock %}
