@@ -7,10 +7,22 @@ import * as API from "./modules/api_queries.js";
 
 import * as insert_in_manga_common from "./modules/insert_in_manga_common.js";
 import * as insert_in_manga_volume from "./modules/insert_in_manga_volume.js";
+import * as insert_in_users from "./modules/insert_in_users.js";
 
 const connection = mysql.createConnection(config.SQL_CONFIG);
 connection.connect();
 
+const USERS = [
+    {
+        username: "admin",
+        email: "admin@admin.admin",
+        password: "$2y$10$0.7z3e.tLtbNZWzqZKqMcOr/.Nm/cuLujInTj2H5Gt8Qugwe5M/um" // "adminpassword" hashé
+    },{
+        username: "user",
+        email: "user@user.user",
+        password: "$2y$10$iQ2DsW3qHU0ZKeoZUOqYk.4KGJdvQ5OC8BLRfVmMjM3oPMgvjo2QS" //"userpassword" hashé
+    }
+]
 
 const create_manga_db = async () => {
 
@@ -56,8 +68,13 @@ const create_manga_db = async () => {
                 //quand tout les volumes sont insérées on augmente le nb de manga total
                 nb_manga_inserted++;
         
-                // si tout les manga sont insérées on coupe la connection à la bdd
+                // si tout les manga sont insérées on ocmmence à créer des user
                 if (nb_manga_inserted === manga_list.mangas.length){
+                    USERS.forEach(async(user) => {
+                        await insert_in_users.insert(connection, user)
+                        console.log("insertion du user " + user.username + " terminée.")
+                        console.timeLog("script_sql")
+                    });
                     connection.end()
                 }
             }

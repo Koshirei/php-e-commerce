@@ -1,13 +1,11 @@
 export async function insert(connection, content) {
 
     return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO manga_volume (common_id, volume_number, cover_url, stock, price) VALUES ( ` +
+        connection.query(`INSERT INTO users (username, email, password ) VALUES ( ` +
 
-            "'" + content.id            +"',"+
-            "'" + content.volume_number +"',"+
-            "'" + content.cover_url     +"',"+
-            "'" + content.stock         +"',"+
-            "'" + content.price         +"'" +
+            "'" + content.username      +"',"+
+            "'" + content.email         +"',"+
+            "'" + content.password      +"'"+
 
             `)` , function (error, results, fields) {
                 if (error) {

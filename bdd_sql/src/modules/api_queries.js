@@ -18,7 +18,6 @@ export function get_common_data(manga) {
 
                 manga.id = result[0].id;
                 manga.description = result[0].localizedDescription.en.replaceAll("\n", "<br/>");
-                manga.price = Math.floor(Math.random() * 5 + 7) + .99 //prix entre 7.99 et 11.99
 
                 // on choppe l'autheur
                 MFA.Author.search({
@@ -56,7 +55,8 @@ export function get_volume_data(manga, object_all_volumes) {
                         id: result.manga.id,
                         volume_number: result.volume,
                         cover_url: result.image512,
-                        stock: Math.floor(Math.random()*10)
+                        stock: Math.floor(Math.random()*10),
+                        price: manga.price = Math.floor(Math.random() * 5 + 7) + .99 //prix entre 7.99 et 11.99
                     })
                 });
                 resolve()
