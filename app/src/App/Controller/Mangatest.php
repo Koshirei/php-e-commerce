@@ -2,22 +2,22 @@
 
 namespace App\Controller;
 
-
-use PDO;
 use Framework\Response\Response;
+use Database\Database;
 
 class Mangatest
 {
   public function __invoke()
   {
-      $db = new PDO('mysql:host=localhost;dbname=clause_marotta_manga_e_commerce', "root", "clause");  
+      $db = Database::getInstance();
 
       $volumes = $db->prepare('SELECT * from manga_volume');
+      
       $volumes->execute();
 
       $manga = $volumes->fetchAll();
 
-      return new Response('mangatest.html.twig', ['get' => $_GET, 'volumes' => $manga] );
+      return new Response('mangatest.html.twig', ['get' => $_POST, 'volumes' => $manga] );
       
   }
 }

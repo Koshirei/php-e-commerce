@@ -2,12 +2,11 @@ export async function insert(connection, content) {
 
     return new Promise((resolve, reject) => {
 
-        connection.query(`INSERT INTO manga_common (common_id, common_name, common_cover, common_price, category, author, artist, description) VALUES ( ` +
+        connection.query(`INSERT INTO manga_common (common_id, title, common_cover, category, author, artist, description) VALUES ( ` +
 
             "'" + content.id            +"',"+
             "'" + content.name          +"',"+
             "'" + content.cover         +"',"+
-            "'" + content.price         +"',"+
             "'" + content.category      +"',"+
             "'" + content.author        +"',"+
             "'" + content.artist        +"',"+
