@@ -10,7 +10,6 @@ class Homepage
 {
   public function __invoke()
   {
-
       return new Response('home.html.twig', ['get' => $_GET]);
       
   }
