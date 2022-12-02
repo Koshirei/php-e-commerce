@@ -2,7 +2,6 @@
 
 namespace Services\mysql_PDO;
 
-use PDO;
 use Interfaces\interface_LoginUser;
 use Database\Database;
 

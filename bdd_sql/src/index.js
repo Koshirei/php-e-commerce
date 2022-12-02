@@ -16,11 +16,13 @@ const USERS = [
     {
         username: "admin",
         email: "admin@admin.admin",
-        password: "$2y$10$0.7z3e.tLtbNZWzqZKqMcOr/.Nm/cuLujInTj2H5Gt8Qugwe5M/um" // "adminpassword" hashé
+        password: "$2y$10$0.7z3e.tLtbNZWzqZKqMcOr/.Nm/cuLujInTj2H5Gt8Qugwe5M/um", // "adminpassword" hashé
+        role: "ADMIN"
     },{
         username: "user",
         email: "user@user.user",
-        password: "$2y$10$iQ2DsW3qHU0ZKeoZUOqYk.4KGJdvQ5OC8BLRfVmMjM3oPMgvjo2QS" //"userpassword" hashé
+        password: "$2y$10$iQ2DsW3qHU0ZKeoZUOqYk.4KGJdvQ5OC8BLRfVmMjM3oPMgvjo2QS", //"userpassword" hashé
+        role: "USER"
     }
 ]
 

@@ -12,7 +12,8 @@
         "Framework\\": "src/Framework",
         "Services\\" : "src/Services",
         "Interfaces\\": "src/Interfaces",
-        "Database\\": "src/Database"
+        "Database\\": "src/Database",
+        "Entity\\": "src/App/Entity"
       }
     }
 }

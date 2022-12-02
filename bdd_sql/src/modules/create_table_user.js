@@ -7,7 +7,8 @@ export function create_table(connection) {
             'id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
             'username VARCHAR(32),' +
             'email VARCHAR(255),' +
-            'password VARCHAR(255)' +
+            'password VARCHAR(255),' +
+            'role enum("ADMIN","USER")' + 
 
             ')', function (error, results, fields) {
                 if (error) {

@@ -13,9 +13,38 @@
             <input type="email" placeholder="email" name="email"><br/>
             <label>Password : </label><br/>
             <input type="password" placeholder="Password" name="password"><br/>
+            <label>Confirm Password : </label><br/>
+            <input type="password" placeholder="Password" name="password2"><br/>
             <input type="submit" class="btn">
-        </form
+        </form>
 
+        {% if errors["empty_user"] %}
+            <label>Utilisateur vide</label> <br/>
+        {% endif %}
+
+        {% if errors["empty_email"] %}
+            <label>email vide</label><br/>
+        {% endif %}
+
+        {% if errors["empty_pass1"] %}
+            <label>Mdp1 vide</label><br/>
+        {% endif %}
+
+        {% if errors["empty_pass2"] %}
+            <label>Mdp2 vide</label><br/>
+        {% endif %}
+
+        {% if errors["match_password"] %}
+            <label>mdp non correspondant</label><br/>
+        {% endif %}
+
+        {% if errors["dupe_username"] %}
+            <label>username déjà dans DB</label><br/>
+        {% endif %}
+
+        {% if errors["dupe_email"] %}
+            <label>email déjà dans DB</label><br/>
+        {% endif %}
     </div>
 
 {% endblock %}

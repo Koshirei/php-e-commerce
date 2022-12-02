@@ -10,33 +10,32 @@ class Login
   public function checkLogin(){
     $error = false;
 
-      if ( isset($_POST["username"])){
+      if ( !isset($_POST["username"])) return ;
 
         $LoginUser = new LoginUser;
         $user = $LoginUser->LoginByUsername($_POST["username"]);
         
         if ($user){
 
-          $hash = password_hash($_POST["password"], PASSWORD_BCRYPT);
-
-          if(!password_verify($_POST["password"], $user["password"])){
-            $error = true;
-          }
+          if(password_verify($_POST["password"], $user["password"])){
+              echo "faire session ;)"; // et redirection
+          }else{
+              $error = true;
+            }
         }else{
           $error = true;
         }
-      }
+      
 
       return $error; 
   }
 
   public function __invoke()
   {
-      $check = $this->checkLogin();
 
-      if ($check) echo "faire session ;)";
+      $error = $this->checkLogin();
 
-      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$check]);
+      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error]);
       
   }
 
