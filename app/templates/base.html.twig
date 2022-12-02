@@ -9,6 +9,23 @@
 </head>
 <body>
     {% block body %}{% endblock %}
+
+    <select id="language_select">
+      <option value="FR" 
+        {% if language["key"] == "FR" %}
+          selected
+        {% endif %}>
+        FR
+      </option>
+      <option value="EN" 
+        {% if language["key"] == "EN" %}
+          selected
+        {% endif %}>
+        EN
+      </option>
+    </select>
+
+    <script src="js/language_switch.js"></script>
 </body>
 </html>
 

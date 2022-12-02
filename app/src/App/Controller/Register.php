@@ -53,6 +53,7 @@ class Register
 
         if (empty($error)){
             $this->registerUser($register, $username, $email, $password);
+            header("Location: /login");
         }
 
         return $error;
@@ -68,11 +69,16 @@ class Register
 
     public function __invoke()
     {
+        session_start();
+        if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
+
+        echo $_SESSION["langage"];
+
         $register = new RegisterUser;
 
         $error = $this->checkRegister($register);
             
-        return new Response('register.html.twig', ['get' => $_POST, 'errors' => $error] );
+        return new Response('register.html.twig', ['get' => $_POST, 'errors' => $error, 'language'=>$_SESSION["langage"]] );
         
     }
 }
