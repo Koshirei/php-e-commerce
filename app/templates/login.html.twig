@@ -11,12 +11,12 @@
     {% endif %}
     
         <form method="post" action="/login">
-            <label>Username : </label><br/>
-            <input type="text" placeholder="Username" name="username"><br/>
-            <label>Password : </label><br/>
-            <input type="password" placeholder="Password" name="password"><br/>
-            <input type="submit" class="btn">
-        </form
+            <label>{{language["username"]}} : </label><br/>
+            <input type="text" placeholder="{{language["username"]}}" name="username"><br/>
+            <label>{{language["password"]}} : </label><br/>
+            <input type="password" placeholder="{{language["password"]}}" name="password"><br/>
+            <input type="submit" class="btn" value="{{language["submit"]}}">
+        </form>
 
     </div>
 

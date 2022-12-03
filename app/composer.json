@@ -13,7 +13,8 @@
         "Services\\" : "src/Services",
         "Interfaces\\": "src/Interfaces",
         "Database\\": "src/Database",
-        "Entity\\": "src/App/Entity"
+        "Entity\\": "src/App/Entity",
+        "Languages\\":"src/Languages"
       }
     }
 }

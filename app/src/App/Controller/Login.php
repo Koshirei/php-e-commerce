@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use Entity\User;
 use Framework\Response\Response;
+use Languages\Languages;
 use Services\mysql_PDO\LoginUser;
 
 class Login
@@ -13,12 +15,14 @@ class Login
       if ( !isset($_POST["username"])) return ;
 
         $LoginUser = new LoginUser;
-        $user = $LoginUser->LoginByUsername($_POST["username"]);
+        $userinfo = $LoginUser->LoginByUsername($_POST["username"]);
         
-        if ($user){
+        if ($userinfo){
 
-          if(password_verify($_POST["password"], $user["password"])){
+          if(password_verify($_POST["password"], $userinfo["password"])){
               echo "faire session ;)"; // et redirection
+              $user = new User($userinfo["username"],$userinfo["email"],$userinfo["password"],$userinfo["role"]);
+              $_SESSION["user"] = $user;
           }else{
               $error = true;
             }
@@ -33,9 +37,19 @@ class Login
   public function __invoke()
   {
 
+    session_start();
+    if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
+    if (isset($_GET["lan"])) $_SESSION["langage"] = $_GET["lan"];
+
+    $langue = new Languages($_SESSION["langage"]);
+    $traductions = $langue->getLanguage();
+
+
       $error = $this->checkLogin();
 
-      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error]);
+      if (isset($_SESSION["user"])) header("Location: /");
+
+      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error, 'language'=>$traductions]);
       
   }
 
