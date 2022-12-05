@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit manga{% endblock %}
+
+{% block body %}
+    
+    <h1>Modification de manga</h1>
+    <small>Cette page permet à un administrateur la modification de manga.</small>
+
+    <div>
+        <form>
+        <div class="mb-3 col-3">
+            <label for="searchedManga" class="form-label">Manga à modifier</label>
+            <input type="text" class="form-control" id="searchedManga">
+        </div>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+
+        Voir la <a href="/test">liste des manga</a>.
+    </div>
+
+{% endblock %}

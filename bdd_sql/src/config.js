@@ -4,7 +4,7 @@ export const SQL_CONFIG =
     host : 'localhost',
     port: 3306,
     user : 'root',
-    password : 'clause',
+    password : 'toor',
 }
 
 //tout sera créé automatiquement dans une base de donnée stocké dans DB_NAME
