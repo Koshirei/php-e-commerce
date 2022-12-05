@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Entity\User;
 use Framework\Response\Response;
+use Languages\Languages;
 use Services\mysql_PDO\RegisterUser;
 
 class Register
@@ -71,14 +72,16 @@ class Register
     {
         session_start();
         if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
+        if (isset($_GET["lan"])) $_SESSION["langage"] = $_GET["lan"];
 
-        echo $_SESSION["langage"];
+        $langue = new Languages($_SESSION["langage"]);
+        $traductions = $langue->getLanguage();
 
         $register = new RegisterUser;
 
         $error = $this->checkRegister($register);
             
-        return new Response('register.html.twig', ['get' => $_POST, 'errors' => $error, 'language'=>$_SESSION["langage"]] );
+        return new Response('register.html.twig', ['get' => $_POST, 'errors' => $error, 'language'=>$traductions]);
         
     }
 }
