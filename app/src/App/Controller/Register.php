@@ -81,7 +81,7 @@ class Register
 
         $error = $this->checkRegister($register);
             
-        return new Response('register.html.twig', ['get' => $_POST, 'errors' => $error, 'language'=>$traductions]);
+        return new Response('register.html.twig', ['errors' => $error, 'language'=>$traductions]);
         
     }
 }
