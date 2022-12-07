@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Entity\eManga;
 use Framework\Response\Response;
 use Languages\Languages;
 use Services\mysql_PDO\getManga;
@@ -20,13 +19,11 @@ class Manga
 
       $id = $_GET["id"];
 
-      $manga = new getManga;
+      $getmanga = new getManga;
 
-      $emanga = $manga->getMangaInDB($id);
-
-      var_dump($emanga);
+      $manga = $getmanga->getMangaInDB($id);
       
-      return new Response('manga.html.twig', [ "manga" => $emanga, "language" => $traductions] );
+      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions] );
       
   }
 }

@@ -4,7 +4,7 @@ namespace Services\mysql_PDO;
 
 use Interfaces\interface_getManga;
 use Database\Database;
-use Entity\eManga;
+use Entity\Manga;
 
 class getManga implements interface_getManga{
 
@@ -18,22 +18,22 @@ class getManga implements interface_getManga{
         $getmanga->bindParam("id", $id);
         $getmanga->execute();
 
-        $manga = $getmanga->fetch();
+        $manga_array = $getmanga->fetch();
 
-        $emanga = new eManga(
-            $manga["id"],
-            $manga["title"],
-            $manga["volume_number"],
-            $manga["cover_url"],
-            $manga["price"],
-            $manga["stock"],
-            $manga["description"],
-            $manga["category"],
-            $manga["author"],
-            $manga["artist"]
+        $manga = new Manga(
+            $manga_array["id"],
+            $manga_array["title"],
+            $manga_array["volume_number"],
+            $manga_array["cover_url"],
+            $manga_array["price"],
+            $manga_array["stock"],
+            $manga_array["description"],
+            $manga_array["category"],
+            $manga_array["author"],
+            $manga_array["artist"]
         );
 
-        return $emanga; 
+        return $manga; 
     }
 
 
