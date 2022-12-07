@@ -16,7 +16,6 @@ class Register
         
         if (!isset($_POST["username"])) return $error;
         
-
         $username = htmlspecialchars($_POST["username"]);
         $password = htmlspecialchars($_POST["password"]);
         $password2 = htmlspecialchars($_POST["password2"]);
@@ -70,12 +69,7 @@ class Register
 
     public function __invoke()
     {
-        session_start();
-        if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
-        if (isset($_GET["lan"])) $_SESSION["langage"] = $_GET["lan"];
-
-        $langue = new Languages($_SESSION["langage"]);
-        $traductions = $langue->getLanguage();
+        require './init_session.php';
 
         $register = new RegisterUser;
 

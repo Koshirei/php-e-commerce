@@ -24,6 +24,8 @@ return [
         'category' => "Category",
         'add2cart' => 'Add to Cart',
         'available' => 'available',
-        'notifiedRestock' => "Get a notification when the manga is available to purchase."
+        'notifiedRestock' => "Get a notification when the manga is available to purchase.",
+        'cartNoStock' => "Error: trying to add to the cart despite being no stock available.",
+        'cartAdded' => "Successfully added the item to the cart."
     ]
 ];

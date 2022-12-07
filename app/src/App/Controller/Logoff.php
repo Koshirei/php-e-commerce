@@ -9,8 +9,7 @@ class Logoff
 {
   public function __invoke()
   {
-      session_start();
-      if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "fr";
+      require './init_session.php';
 
       unset($_SESSION["user"]);
 

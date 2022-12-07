@@ -2,28 +2,71 @@
 
 namespace App\Controller;
 
+use Entity\CartItem;
 use Framework\Response\Response;
 use Languages\Languages;
 use Services\mysql_PDO\getManga;
+use Services\mysql_PDO\stockManagement;
 
 class Manga
 {
+
+  public function add2cart($manga){
+
+    $stockManagement = new stockManagement();
+
+    $currentDBstock = $stockManagement->getStock($manga->getId());
+
+    if ($currentDBstock > 0){
+      $newStock = strval($currentDBstock-1);
+      $stockManagement->setStock($manga->getId(), $newStock);
+      $manga->setStock($newStock);
+
+      $cartItem = new CartItem(
+        $manga->getId(),
+        $manga->getTitle(),
+        $manga->getVolume(),
+        $manga->getUnique_Cover(),
+        $manga->getPrice()
+      );
+
+      array_push($_SESSION["cart"], $cartItem);
+
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
   public function __invoke()
   {
-      session_start();
-      if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
-      if (isset($_GET["lan"])) $_SESSION["langage"] = $_GET["lan"];
-
-      $langue = new Languages($_SESSION["langage"]);
-      $traductions = $langue->getLanguage();
+      require './init_session.php';
 
       $id = $_GET["id"];
 
       $getmanga = new getManga;
 
       $manga = $getmanga->getMangaInDB($id);
+
+      $error = [];
+      $success = [];
+
+      if (
+          isset($_GET["cart"]) &&
+          $_GET["cart"] === "true" &&
+          $manga->getStock() > 0
+         )
+          {
+            $success["cart"] = $this->add2cart($manga);
+          }
+      else if(isset($_GET["cart"]) && $manga->getStock() === "0"){
+        $error["cartNoStock"] = true;
+      }
+
+      var_dump($_SESSION["cart"]);
       
-      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions] );
+      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error] );
       
   }
 }
