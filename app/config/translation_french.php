@@ -18,6 +18,12 @@ return [
         'empty_password2' => 'Le champ de la Confirmation du Mot de Passe est vide',
         'error_match_password' => 'Les Mots de Passes ne sont pas identique',
         'error_dupe_username' => 'Le Nom d\'Utilisateur est déjà utilisé',
-        'error_dupe_email' => 'L\'Adresse Email est déjà utilisée'
+        'error_dupe_email' => 'L\'Adresse Email est déjà utilisée',
+        'artist' => "Artiste",
+        'author' => "Auteur",
+        'category' => "Catégorie",
+        'add2cart'=> "Ajouter au Panier",
+        'available' => 'restant',
+        'notifiedRestock' => "Recevoir une notification quand le manga est disponible à l'achat."
     ]
 ];

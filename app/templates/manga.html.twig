@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <div class="container" id="mangaPage">
+        <h1>{{manga.title}} {{manga.volume}}</h1>
+        <div class="flexbox">
+            <div class="flexbox-left">
+                <img src="{{manga.unique_cover}}" alt="Image {{manga.title}} {{manga.volume}}" />
+            </div>
+            <div class="flexbox-right">
+                <p>{{manga.description|raw}}</p>
+                <p>{{language["author"]}} : {{manga.author}}</p>
+                <p>{{language["artist"]}} : {{manga.artist}}</p>
+                <p>{{language["category"]}} : {{manga.category}}</p>
+
+                <form method="get">
+                    <input type="hidden" name="id" value="{{manga.id}}"/> 
+                    {% if manga.stock > 0 %} 
+                        <button class="btn btn-primary">{{language["add2cart"]}} !</button> {{manga.price}}€<br/>
+                        {{manga.stock}} {{language["available"]}}
+                    {% endif %}
+
+                    {% if manga.stock == 0 %}
+                    
+                        <button name="test" class="btn btn-primary">{{language["notifiedRestock"]}}</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
