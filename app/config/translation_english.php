@@ -18,12 +18,6 @@ return [
         'empty_password2' => 'The Confirm Password field is empty',
         'error_match_password' => 'The Passwords do not match each other',
         'error_dupe_username' => 'The Username is already in use',
-        'error_dupe_email' => 'The Email Address is already in use',
-        'artist' => "Artist",
-        'author' => "Author",
-        'category' => "Category",
-        'add2cart' => 'Add to Cart',
-        'available' => 'available',
-        'notifiedRestock' => "Get a notification when the manga is available to purchase."
+        'error_dupe_email' => 'The Email Address is already in use'
     ]
 ];

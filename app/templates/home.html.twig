@@ -4,19 +4,62 @@
 
 {% block body %}
     
-    {{get.abc}} <br/> bonjour : <br/>
+    <section class="">
+        <div>
+            <img></img>
+            <p>{{language["free_shipping"]}}</p>
+        </div>
 
-    {# {% for volume in volumes %}
-        {{volume.id}} + {{volume.volume_number}}
-        <img src="{{volume.cover_url}}">
-        <br/>
-    {% endfor %} #}
+        <div>
+            <img></img>
+            <p>{{language["fast_shipping"]}}</p>
+        </div>
+    </section>
 
-    <form action="test" method="post">
-        <input type="text" name="abc"/>
-        <input type="submit" > 
-    </form>
-<a href="/login">{{language["login"]}}</a>
-    <a href="/logoff">{{language["logoff"]}}</a>
+    <section class="best_seller">
+        <h4>{{language["best_seller"]}}</h4>
+
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+    </section>
+
+    <section class="last_manga">
+        <h4>{{language["last_manga"]}}</h4>
+
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+        <div>
+            <img></img>
+            <h5></h5>
+            <p></p>
+            <button></button>
+        </div>
+    </section>
 
 {% endblock %}

@@ -18,7 +18,7 @@ class Homepage
       $langue = new Languages($_SESSION["langage"]);
       $traductions = $langue->getLanguage();
 
-      return new Response('home.html.twig', ['language'=>$traductions]);
+      return new Response('home.html.twig', ['get' => $_GET, 'language'=>$traductions]);
       
   }
 }

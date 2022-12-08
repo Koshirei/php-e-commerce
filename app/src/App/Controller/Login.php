@@ -20,6 +20,7 @@ class Login
         if ($userinfo){
 
           if(password_verify($_POST["password"], $userinfo["password"])){
+              echo "faire session ;)"; // et redirection
               $user = new User($userinfo["username"],$userinfo["email"],$userinfo["password"],$userinfo["role"]);
               $_SESSION["user"] = $user;
           }else{
@@ -48,7 +49,7 @@ class Login
 
       if (isset($_SESSION["user"])) header("Location: /");
 
-      return new Response('login.html.twig', ["error"=>$error, 'language'=>$traductions]);
+      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error, 'language'=>$traductions]);
       
   }
 
