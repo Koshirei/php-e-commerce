@@ -3,20 +3,20 @@
 namespace Services\mysql_PDO;
 
 use PDO;
-// use Interfaces\interface_LoginUser;
+use Interfaces\interface_MangaCommonEdit;
 use Database\Database;
 
-class LoginUser implements interface_LoginUser{
+class MangaCommonEdit implements interface_MangaCommonEdit{
 
     public function MangaSearchByName($searchedManga){
         $db = Database::getInstance();
 
-        $searchedMangaExist = $db->prepare ('SELECT *
+        $searchedManga = $db->prepare ('SELECT *
                                   FROM manga_common
                                   WHERE title = $searchedManga
                                 ');
         
-        $searchedMangaExist->execute();
+        $searchedManga->execute();
 
         $manga = $searchedMangaExist->fetchAll();
 
