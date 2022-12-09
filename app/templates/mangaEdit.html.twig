@@ -64,9 +64,9 @@
             {% for manga in mangas %}
                 <tr>
                     <td>{{ manga.title }}</td>
-                    <td><a href="https://example.com">Modifier (série)</a></td>
+                    <td><a href="/mangaCommonEdit?title={{manga.title}}">Modifier (série)</a></td>
                     <td><a href="https://example.com">Modifier (volume)</a></td>
-                    <td><a href="/mangaCommonDelete">Supprimer</a></td>
+                    {# <td><a href="/mangaCommonDelete">Supprimer</a></td> #}
                     {# <button type="button" class="btn btn-danger">Danger</button> #}
                 </tr>
             {% endfor %}

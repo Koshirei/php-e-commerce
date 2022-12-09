@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit manga{% endblock %}
+
+{% block body %}
+    
+    {% for manga in mangas %}
+        <h1>Modification série ({{manga.title}})</h1>
+
+    <div>
+        <form>
+            <div class="mb-3 col-3">                
+                <button type="button" class="btn btn-success">Nouveau volume</button>
+                <button type="button" class="btn btn-danger">Rendre la série invisible</button>
+            </div>
+        </form>
+    </div>
+    <br>
+        <hr>
+    <br>
+
+
+    <div class="mb-3 col-12">
+        <div>
+            <h5>Modification titre :</h5>
+            <label for="name">Titre actuel</label>
+                <input type="text" id="name" name="name" value="{{manga.title}}" disabled="true">
+            =>
+            <label for="name">Nouveau titre</label>
+                <input type="text" id="name" name="name" required maxlength="8">
+        </div>
+	    <div class="divider div-transparent"></div>
+        <div >
+            <h5>Modification couverture :</h5>
+            <label for="name">Couverture actuel</label>
+                <input type="text" id="name" name="name" value="{{manga.common_cover}}" disabled="true">
+            =>
+            <label for="name">Nouvelle couverture</label>
+                <input type="text" id="name" name="name" required maxlength="8">
+        </div>
+        <div class="divider div-transparent"></div>
+        <div >
+            <h5>Modification description :</h5>
+            <label for="name">Description actuel</label><br>
+                <textarea id="name" name="name"  disabled="true" rows="4" cols="50">
+                    {{manga.description}}
+                </textarea>
+            <br>=>
+            <label for="name">Nouvelle description</label><br>
+                <textarea id="w3review" name="w3review" rows="4" cols="50">
+                </textarea>
+        </div>
+        <div class="divider div-transparent"></div>
+        <div >
+            <h5>Modification categorie :</h5>
+            <label for="name">Categorie actuel</label>
+                <input type="text" id="name" name="name" value="{{manga.category}}" disabled="true">
+            =>
+            <label for="name">Nouvelle categorie</label>
+                <input type="text" id="name" name="name" required maxlength="8">
+        </div>
+        <div class="divider div-transparent"></div>
+        <div >
+            <h5>Modification auteur :</h5>
+            <label for="name">Auteur actuel</label>
+                <input type="text" id="name" name="name" value="{{manga.author}}" disabled="true">
+            =>
+            <label for="name">Nouvel auteur</label>
+                <input type="text" id="name" name="name" required maxlength="8">
+        </div>
+        <div class="divider div-transparent"></div>
+        <div >
+            <h5>Modification artiste :</h5>
+            <label for="name">Artiste actuel</label>
+                <input type="text" id="name" name="name" value="{{manga.artist}}" disabled="true">
+            =>
+            <label for="name">Nouvel artiste</label>
+                <input type="text" id="name" name="name" required maxlength="8">
+        </div>
+    </div>
+    <br>
+        <hr>
+    <br>
+    {% endfor %}
+
+{% endblock %}
