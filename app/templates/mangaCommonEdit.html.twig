@@ -21,6 +21,7 @@
 
 
     <div class="mb-3 col-12">
+    <form action="" method="get" class="form-example">
         <div>
             <h5>Modification titre :</h5>
             <label for="name">Titre actuel</label>
@@ -28,29 +29,38 @@
             =>
             <label for="name">Nouveau titre</label>
                 <input type="text" id="name" name="name" required maxlength="8">
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
 	    <div class="divider div-transparent"></div>
-        <div >
+    <form action="" method="get" class="form-example">
+        <div>
             <h5>Modification couverture :</h5>
             <label for="name">Couverture actuel</label>
                 <input type="text" id="name" name="name" value="{{manga.common_cover}}" disabled="true">
             =>
             <label for="name">Nouvelle couverture</label>
                 <input type="text" id="name" name="name" required maxlength="8">
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
         <div class="divider div-transparent"></div>
-        <div >
+    <form action="" method="get" class="form-example">
+        <div>
             <h5>Modification description :</h5>
             <label for="name">Description actuel</label><br>
-                <textarea id="name" name="name"  disabled="true" rows="4" cols="50">
+                <textarea id="name" name="name"  disabled="true" rows="4" cols="50" required>
                     {{manga.description}}
                 </textarea>
             <br>=>
             <label for="name">Nouvelle description</label><br>
                 <textarea id="w3review" name="w3review" rows="4" cols="50">
                 </textarea>
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
         <div class="divider div-transparent"></div>
+    <form action="" method="get" class="form-example">
         <div >
             <h5>Modification categorie :</h5>
             <label for="name">Categorie actuel</label>
@@ -58,8 +68,11 @@
             =>
             <label for="name">Nouvelle categorie</label>
                 <input type="text" id="name" name="name" required maxlength="8">
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
         <div class="divider div-transparent"></div>
+    <form action="" method="get" class="form-example">
         <div >
             <h5>Modification auteur :</h5>
             <label for="name">Auteur actuel</label>
@@ -67,20 +80,26 @@
             =>
             <label for="name">Nouvel auteur</label>
                 <input type="text" id="name" name="name" required maxlength="8">
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
         <div class="divider div-transparent"></div>
-        <div >
+    <form action="" method="get" class="form-example">
+        <div>
             <h5>Modification artiste :</h5>
             <label for="name">Artiste actuel</label>
                 <input type="text" id="name" name="name" value="{{manga.artist}}" disabled="true">
             =>
             <label for="name">Nouvel artiste</label>
                 <input type="text" id="name" name="name" required maxlength="8">
+        <input type="submit" class="btn btn-primary"></input>
         </div>
+    </form>
     </div>
     <br>
         <hr>
     <br>
+
     {% endfor %}
 
 {% endblock %}
