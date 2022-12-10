@@ -2,10 +2,7 @@
 
 namespace App\Controller;
 
-
-use PDO;
 use Framework\Response\Response;
-use Languages\Languages;
 
 class Homepage
 {

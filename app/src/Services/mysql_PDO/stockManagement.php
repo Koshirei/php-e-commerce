@@ -4,7 +4,6 @@ namespace Services\mysql_PDO;
 
 use Interfaces\interface_stockManagement;
 use Database\Database;
-use Entity\Manga;
 
 class stockManagement implements interface_stockManagement
 {
@@ -26,17 +25,37 @@ class stockManagement implements interface_stockManagement
         return $currentstock["stock"];
     }
 
-    public function setStock($id, $newStock)
+    public function incrementStock($id)
     {
         $db = Database::getInstance();
 
+        $stock = $this->getStock($id);
+        $newStock = strval (intval($stock+1));
+
         $sql = "UPDATE manga_volume SET stock = :stock WHERE id=:id";
 
-        $setStock = $db->prepare($sql);
+        $incrementStock = $db->prepare($sql);
 
-        $setStock->bindParam("stock", $newStock);
-        $setStock->bindParam("id", $id);
+        $incrementStock->bindParam("stock", $newStock);
+        $incrementStock->bindParam("id", $id);
 
-        $setStock->execute();
+        $incrementStock->execute();
+    }
+
+    public function decrementStock($id)
+    {
+        $db = Database::getInstance();
+
+        $stock = $this->getStock($id);
+        $newStock = strval (intval($stock-1));
+
+        $sql = "UPDATE manga_volume SET stock = :stock WHERE id=:id";
+
+        $incrementStock = $db->prepare($sql);
+
+        $incrementStock->bindParam("stock", $newStock);
+        $incrementStock->bindParam("id", $id);
+
+        $incrementStock->execute();
     }
 }

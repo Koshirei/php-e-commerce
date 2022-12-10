@@ -45,47 +45,80 @@ body {
     }
 }
 
-#mangaPage {
+#mangaPage{
 
-    h1{
+    h1 {
         text-align: center;
         padding: 20px
     }
 
     .flexbox {
-        @media (min-width:992px){
+        @media (min-width:992px) {
             display: flex;
         }
+
         padding: 20px;
 
         .flexbox-left {
-            @media (min-width:992px){
+            @media (min-width:992px) {
                 flex: 0.50;
             }
-            
+
             text-align: center;
 
             img {
-                width:50%;
+                width: 50%;
 
-                @media (min-width:992px){
+                @media (min-width:992px) {
                     width: 80%;
                 }
-                
+
             }
         }
 
         .flexbox-right {
 
-            padding-top:10px;
+            padding-top: 10px;
 
-            @media (min-width:992px){
-                padding-top:0px;
+            @media (min-width:992px) {
+                padding-top: 0px;
                 flex: 1;
             }
-            
+
             text-align: justify;
         }
 
+    }
+}
+
+#cartPage{
+
+    h1 {
+        text-align: center;
+        padding: 20px
+    }
+
+    .cartItem{
+        outline:black solid 2px;
+        padding: 10px;
+        margin: 10px;
+        border-radius:10px;
+    
+        a{
+            color: black;
+        }
+
+        .flexbox{
+            display: flex;
+            
+            .flexbox-img{
+                
+                padding-right:10px;
+
+                img{
+                    height:115px
+                }
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Entity\CartItem;
 use Framework\Response\Response;
-use Languages\Languages;
 use Services\mysql_PDO\getManga;
 use Services\mysql_PDO\stockManagement;
 
@@ -19,7 +18,7 @@ class Manga
 
     if ($currentDBstock > 0){
       $newStock = strval($currentDBstock-1);
-      $stockManagement->setStock($manga->getId(), $newStock);
+      $stockManagement->decrementStock($manga->getId());
       $manga->setStock($newStock);
 
       $cartItem = new CartItem(
@@ -63,8 +62,6 @@ class Manga
       else if(isset($_GET["cart"]) && $manga->getStock() === "0"){
         $error["cartNoStock"] = true;
       }
-
-      var_dump($_SESSION["cart"]);
       
       return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error] );
       

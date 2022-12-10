@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Entity\User;
 use Framework\Response\Response;
-use Languages\Languages;
 use Services\mysql_PDO\LoginUser;
 
 class Login

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Framework\Response\Response;
-use Database\Database;
 
 class Logoff
 {

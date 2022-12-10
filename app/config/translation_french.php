@@ -26,6 +26,10 @@ return [
         'available' => 'restant',
         'notifiedRestock' => "Recevoir une notification quand le manga est disponible à l'achat.",
         'cartNoStock' => "Erreur: tentative d'ajout au panier bien qu'aucun stock ne soit disponible.",
-        'cartAdded' => "Produit ajouté au panier avec succès."
+        'cartAdded' => "Produit ajouté au panier avec succès.",
+        'yourCart' => "Votre panier",
+        'totalCost' => "Prix total",
+        'buyCart' => "Acheter ce panier",
+        'deleteFromCart' => "Supprimer du panier"
     ]
 ];
