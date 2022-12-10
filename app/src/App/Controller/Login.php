@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Entity\User;
 use Framework\Response\Response;
-use Languages\Languages;
 use Services\mysql_PDO\LoginUser;
 
 class Login
@@ -36,12 +35,7 @@ class Login
   public function __invoke()
   {
 
-    session_start();
-    if (!isset($_SESSION["langage"])) $_SESSION["langage"] = "FR";
-    if (isset($_GET["lan"])) $_SESSION["langage"] = $_GET["lan"];
-
-    $langue = new Languages($_SESSION["langage"]);
-    $traductions = $langue->getLanguage();
+      require './init_session.php';
 
 
       $error = $this->checkLogin();

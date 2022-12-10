@@ -1,10 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{manga.title}} {{manga.volume}}{% endblock %}
 
 {% block body %}
 
     <div class="container" id="mangaPage">
+        <br/>
+
+        {% if error["cartNoStock"]%}
+            <div class="alert alert-danger">
+                {{language["cartNoStock"]}}
+            </div>
+        {% endif %}
+
+        {% if success["cart"] == true %}
+            <div class="alert alert-success">
+                {{language["cartAdded"]}}
+            </div>
+        {% endif %}
+
+
         <h1>{{manga.title}} {{manga.volume}}</h1>
         <div class="flexbox">
             <div class="flexbox-left">
@@ -18,7 +33,8 @@
 
                 <form method="get">
                     <input type="hidden" name="id" value="{{manga.id}}"/> 
-                    {% if manga.stock > 0 %} 
+                    {% if manga.stock > 0 %}
+                        <input type="hidden" name="cart" value="true"/> 
                         <button class="btn btn-primary">{{language["add2cart"]}} !</button> {{manga.price}}€<br/>
                         {{manga.stock}} {{language["available"]}}
                     {% endif %}
