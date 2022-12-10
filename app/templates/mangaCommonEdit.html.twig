@@ -5,54 +5,49 @@
 {% block body %}
     
     {% for manga in mangas %}
+
+    <section class="container-fluid">
         <h1>Modification série ({{manga.title}})</h1>
 
-    <div>
-        <form>
-            <div class="mb-3 col-3">                
-                <button type="button" class="btn btn-success">Nouveau volume</button>
-                <button type="button" class="btn btn-danger">Rendre la série invisible</button>
-            </div>
-        </form>
-    </div>
-
-
-    <div class="mb-3 col-12">
-    <form action="" method="get" class="form-example">
         <div>
-            <h5></h5>
+            <form>
+                <div class="mb-3 col-3">                
+                    <button type="button" class="btn btn-success">Nouveau volume</button>
+                    <button type="button" class="btn btn-danger">Rendre la série invisible</button>
+                </div>
+            </form>
+        </div>
+
+{# 
+<input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+<input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
+<input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" aria-label=".form-control-sm example"> #}
+
+
+        <form action="" method="get" class="row g-3">
             <label for="name">Modification titre</label>
-                <input type="text" id="name" name="name" value="{{manga.title}}">
-        </div>
-        <div>
-            <h5></h5>
+                <input class="form-control" type="text" id="name" name="name" value="{{manga.title}}">
+
             <label for="name">Modification couverture</label>
-                <input type="text" id="name" name="name" value="{{manga.common_cover}}">
-        </div>
-        <div>
+                <input class="form-control" type="text" id="name" name="name" value="{{manga.common_cover}}">
+
             <label for="name">Modification description</label>
-                <textarea id="name" name="name" rows="4" cols="50" required>
+                <textarea class="form-control" id="name" name="name" rows="4" cols="50" required>
                     {{manga.description}}
                 </textarea>
-        </div>
-        <div >
+
             <label for="name">Modification categorie</label>
-                <input type="text" id="name" name="name" value="{{manga.category}}">
-        </div>
-        <div >
+                <input class="form-control" type="text" id="name" name="name" value="{{manga.category}}">
+
             <label for="name">Modification auteur</label>
-                <input type="text" id="name" name="name" value="{{manga.author}}">
-        </div>
-        <div>
+                <input class="form-control" type="text" id="name" name="name" value="{{manga.author}}">
+
             <label for="name">Modification artiste</label>
-                <input type="text" id="name" name="name" value="{{manga.artist}}" >
-        </div>
-        <input type="submit" class="btn btn-primary"></input>
-    </form>
-    </div>
-    <br>
-        <hr>
-    <br>
+                <input class="form-control" type="text" id="name" name="name" value="{{manga.artist}}">
+
+            <input type="submit" class="btn btn-primary"></input>
+        </form>
+    </section>
 
     {% endfor %}
 
