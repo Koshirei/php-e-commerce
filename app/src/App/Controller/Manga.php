@@ -6,6 +6,7 @@ use Entity\CartItem;
 use Framework\Response\Response;
 use Services\mysql_PDO\getManga;
 use Services\mysql_PDO\stockManagement;
+use Services\mysql_PDO\getNbVolume;
 
 class Manga
 {
@@ -41,29 +42,36 @@ class Manga
   public function __invoke()
   {
       require './init_session.php';
+      
+      $getNbVolume = new getNbVolume();
+      $count = $getNbVolume->getNbVolume();
 
-      $id = $_GET["id"];
+      if (!isset($_GET["id"]) || $_GET["id"] === "0" || intval($_GET["id"]) > $count){
+          header("Location: /");
+      }
 
-      $getmanga = new getManga;
-
-      $manga = $getmanga->getMangaInDB($id);
-
-      $error = [];
-      $success = [];
-
-      if (
+        $id = $_GET["id"];
+        
+        $getmanga = new getManga;
+        
+        $manga = $getmanga->getMangaInDB($id);
+        
+        $error = [];
+        $success = [];
+        
+        if (
           isset($_GET["cart"]) &&
           $_GET["cart"] === "true" &&
           $manga->getStock() > 0
-         )
+          )
           {
             $success["cart"] = $this->add2cart($manga);
           }
-      else if(isset($_GET["cart"]) && $manga->getStock() === "0"){
-        $error["cartNoStock"] = true;
-      }
-      
-      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error, 'user'=>$_SESSION["user"]] );
-      
+          else if(isset($_GET["cart"]) && $manga->getStock() === "0"){
+            $error["cartNoStock"] = true;
+          }
+        return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error, 'user'=>$_SESSION["user"]] );
+        }
+
   }
-}
+
