@@ -3,11 +3,13 @@
 {% block title %}Edit manga{% endblock %}
 
 {% block body %}
+
+{{mangaEdited}}
     
-    {% for manga in mangas %}
+    {% for manga in mangaEdited %}
 
     <section class="container-fluid">
-        <h1>Modification série ({{manga.title}})</h1>
+        <h1>Modification série ({{mangaEdited.title}})</h1>
 
         <div>
             <form>
@@ -44,6 +46,6 @@
     </section>
 
     {% endfor %}
-    <h1>test test</h1>
+    <h1>mangaEditedWithSucces</h1>
 
 {% endblock %}

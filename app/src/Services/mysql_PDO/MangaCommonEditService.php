@@ -3,51 +3,49 @@
 namespace Services\mysql_PDO;
 
 use PDO;
-use Interfaces\interface_MangaCommonEdit;
+// use Interfaces\interface_MangaCommonEdit;
 use Database\Database;
 
-class MangaCommonEditService implements interface_MangaCommonEdit{
+class MangaCommonEditService{
 
     public function MangaCommonEditService(){
-        $db = Database::getInstance();
+        $db = Database::getInstance($_POST);
 
-        var_dump($_POST['title']);die;
+        // var_dump($_POST['title']);
+        
+        $oldTitle = $_GET['title'];
+        // var_dump($oldTitle);
 
         $title = $_POST['title'];
-        
-            
-        // $title = $_POST['title'];
-        // $common_cover = $_POST['common_cover'];
-        // $description = $_POST['description'];
-        // $category = $_POST['category'];
-        // $author = $_POST['author'];
-        // $artist = $_POST['artist'];
+        $common_cover = $_POST['common_cover'];
+        $description = $_POST['description'];
+        $category = $_POST['category'];
+        $author = $_POST['author'];
+        $artist = $_POST['artist'];
 
 
-        // $editedManga = $db->prepare ("  UPDATE manga_common
-        //                                 SET title = $title,
-        //                                     common_cover = $common_cover,
-        //                                     description = $description,
-        //                                     category = $category,
-        //                                     author = $author,
-        //                                     artist = $artist,
-        //                                 ");
-
-
-        $editedManga = $db->prepare ("  UPDATE manga_common
-                                        SET title = $_POST['title'],
-                                            common_cover = $_POST['common_cover'],
-                                            description = $_POST['description'],
-                                            category = $_POST['category'],
-                                            author = $_POST['author'],
-                                            artist = $_POST['artist'],
+        $editManga = $db->prepare ("    UPDATE manga_common
+                                        SET title = :title,
+                                            common_cover = :common_cover,
+                                            description = :description,
+                                            category = :category,
+                                            author = :author,
+                                            artist = :artist
+                                        WHERE title = :oldTitle
                                         ");
         
-        $editedManga->execute();
+        $editManga->bindParam("title", $title);
+        $editManga->bindParam("common_cover", $common_cover);
+        $editManga->bindParam("description", $description);
+        $editManga->bindParam("category", $category);
+        $editManga->bindParam("author", $author);
+        $editManga->bindParam("artist", $artist);
+        $editManga->bindParam("oldTitle", $oldTitle);
+        $editManga->execute();
 
-        $manga = $editedManga->fetchAll();
+        $editManga = $editManga->fetch();
 
-        return $manga;
+        return $editManga;
     }
 
 }
