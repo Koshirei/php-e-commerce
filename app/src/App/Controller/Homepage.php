@@ -10,7 +10,7 @@ class Homepage
   { 
       require './init_session.php';
 
-      return new Response('home.html.twig', ['language'=>$traductions]);
+      return new Response('home.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"]]);
       
   }
 }
