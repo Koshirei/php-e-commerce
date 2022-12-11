@@ -63,7 +63,7 @@ class Manga
         $error["cartNoStock"] = true;
       }
       
-      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error] );
+      return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error, 'user'=>$_SESSION["user"]] );
       
   }
 }

@@ -37,12 +37,11 @@ class Login
 
       require './init_session.php';
 
-
       $error = $this->checkLogin();
-
+      
       if (isset($_SESSION["user"])) header("Location: /");
 
-      return new Response('login.html.twig', ["error"=>$error, 'language'=>$traductions]);
+      return new Response('login.html.twig', ["error"=>$error, 'language'=>$traductions, 'user'=>$_SESSION["user"]]);
       
   }
 

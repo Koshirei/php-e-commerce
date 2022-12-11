@@ -16,7 +16,47 @@ body {
     background-color: @header;
     height: 100px;
     color: white;
-    z-index: 1000000;
+
+    #header_flexbox{
+        height:80px;
+        padding-top: 20px;
+        margin: 0px 20px 0px 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .action_icons{
+        display: flex;
+
+        a{
+            &hover{
+                color:white;
+            }
+
+            &:first-of-type{
+                color:white;
+                margin-right: 20px;
+            }
+        }
+
+        
+        .dropdown_trigger{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .svg_dropdown{
+        
+                &:hover{
+                    cursor:pointer;
+                }
+            }
+
+            .dropdown-item{
+                color:black
+            }
+    }
+    }
+
 }
 
 .container {

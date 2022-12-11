@@ -30,6 +30,8 @@ return [
         'yourCart' => "Votre panier",
         'totalCost' => "Prix total",
         'buyCart' => "Acheter ce panier",
-        'deleteFromCart' => "Supprimer du panier"
+        'removeFromCart' => "Supprimer du panier",
+        'profile' => "Mon profil",
+        'orders' => "Historique des commandes"
     ]
 ];

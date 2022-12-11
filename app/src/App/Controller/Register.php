@@ -69,12 +69,15 @@ class Register
     public function __invoke()
     {
         require './init_session.php';
+        
+        if (isset($_SESSION["user"])) header("Location: /");
 
         $register = new RegisterUser;
 
         $error = $this->checkRegister($register);
+
             
-        return new Response('register.html.twig', ['errors' => $error, 'language'=>$traductions]);
+        return new Response('register.html.twig', ['errors' => $error, 'language'=>$traductions, 'user'=>$_SESSION["user"]]);
         
     }
 }

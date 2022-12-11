@@ -16,8 +16,6 @@ class Cart
             $full_price+= floatval($item->getPrice());
         }
 
-        var_dump($_SESSION["cart"]);
-
       return new Response('cart.html.twig', ['get' => $_POST, "language" => $traductions, 'cartItems' => $_SESSION["cart"], 'cartPrice' => $full_price] );
       
   }

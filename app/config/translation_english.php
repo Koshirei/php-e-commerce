@@ -30,6 +30,8 @@ return [
         'yourCart' => "Your cart",
         'totalCost' => "Total cost",
         'buyCart' => "Buy this cart",
-        'removeFromCart' => "Remove from cart"
+        'removeFromCart' => "Remove from cart",
+        'profile' => "My profile",
+        'orders' => "Order history"
     ]
 ];
