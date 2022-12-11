@@ -16,8 +16,8 @@ class User {
         $role="USER"
     )
     {
-        $this->username = $username;
-        $this->email = $email;
+        $this->username = htmlspecialchars($username);
+        $this->email = htmlspecialchars($email);
         $this->password = $password;
         $this->role = $role;
     }

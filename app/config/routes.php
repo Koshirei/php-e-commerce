@@ -7,6 +7,7 @@ use App\Controller\Logoff;
 use App\Controller\Register;
 use App\Controller\Manga;
 use App\Controller\Cart;
+use App\Controller\Products;
 use Framework\Routing\Route;
 
 return [
@@ -17,6 +18,7 @@ return [
         new Route(['GET','POST'], '/register', Register::class),
         new Route(['GET','POST'], '/logoff', Logoff::class),
         new Route(['GET','POST'], '/manga', Manga::class),
-        new Route(['GET','POST'], '/cart', Cart::class)
+        new Route(['GET','POST'], '/cart', Cart::class),
+        new Route(['GET','POST'], '/products', Products::class)
     ]
 ];
