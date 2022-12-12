@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{language["register"]}}{% endblock %}
+
+{% block body %}
+
+<div class="container" id="register_form">
+        &nbsp;
+        <form method="post" action="/register">
+        <div class="text-center">
+            <h1>{{language["register"]}}</h1><br/>
+        </div>
+            <label class="form-label">{{language["username"]}} : </label><br/>
+            <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username"><br/>
+
+            <label class="form-label">{{language["email"]}} : </label><br/>
+            <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email"><br/>
+
+            <label class="form-label">{{language["password"]}} : </label><br/>
+            <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password"><br/>
+
+            <label class="form-label">{{language["confirm_password"]}} : </label><br/>
+            <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password2"><br/>
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="{{language["submit"]}}">
+            </div>
+
+            {% if errors %}
+            <br/><br/>
+                <div class="alert alert-danger" role="alert">
+
+                    {% if errors["empty_user"] %}
+                        {{language["empty_user"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_email"] %}
+                        {{language["empty_email"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_pass1"] %}
+                        {{language["empty_password"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_pass2"] %}
+                        {{language["empty_password2"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["match_password"] %}
+                        {{language["error_match_password"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["dupe_username"] %}
+                        {{language["error_dupe_username"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["dupe_email"] %}
+                        {{language["error_dupe_email"]}}.<br/>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </form>
+
+</div>
+
+{% endblock %}

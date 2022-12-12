@@ -17,7 +17,7 @@ export function get_common_data(manga) {
             then(result => {
 
                 manga.id = result[0].id;
-                manga.description = result[0].localizedDescription.en.replaceAll("\n", "<br/>");
+                manga.description = result[0].localizedDescription.en.replaceAll("\n", "<br/>").split("---")[0];
 
                 // on choppe l'autheur
                 MFA.Author.search({

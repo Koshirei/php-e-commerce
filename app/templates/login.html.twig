@@ -1,22 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}{{language["login"]}}{% endblock %}
 
 {% block body %}
     
-    <div class="container center" id="login_form">
-
-    {% if error %}
-        bruh burth fdp erreur :((((((
-    {% endif %}
-    
+    <div class="container" id="login_form">
+    &nbsp;
         <form method="post" action="/login">
-            <label>Username : </label><br/>
-            <input type="text" placeholder="Username" name="username"><br/>
-            <label>Password : </label><br/>
-            <input type="password" placeholder="Password" name="password"><br/>
-            <input type="submit" class="btn">
-        </form
+            <div class="text-center">
+                <h1>{{language["login"]}}</h1><br/>
+            </div>
+            
+            <label class="form-label">{{language["username"]}} : </label><br/>
+            <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username"><br/>
+
+            <label class="form-label">{{language["password"]}} : </label><br/>
+            <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password"><br/>
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="{{language["submit"]}}">
+            </div>
+
+
+        {% if error %}
+        <br/><br/>
+            <div class="alert alert-danger" role="alert" >
+                {{language["fail_login"]}}
+            </div>
+        {% endif %}
+        </form>
+
 
     </div>
 

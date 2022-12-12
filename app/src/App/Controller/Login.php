@@ -2,35 +2,47 @@
 
 namespace App\Controller;
 
+use Entity\User;
 use Framework\Response\Response;
 use Services\mysql_PDO\LoginUser;
 
 class Login
-{
-  public function __invoke()
-  {
-      $error = false;
+{ 
+  public function checkLogin(){
+    $error = false;
 
-      if ( isset($_POST["username"])){
+      if ( !isset($_POST["username"])) return ;
 
         $LoginUser = new LoginUser;
-        $user = $LoginUser->LoginByUsername($_POST["username"]);
+        $userinfo = $LoginUser->LoginByUsername($_POST["username"]);
         
-        if ($user){
+        if ($userinfo){
 
-          $hash = password_hash($_POST["password"], PASSWORD_BCRYPT);
-
-          if(password_verify($_POST["password"], $user["password"])){
-            echo "faire session User ;)<br/>";
+          if(password_verify($_POST["password"], $userinfo["password"])){
+              $user = new User($userinfo["username"],$userinfo["email"],$userinfo["password"],$userinfo["role"]);
+              $_SESSION["user"] = $user;
           }else{
-            $error = true;
-          }
+              $error = true;
+            }
         }else{
           $error = true;
         }
-      }
+      
 
-      return new Response('login.html.twig', ["post"=>$_POST, "error"=>$error]);
+      return $error; 
+  }
+
+  public function __invoke()
+  {
+
+      require './init_session.php';
+
+      $error = $this->checkLogin();
+      
+      if (isset($_SESSION["user"])) header("Location: /");
+
+      return new Response('login.html.twig', ["error"=>$error, 'language'=>$traductions, 'user'=>$_SESSION["user"]]);
       
   }
+
 }

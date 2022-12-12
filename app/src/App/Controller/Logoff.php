@@ -4,13 +4,17 @@ namespace App\Controller;
 
 use Framework\Response\Response;
 
-class Homepage
+class Logoff
 {
   public function __invoke()
-  { 
+  {
       require './init_session.php';
 
-      return new Response('home.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"]]);
+      unset($_SESSION["user"]);
+
+      header("Location: /");
+      
+      return new Response('home.html.twig');
       
   }
 }

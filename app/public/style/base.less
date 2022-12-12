@@ -1,23 +1,257 @@
-.container{
-    width:60%;
-    margin: 0 auto;
-    border-radius: 10px;
-    outline: 2px solid black;
+@main-bg : #91D3F5;
+@blanc-clair: white;
+@header: #42A6E4;
+@form : #CEF1F5;
+
+body {
+    background-color: @main-bg !important;
 }
 
-.center{
+.center {
     text-align: center;
 }
 
-#login_form{
-    height: 60vh;
+.header {
+    border-bottom: black 2px solid;
+    background-color: @header;
+    height: 100px;
+    color: white;
 
-    form{
-        padding-top:20vh;
+    #header_flexbox{
+        height:80px;
+        padding-top: 20px;
+        margin: 0px 20px 0px 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a img{
+        height:100%;
+    }
+    .action_icons{
+        display: flex;
+
+        a{
+            &hover{
+                color:white;
+            }
+
+            &:first-of-type{
+                color:white;
+                margin-right: 20px;
+            }
+        }
+
+        
+        .dropdown_trigger{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .svg_dropdown{
+        
+                &:hover{
+                    cursor:pointer;
+                }
+            }
+
+            .dropdown-item{
+                color:black
+            }
+    }
+    }
+
+}
+
+.container {
+
+    min-height: 100vh;
+    border: 2px solid grey;
+    box-shadow: 0px 3px 10px black;
+    border-top: none;
+    border-bottom: none;
+    background-color: @blanc-clair;
+
+    #login_form,
+    #register_form {
+        background-color: @form;
+        box-shadow: 3px 3px 3px black;
+        border-radius: 20px;
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 5vh;
+
+        h1,
+        .alert {
+            .center()
+        }
     }
 }
 
-table{
+#mangaPage{
+
+    h1 {
+        text-align: center;
+        padding: 20px
+    }
+
+    .flexbox {
+        @media (min-width:992px) {
+            display: flex;
+        }
+
+        padding: 20px;
+
+        .flexbox-left {
+            @media (min-width:992px) {
+                flex: 0.50;
+            }
+
+            text-align: center;
+
+            img {
+                width: 50%;
+
+                @media (min-width:992px) {
+                    width: 80%;
+                }
+
+            }
+        }
+
+        .flexbox-right {
+
+            padding-top: 10px;
+
+            @media (min-width:992px) {
+                padding-top: 0px;
+                flex: 1;
+            }
+
+            text-align: justify;
+        }
+
+    }
+}
+
+#cartPage{
+
+    h1 {
+        text-align: center;
+        padding: 20px
+    }
+
+    .cartItem{
+        outline:black solid 2px;
+        padding: 10px;
+        margin: 10px;
+        border-radius:10px;
+    
+        a{
+            color: black;
+        }
+
+        .flexbox{
+            display: flex;
+            
+            .flexbox-img{
+                
+                padding-right:10px;
+
+                img{
+                    height:115px
+                }
+            }
+        }
+    }
+}
+
+#productPage{
+    h1{
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    form{
+        width:80%;
+        margin:0 auto;
+
+        .submit{
+            margin:0 auto;
+        }
+    }
+
+    .product_flexbox{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #product_list{
+        margin-top: 20px;
+        padding-top:20px;
+        border-top: solid 2px black;
+
+        .flex_row{
+
+            @media (min-width:992px) {
+                display: flex;
+                justify-content: space-around;
+            }
+            
+
+            text-align: center;
+
+            .product{
+               width: 70vw;
+
+                @media (min-width:992px) {
+                    width:25vw;
+                }
+
+                border: solid 2px black;
+                border-radius: 20px;
+                display: flex;
+                text-align: center;
+                margin: 0 auto;
+                
+                img{
+                    flex:1;
+                    width:100px;
+                    border-top-left-radius: 17px;
+                    border-bottom-left-radius: 17px;
+                    object-fit: contain;
+                } 
+                div{
+                    flex:1;
+                    text-align: center;
+                }
+
+                .vertical_flex{
+                    display: flex;
+                    flex-direction: column;
+                    padding:10px;
+
+                    .top{
+                        flex:1;
+
+                        ul{
+                            text-align: left;
+                        }
+                    }
+
+                    .bottom{
+                        flex: 0;
+                        
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// ==================== start mangaEdit part
+table {
     border: solid black 2px;
 
     td{
@@ -26,17 +260,13 @@ table{
     }
 }
 
-
-
-.divider
-{
+.divider {
 	position: relative;
     margin: 30px 0px 30px 0px;
 	height: 1px;
 }
 
-.div-transparent:before
-{
+.div-transparent:before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -46,3 +276,4 @@ table{
 	height: 1px;
 	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
 }
+// ==================== end mangaEdit part
