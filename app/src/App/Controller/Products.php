@@ -18,10 +18,15 @@ class Products
   }
 
   public function filtersProducts($page = 1){
+
+    $available = $_GET["available"] ? $_GET["available"] : "false";
   
     $filters = [
       "title" => $_GET["title"],
-      "volume" => $_GET["volume"]
+      "volume" => $_GET["volume"],
+      "price" => $_GET["price"],
+      "sort_volume" => $_GET["sort_volume"],
+      "available" => $available
     ];
 
     $getProducts = new getProducts();

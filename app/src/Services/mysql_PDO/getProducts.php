@@ -44,14 +44,26 @@ class getProducts implements interface_getProducts{
         $title = "%".$filters["title"]."%";
         $volume = "%".$filters["volume"]."%";
 
+        $price = "manga_volume.price ".$filters["price"];
+        $sort_volume = "manga_volume.volume_number ".$filters["sort_volume"];
+
+        $order = $sort_volume." , ".$price;
+
+        $available = "";
+
+        if ($filters["available"] === "true"){
+            $available = "and manga_volume.stock > 0 "; 
+        }
+
         $db = Database::getInstance(); 
 
         $sql = 'SELECT * 
             from manga_volume, manga_common 
             where manga_volume.common_id = manga_common.common_id
             and manga_common.title like :title
-            and manga_volume.volume_number like :volume
-            order by manga_volume.volume_number
+            and manga_volume.volume_number like :volume '.
+            $available.'
+            order by '.$order.'
             limit 10 
             OFFSET :offset
             ';
@@ -77,7 +89,7 @@ class getProducts implements interface_getProducts{
         $sql = 'SELECT * 
             from manga_volume, manga_common 
             where manga_volume.common_id = manga_common.common_id
-            order by manga_volume.volume_number
+            order by manga_volume.volume_number asc, manga_volume.price asc
             limit 10 
             OFFSET :offset
             ';
