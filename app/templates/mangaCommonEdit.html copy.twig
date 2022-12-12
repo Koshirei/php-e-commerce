@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit manga{% endblock %}
+
+{% block body %}
+    
+    Retour à la page de <a href="/mangaEdit">modification des mangas</a>
+
+    {% for manga in mangas %}
+
+    <section class="container-fluid">
+        <h1>Modification série ({{manga.title}})</h1>
+
+        <div>
+            <form>
+                <div class="mb-3 col-3">                
+                    <button type="button" class="btn btn-success">Nouveau volume</button>
+                    <button type="button" class="btn btn-danger">Rendre la série invisible</button>
+                </div>
+            </form>
+        </div>
+
+        <form action="" method="post" class="row g-3">
+            <label for="title">Modification titre</label>
+                <input class="form-control" type="text" id="title" name="title" value="{{manga.title}}">
+
+            <label for="common_cover">Modification couverture</label>
+                <input class="form-control" type="text" id="common_cover" name="common_cover" value="{{manga.common_cover}}">
+
+            <label for="description">Modification description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" cols="50" required>
+                    {{manga.description}}
+                </textarea>
+
+            <label for="category">Modification categorie</label>
+                <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
+
+            <label for="author">Modification auteur</label>
+                <input class="form-control" type="text" id="author" name="author" value="{{manga.author}}">
+
+            <label for="artist">Modification artiste</label>
+                <input class="form-control" type="text" id="artist" name="artist" value="{{manga.artist}}">
+
+            <input type="submit" class="btn btn-primary"></input>
+        </form>
+    </section>
+
+    {% endfor %}
+
+{% endblock %}
