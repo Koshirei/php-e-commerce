@@ -17,6 +17,10 @@
             <div class="alert alert-success">
                 {{language["cartAdded"]}}
             </div>
+        {% elseif success["cart"] == false %}
+            <div class="alert alert-danger">
+                {{language["alreadyInCart"]}}
+            </div>
         {% endif %}
 
 
