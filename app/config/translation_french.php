@@ -39,6 +39,8 @@ return [
         'filter' => "Filtrer",
         'ascending' => "Ascendant",
         'descending' => "Descendant",
-        'volume' => "Volume"
+        'volume' => "Volume",
+        "noUseFilter" => "Ne pas filtrer",
+        "onlyAvailable" => "Ne montrer que les produits disponibles"
     ]
 ];

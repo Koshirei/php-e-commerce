@@ -30,6 +30,13 @@
                     checked
                 {% endif %}>
                 <label for="price_desc">{{language["descending"]}}</label><br/>
+
+                <input class="form-check-input" type="radio" name="price" id="price_none" value="no"
+                {% if get["price"] == "no" %}
+                        checked
+                    {% endif %}
+                    >
+                <label for="price_none">{{language["noUseFilter"]}}</label><br/>
             </div>
             <div>
                 <label class="form-label">{{language["volume"]}} : </label><br/>
@@ -47,6 +54,13 @@
                     checked
                 {% endif %}>
                 <label for="volume_desc">{{language["descending"]}}</label><br/>
+
+                <input class="form-check-input" type="radio" name="sort_volume" id="volume_none" value="no"
+                {% if get["sort_volume"] == "no" %}
+                        checked
+                    {% endif %}
+                    >
+                <label for="volume_none">{{language["noUseFilter"]}}</label><br/>
             </div>
             <div>
                 <label class="form-label">{{language["stock"]}}</label></br>
@@ -57,10 +71,7 @@
                     checked
                 {% endif %}
                 >
-                <label for="stock">show only available</label>
-            </div>
-            <div>
-                az
+                <label for="stock">{{language["onlyAvailable"]}}</label>
             </div>
         </div><br/>
         <div class="text-center">

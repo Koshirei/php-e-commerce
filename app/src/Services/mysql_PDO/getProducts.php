@@ -44,10 +44,13 @@ class getProducts implements interface_getProducts{
         $title = "%".$filters["title"]."%";
         $volume = "%".$filters["volume"]."%";
 
-        $price = "manga_volume.price ".$filters["price"];
-        $sort_volume = "manga_volume.volume_number ".$filters["sort_volume"];
+        $price = $filters["price"] !== "no" ? "manga_volume.price ".$filters["price"] : "";
+        $sort_volume = $filters["sort_volume"] !== "no" ? "manga_volume.volume_number ".$filters["sort_volume"] : "";
 
-        $order = $sort_volume." , ".$price;
+        $comma = "";
+        if ($price !== "" && $sort_volume !== "") $comma = " , ";
+
+        $order = $sort_volume.$comma.$price;
 
         $available = "";
 
