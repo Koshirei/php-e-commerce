@@ -17,47 +17,53 @@ body {
     height: 100px;
     color: white;
 
-    #header_flexbox{
-        height:80px;
+    #header_flexbox {
+        height: 80px;
         padding-top: 20px;
         margin: 0px 20px 0px 20px;
         display: flex;
         justify-content: space-between;
     }
 
-    a img{
-        height:100%;
+    #img_home_anchor {
+        background-color: red;
+        width:180px;
+        img {
+            height: 100%;
+        }
     }
-    .action_icons{
+
+    .action_icons {
         display: flex;
 
-        a{
-            &hover{
-                color:white;
+        a {
+            &hover {
+                color: white;
             }
 
-            &:first-of-type{
-                color:white;
+            &:first-of-type {
+                color: white;
                 margin-right: 20px;
             }
         }
 
-        
-        .dropdown_trigger{
+
+        .dropdown_trigger {
             display: flex;
             flex-direction: column;
             text-align: center;
-            .svg_dropdown{
-        
-                &:hover{
-                    cursor:pointer;
+
+            .svg_dropdown {
+
+                &:hover {
+                    cursor: pointer;
                 }
             }
 
-            .dropdown-item{
-                color:black
+            .dropdown-item {
+                color: black
             }
-    }
+        }
     }
 
 }
@@ -88,7 +94,7 @@ body {
     }
 }
 
-#mangaPage{
+#mangaPage {
 
     h1 {
         text-align: center;
@@ -134,31 +140,31 @@ body {
     }
 }
 
-#cartPage{
+#cartPage {
 
     h1 {
         text-align: center;
         padding: 20px
     }
 
-    .cartItem{
-        outline:black solid 2px;
+    .cartItem {
+        outline: black solid 2px;
         padding: 10px;
         margin: 10px;
-        border-radius:10px;
-    
-        a{
+        border-radius: 10px;
+
+        a {
             color: black;
         }
 
-        .flexbox{
+        .flexbox {
             display: flex;
-            
-            .flexbox-img{
-                
-                padding-right:10px;
 
-                img{
+            .flexbox-img {
+
+                padding-right: 10px;
+
+                img {
                     height: 200px
                 }
             }
@@ -166,46 +172,46 @@ body {
     }
 }
 
-#productPage{
-    h1{
+#productPage {
+    h1 {
         padding-top: 10px;
         text-align: center;
     }
 
-    form{
-        width:80%;
-        margin:0 auto;
+    form {
+        width: 80%;
+        margin: 0 auto;
 
-        .submit{
-            margin:0 auto;
+        .submit {
+            margin: 0 auto;
         }
     }
 
-    .product_flexbox{
+    .product_flexbox {
         display: flex;
         justify-content: space-between;
     }
 
-    #product_list{
+    #product_list {
         margin-top: 20px;
-        padding-top:20px;
+        padding-top: 20px;
         border-top: solid 2px black;
 
-        .flex_row{
+        .flex_row {
 
             @media (min-width:992px) {
                 display: flex;
                 justify-content: space-around;
             }
-            
+
 
             text-align: center;
 
-            .product{
-               width: 70vw;
+            .product {
+                width: 70vw;
 
                 @media (min-width:992px) {
-                    width:25vw;
+                    width: 25vw;
                 }
 
                 border: solid 2px black;
@@ -213,35 +219,36 @@ body {
                 display: flex;
                 text-align: center;
                 margin: 0 auto;
-                
-                img{
-                    flex:1;
-                    width:100px;
+
+                img {
+                    flex: 1;
+                    width: 100px;
                     border-top-left-radius: 17px;
                     border-bottom-left-radius: 17px;
                     object-fit: contain;
-                } 
-                div{
-                    flex:1;
+                }
+
+                div {
+                    flex: 1;
                     text-align: center;
                 }
 
-                .vertical_flex{
+                .vertical_flex {
                     display: flex;
                     flex-direction: column;
-                    padding:10px;
+                    padding: 10px;
 
-                    .top{
-                        flex:1;
+                    .top {
+                        flex: 1;
 
-                        ul{
+                        ul {
                             text-align: left;
                         }
                     }
 
-                    .bottom{
+                    .bottom {
                         flex: 0;
-                        
+
                     }
                 }
             }
@@ -254,26 +261,27 @@ body {
 table {
     border: solid black 2px;
 
-    td{
+    td {
         border: solid #adb5bd 2px;
         text-align: center;
     }
 }
 
 .divider {
-	position: relative;
+    position: relative;
     margin: 30px 0px 30px 0px;
-	height: 1px;
+    height: 1px;
 }
 
 .div-transparent:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: 1px;
-	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
 }
+
 // ==================== end mangaEdit part
