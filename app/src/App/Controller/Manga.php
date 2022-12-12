@@ -43,10 +43,10 @@ class Manga
   
         array_push($_SESSION["cart"], $cartItem);
 
-        return true;
+        return "true";
       }else{
 
-        return false;
+        return "false";
       }
     }else{
       return false;
@@ -73,6 +73,7 @@ class Manga
         
         $error = [];
         $success = [];
+        // $success["cart"] = "initval";
         
         if (
           isset($_GET["cart"]) &&

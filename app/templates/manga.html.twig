@@ -13,11 +13,11 @@
             </div>
         {% endif %}
 
-        {% if success["cart"] == true %}
+        {% if success["cart"] == "true" %}
             <div class="alert alert-success">
                 {{language["cartAdded"]}}
             </div>
-        {% elseif success["cart"] == false %}
+        {% elseif success["cart"] == "false" %}
             <div class="alert alert-danger">
                 {{language["alreadyInCart"]}}
             </div>
