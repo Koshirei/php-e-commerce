@@ -53,7 +53,7 @@ class MangaCommonEdit
 
       header("Location:/mangaCommonEdit?title=".$_GET['title']);
 
-      // return new Response('mangaCommonEditOk.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+      return new Response('mangaCommonEditOk.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
     }
     
   }

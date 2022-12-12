@@ -3,19 +3,14 @@
 namespace Services\mysql_PDO;
 
 use PDO;
-// use Interfaces\interface_MangaCommonEdit;
 use Database\Database;
 
 class MangaCommonEditService{
 
     public function MangaCommonEditService(){
         $db = Database::getInstance($_POST);
-
-        // var_dump($_POST['title']);
         
         $oldTitle = $_GET['title'];
-        // var_dump($oldTitle);
-
         $title = $_POST['title'];
         $common_cover = $_POST['common_cover'];
         $description = $_POST['description'];
