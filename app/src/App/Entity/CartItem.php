@@ -9,13 +9,15 @@ class CartItem {
     protected string $volume;
     protected string $unique_cover;
     protected string $price;
+    protected int $quantity;
 
     function __construct(
         $id,
         $title,
         $volume,
         $unique_cover,
-        $price
+        $price,
+        $quantity = 1
     )
     {
         $this->id = $id;
@@ -23,6 +25,7 @@ class CartItem {
         $this->volume = $volume;
         $this->unique_cover = $unique_cover;
         $this->price = $price;
+        $this->quantity = $quantity;
     }
 
     public function getId(){
@@ -63,6 +66,14 @@ class CartItem {
 
     public function setPrice($price){
         $this->price = $price;
+    }
+
+    public function getQuantity(){
+        return $this->quantity;
+    }
+
+    public function setQuantity($quantity){
+        $this->quantity = $quantity;
     }
 
 }

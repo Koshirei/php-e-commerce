@@ -10,6 +10,7 @@ use Services\mysql_PDO\stockManagement;
 session_start();
 
 $cartId = $_GET["id"];
+$currentQuantity = $_SESSION["cart"][$cartId]->getQuantity();
 
 $temp_cart = [];
 $updateStock;
@@ -26,6 +27,9 @@ for ($i = 0; $i < count($_SESSION["cart"]); $i++){
 $_SESSION["cart"] = $temp_cart;
 
 $stockManagement = new stockManagement();
-$stockManagement->incrementStock($updateStock->getId())
+
+for($i = 0; $i < $currentQuantity; $i++){
+    $stockManagement->incrementStock($updateStock->getId());
+}
 
 ?>

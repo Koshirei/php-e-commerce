@@ -18,10 +18,7 @@ class Manga
     $currentDBstock = $stockManagement->getStock($manga->getId());
 
     if ($currentDBstock > 0){
-      $newStock = strval($currentDBstock-1);
-      $stockManagement->decrementStock($manga->getId());
-      $manga->setStock($newStock);
-
+      
       $cartItem = new CartItem(
         $manga->getId(),
         $manga->getTitle(),
@@ -29,10 +26,28 @@ class Manga
         $manga->getUnique_Cover(),
         $manga->getPrice()
       );
+      
+      $alreadyInCart = false;
 
-      array_push($_SESSION["cart"], $cartItem);
+      foreach($_SESSION["cart"] as $cart){
+          if($cartItem->getTitle() === $cart->getTitle() && 
+              $cartItem->getVolume() === $cart->getVolume()){
+            $alreadyInCart = true;
+          }
+      }
 
-      return true;
+      if (!$alreadyInCart){
+        $newStock = strval($currentDBstock-1);
+        $stockManagement->decrementStock($manga->getId());
+        $manga->setStock($newStock);
+  
+        array_push($_SESSION["cart"], $cartItem);
+
+        return "true";
+      }else{
+
+        return "false";
+      }
     }else{
       return false;
     }
@@ -58,6 +73,7 @@ class Manga
         
         $error = [];
         $success = [];
+        // $success["cart"] = "initval";
         
         if (
           isset($_GET["cart"]) &&
@@ -70,6 +86,7 @@ class Manga
           else if(isset($_GET["cart"]) && $manga->getStock() === "0"){
             $error["cartNoStock"] = true;
           }
+
         return new Response('manga.html.twig', [ "manga" => $manga, "language" => $traductions, "success" => $success, "error" => $error, 'user'=>$_SESSION["user"]] );
         }
 
