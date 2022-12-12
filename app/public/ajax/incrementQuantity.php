@@ -10,14 +10,20 @@ session_start();
 
 $stockManagement = new stockManagement();
 
-$id = intval($_GET["id"]);
-$currentQuantity = $_SESSION["cart"][$id]->getQuantity();
+$id = $_GET["id"];
+$item = $_SESSION["cart"][$id];
 
+$currentQuantity = $item->getQuantity();
+$currentStock = $stockManagement->getStock($item->getId());
 
-// for ($i = 0;)
+if ($currentStock == 0){
+    echo '{"error": true}';
+}else{
 
-$_SESSION["cart"][$id]->setQuantity($currentQuantity+1);
+    $item->setQuantity($currentQuantity+1);
+    $stockManagement->decrementStock($item->getId());
 
-echo '{"quantity":'.$currentQuantity.'}';
+    echo '{"error": false}';
+}
 
 ?>

@@ -7,6 +7,10 @@
     <div class="container" id="cartPage">
         <h1>{{language["yourCart"]}}</h1>
 
+        <div id="outofstock" class="alert alert-danger" hidden>
+            {{language["cartNoStock"]}}  
+        </div>
+
         {% for cartItem in cartItems %}
             <div class="cartItem">
                 <div class="flexbox">
@@ -70,5 +74,6 @@
 
     <script src="./js/removeFromCart.js"></script>
     <script src="./js/incrementQuantity.js"></script>
+    <script src="./js/decrementQuantity.js"></script>
 
 {% endblock %}

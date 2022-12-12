@@ -1,14 +1,17 @@
 "use strict";
 
 
-let buttons = document.querySelectorAll("button.incremQuantity");
+let buttons_increm = document.querySelectorAll("button.incremQuantity");
 
-buttons.forEach(button => {
+buttons_increm.forEach(button => {
     button.addEventListener("click",(e)=>{
         fetch("../ajax/incrementQuantity.php?id="+button.value).then((retour)=>{
-            // location.reload()
-            retour.json().then((json)=>{
-                console.log(json)
+            retour.json().then((error)=>{
+                if(error.error === true){
+                    document.querySelector("div#outofstock").hidden = false;
+                }else if (error.error===false){
+                    location.reload();
+                }
             })
         })
     })
