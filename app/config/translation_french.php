@@ -43,6 +43,7 @@ return [
         'volume' => "Volume",
         "noUseFilter" => "Ne pas filtrer",
         "onlyAvailable" => "Ne montrer que les produits disponibles",
-        "quantity" => "Quantité"
+        "quantity" => "Quantité",
+        "searchManga" => "Rechercher un manga"
     ]
 ];

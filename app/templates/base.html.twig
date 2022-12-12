@@ -15,7 +15,9 @@
       <a href="/" id="img_home_anchor">
         <img src="https://cdn.discordapp.com/attachments/891090590048075786/1051513212899704852/nikke-db.png" alt="logo Anga"/>
       </a>
-      <p>searchbarsearchbarsearchbarsearchbarsearchbarsearchbar</p>
+      <form method="get" action="/products">
+        <input type="text" name="title" class="form-control" placeholder="{{language['searchManga']}}">
+      </form>
       <div class="action_icons">
         <a href="/cart">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -41,8 +43,6 @@
             {% endif %}
           </ul>
         </span>
-      </div>
-      <div>
         <select class="form-select" id="language_select">
           <option value="FR" 
             {% if language["key"] == "FR" %}

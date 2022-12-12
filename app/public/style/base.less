@@ -23,6 +23,10 @@ body {
         margin: 0px 20px 0px 20px;
         display: flex;
         justify-content: space-between;
+
+        form{
+            width: 25vw;
+        }
     }
 
     #img_home_anchor {
@@ -39,13 +43,21 @@ body {
             &hover {
                 color: white;
             }
-
             &:first-of-type {
                 color: white;
-                margin-right: 20px;
+                
             }
         }
 
+        a,
+        span
+        {
+            margin-right: 20px;
+        }
+
+        select{
+            height:40px
+        }
 
         .dropdown_trigger {
             display: flex;
@@ -183,6 +195,21 @@ body {
 
         .submit {
             margin: 0 auto;
+        }
+    }
+
+    .custom_filter_btn{
+        height:50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: transparent;
+
+        svg{
+            margin-bottom: 10px;
+        }
+
+        &:hover{
+            background-color: lightgrey;
         }
     }
 
