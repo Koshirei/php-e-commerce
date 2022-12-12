@@ -20,7 +20,8 @@ class Products
   public function filtersProducts($page = 1){
   
     $filters = [
-      "title" => $_GET["title"]
+      "title" => $_GET["title"],
+      "volume" => $_GET["volume"]
     ];
 
     $getProducts = new getProducts();

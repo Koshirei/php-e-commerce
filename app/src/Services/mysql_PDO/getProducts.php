@@ -42,6 +42,7 @@ class getProducts implements interface_getProducts{
 
         $offset = ($page - 1) * 10;
         $title = "%".$filters["title"]."%";
+        $volume = "%".$filters["volume"]."%";
 
         $db = Database::getInstance(); 
 
@@ -49,6 +50,7 @@ class getProducts implements interface_getProducts{
             from manga_volume, manga_common 
             where manga_volume.common_id = manga_common.common_id
             and manga_common.title like :title
+            and manga_volume.volume_number like :volume
             order by manga_volume.volume_number
             limit 10 
             OFFSET :offset
@@ -58,6 +60,7 @@ class getProducts implements interface_getProducts{
                     
         $getProducts->bindParam(":offset", intval($offset), PDO::PARAM_INT);
         $getProducts->bindParam(":title", $title);
+        $getProducts->bindParam(":volume", $volume);
         $getProducts->execute();
 
         $products = $getProducts->fetchAll();

@@ -38,6 +38,7 @@ return [
         'price' => "Price",
         'filter' => "Filter",
         'ascending' => "Ascending",
-        'descending' => "Descending"
+        'descending' => "Descending",
+        'volume' => "Volume"
     ]
 ];
