@@ -6,8 +6,7 @@ use Interfaces\interface_getNbVolume;
 use Database\Database;
 
 class getNbVolume implements interface_getNbVolume{
-
-    
+ 
     public function getNbVolume():int{
 
         $db = Database::getInstance();  

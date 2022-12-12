@@ -32,6 +32,15 @@ return [
         'buyCart' => "Buy this cart",
         'removeFromCart' => "Remove from cart",
         'profile' => "My profile",
-        'orders' => "Order history"
+        'orders' => "Order history",
+        'products' => "Products",
+        'title' => "Title",
+        'price' => "Price",
+        'filter' => "Filter",
+        'ascending' => "Ascending",
+        'descending' => "Descending",
+        'volume' => "Volume",
+        "noUseFilter" => "Do not filter",
+        "onlyAvailable" => "Show only available products"
     ]
 ];

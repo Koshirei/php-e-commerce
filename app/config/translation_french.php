@@ -32,6 +32,15 @@ return [
         'buyCart' => "Acheter ce panier",
         'removeFromCart' => "Supprimer du panier",
         'profile' => "Mon profil",
-        'orders' => "Historique des commandes"
+        'orders' => "Historique des commandes",
+        'products' => "Produits",
+        'title' => "Titre",
+        'price' => "Prix",
+        'filter' => "Filtrer",
+        'ascending' => "Ascendant",
+        'descending' => "Descendant",
+        'volume' => "Volume",
+        "noUseFilter" => "Ne pas filtrer",
+        "onlyAvailable" => "Ne montrer que les produits disponibles"
     ]
 ];
