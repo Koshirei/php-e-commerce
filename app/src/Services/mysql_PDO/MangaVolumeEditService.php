@@ -5,10 +5,10 @@ namespace Services\mysql_PDO;
 use PDO;
 use Database\Database;
 
-class MangaCommonEditService{
+class MangaVolumeEditService{
 
-    public function MangaCommonEditService(){
-        $db = Database::getInstance($_POST);
+    public function MangaVolumeEditService(){
+        $db = Database::getInstance();
         
         $oldTitle = htmlspecialchars($_GET['title']);
         $title = htmlspecialchars($_POST['title']);
