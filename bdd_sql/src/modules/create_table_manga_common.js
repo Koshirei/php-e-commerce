@@ -5,7 +5,7 @@ export async function create_table(connection) {
         connection.query('create table manga_common ( ' +
 
             'id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-            'common_id VARCHAR(40),' + //a1c7c817-4e59-43b7-9365-09675a149a6f jointure avec manga_volume
+            'common_id VARCHAR(100),' + //a1c7c817-4e59-43b7-9365-09675a149a6f jointure avec manga_volume
             'title VARCHAR(100),' + //one piece
             'common_cover VARCHAR(255),' + //image que l'ont a choisis nous
             'category VARCHAR(20),' + //gore, shonen, seinen, shojo, ..
