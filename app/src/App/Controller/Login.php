@@ -19,7 +19,13 @@ class Login
         if ($userinfo){
 
           if(password_verify($_POST["password"], $userinfo["password"])){
-              $user = new User($userinfo["username"],$userinfo["email"],$userinfo["password"],$userinfo["role"]);
+              $user = new User(
+                  $userinfo["id"], 
+                  $userinfo["username"],
+                  $userinfo["email"],
+                  $userinfo["password"],
+                  $userinfo["role"]);
+                  
               $_SESSION["user"] = $user;
           }else{
               $error = true;

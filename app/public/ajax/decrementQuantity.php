@@ -34,14 +34,5 @@ $item->setQuantity($currentQuantity-1);
 $stockManagement->incrementStock($item->getId());
 
 echo '{"error": false}';
-// if ($currentStock == 0){
-//     echo '{"error": true}';
-// }else{
-
-//     $item->setQuantity($currentQuantity+1);
-//     $stockManagement->decrementStock($item->getId());
-
-//     echo '{"error": false}';
-// }
 
 ?>
