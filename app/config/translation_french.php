@@ -44,6 +44,7 @@ return [
         "noUseFilter" => "Ne pas filtrer",
         "onlyAvailable" => "Ne montrer que les produits disponibles",
         "quantity" => "Quantité",
-        "searchManga" => "Rechercher un manga"
+        "searchManga" => "Rechercher un manga",
+        "cancel" => "Annuler"
     ]
 ];

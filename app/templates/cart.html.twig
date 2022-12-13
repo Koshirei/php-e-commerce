@@ -48,15 +48,62 @@
         {% endfor %}
 
         {% if cartPrice > 0 %}
-            {{language["totalCost"]}} : {{cartPrice}}€<br/>
+            {{language["totalCost"]}} : <span id="total_cost">{{cartPrice}}</span>€<br/>
+
          {% if user %}
-            <button class="btn btn-success">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paypalModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                 </svg>
                 {{language["buyCart"]}}
             </button>
+
+            <div class="modal fade" id="paypalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{language["buyCart"]}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="paypal_btns">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{language["cancel"]}}</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <script src="https://www.paypal.com/sdk/js?client-id=Ac5SqZnZg2ek4Z_iFZb5Fnd6_MKLxehRTPTKdIHXmv1-vNo8gGfGeZHB2X1-vfCYUnwZNqI_CFCjgQXg&currency=EUR"></script>
+            {# <script src="./js/paypal.js"> #}
+
+            <script>
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                    // This function sets up the details of the transaction, including the amount and line item details.
+                    return actions.order.create({
+                        purchase_units: [{
+                        amount: {
+                            value: {{cartPrice}}
+                        }
+                        }]
+                    });
+                    },
+                    onApprove: function(data, actions) {
+                    // This function captures the funds from the transaction.
+                    return actions.order.capture().then(function(details) {
+                        // This function shows a transaction success message to your buyer.
+                        alert('Transaction completed by ' + details.payer.name.given_name);
+                    });
+                    }
+                }).render('#paypal_btns');
+                //This function displays payment buttons on your web page.
+            </script>
+
+
          {% else %}
             <a href="/login">
                 <button class="btn btn-success">

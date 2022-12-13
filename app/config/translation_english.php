@@ -44,6 +44,7 @@ return [
         "noUseFilter" => "Do not filter",
         "onlyAvailable" => "Show only available products",
         "quantity" => "Quantity",
-        "searchManga"=> "Search for a manga"
+        "searchManga"=> "Search for a manga",
+        "cancel"=>"Cancel"
     ]
 ];
