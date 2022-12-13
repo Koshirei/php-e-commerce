@@ -17,4 +17,8 @@ Ouvrir un terminal dans ./app
 
 ```php -S 0.0.0.0:3000 -t src```
 
-Mettre à jour le fichier ```config.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql
+Mettre à jour le fichier ```config.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql   
+
+# Paypal
+
+Compte client sandbox; sb-pyoiw23430305@personal.example.com : Ip0hWr&(
