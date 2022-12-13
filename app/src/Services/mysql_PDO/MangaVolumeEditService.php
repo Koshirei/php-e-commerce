@@ -7,40 +7,38 @@ use Database\Database;
 
 class MangaVolumeEditService{
 
-    public function MangaVolumeEditService(){
-        $db = Database::getInstance();
+    // public function MangaVolumeEditService(){
+    //     $db = Database::getInstance();
         
-        $oldTitle = htmlspecialchars($_GET['title']);
-        $title = htmlspecialchars($_POST['title']);
-        $common_cover = htmlspecialchars($_POST['common_cover']);
-        $description = htmlspecialchars($_POST['description']);
-        $category = htmlspecialchars($_POST['category']);
-        $author = htmlspecialchars($_POST['author']);
-        $artist = htmlspecialchars($_POST['artist']);
+    //     $title = htmlspecialchars($_POST['title']);
+    //     $volume_number = htmlspecialchars($_POST['volume_number']);
+    //     $cover_url = htmlspecialchars($_POST['cover_url']);
+    //     $stock = htmlspecialchars($_POST['stock']);
+    //     $price = htmlspecialchars($_POST['price']);
 
 
-        $editManga = $db->prepare ("    UPDATE manga_common
-                                        SET title = :title,
-                                            common_cover = :common_cover,
-                                            description = :description,
-                                            category = :category,
-                                            author = :author,
-                                            artist = :artist
-                                        WHERE title = :oldTitle
-                                        ");
-        
-        $editManga->bindParam("title", $title);
-        $editManga->bindParam("common_cover", $common_cover);
-        $editManga->bindParam("description", $description);
-        $editManga->bindParam("category", $category);
-        $editManga->bindParam("author", $author);
-        $editManga->bindParam("artist", $artist);
-        $editManga->bindParam("oldTitle", $oldTitle);
-        $editManga->execute();
+    //     $editVolumeManga = $db->prepare ("  UPDATE manga_volume
+    //                                         SET volume_number = :volume_number,
+    //                                             cover_url = :cover_url,
+    //                                             stock = :stock,
+    //                                             price = :price
+    //                                         WHERE manga_common.title = :title
+    //                                         AND manga_common.common_id = manga_volume.common_id
+    //                                     ");
 
-        $editManga = $editManga->fetch();
+    //     $editVolumeManga->bindParam("title", $title);
+    //     $editVolumeManga->bindParam("volume_number", $volume_number);
+    //     $editVolumeManga->bindParam("cover_url", $cover_url);
+    //     $editVolumeManga->bindParam("stock", $stock);
+    //     $editVolumeManga->bindParam("price", $price);
+    //     $editVolumeManga->execute();
 
-        return $editManga;
-    }
+    //     $editVolumeManga = $editVolumeManga->fetch();
+
+    //     echo(var_dump($editVolumeManga));
+    //     die;
+
+    //     return $editVolumeManga;
+    // }
 
 }
