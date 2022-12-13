@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use Framework\Response\Response;
-use Services\mysql_PDO\MangaCommonEditService;
-use Services\mysql_PDO\getMangaCommon;
+use Services\mysql_PDO\getMangaVolumeList;
 use Database\Database;
 
 class MangaCommonEdit

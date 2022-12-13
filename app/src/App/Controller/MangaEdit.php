@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Framework\Response\Response;
+use Services\mysql_PDO\getMangaCommonList;
 use Database\Database;
 
 class MangaEdit
@@ -10,15 +11,13 @@ class MangaEdit
   public function __invoke()
   {
 
-    $db = Database::getInstance();
-    $manga = $db->prepare(' SELECT title
-                            FROM manga_common');
-    $manga->execute();
-    $mangas = $manga->fetchAll();
+    $MangaCommonList = new getMangaCommonList;
+    $mangaCommonList = $MangaCommonList->getMangaCommonList();
+    
+    // echo(var_dump($mangaCommonList));
 
     $error = false;
 
-    return new Response('mangaEdit.html.twig', ['error' => $error, 'mangas' => $mangas] );
-      
+    return new Response('mangaEdit.html.twig', ['error' => $error, 'mangas' => $mangaCommonList] );
   }
 }
