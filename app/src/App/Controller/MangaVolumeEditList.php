@@ -12,8 +12,12 @@ class MangaVolumeEditList
   {
     if(sizeof($_POST)<=0){
 
+      $title = $_GET['title'];
+
       $MangaVolume = new getMangaVolumeList;
-      $mangaVolume = $MangaVolume->getMangaVolumeList($_POST['title']);
+      $mangaVolume = $MangaVolume->getMangaVolumeList($title);
+
+      $error = false;
 
       return new Response('mangaVolumeEditList.html.twig', ['error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
     }

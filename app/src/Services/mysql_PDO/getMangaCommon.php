@@ -9,15 +9,16 @@ class getMangaCommon{
 
     public function getMangaCommon($title){
 
-        $title=$_GET['title'];
+        $title = htmlspecialchars($_GET['title']);
 
         $db = Database::getInstance(); 
 
         $mangaCommon = $db->prepare ("  SELECT *
                                         FROM manga_common 
-                                        WHERE title = '$title'
+                                        WHERE title = :title
                                     "); 
         
+        $mangaCommon->bindParam("title", $title);
         $mangaCommon->execute(); 
         
         $mangaCommon = $mangaCommon->fetchAll();

@@ -10,11 +10,15 @@ class getMangaVolumeList{
     public function getMangaVolumeList(){
         $db = Database::getInstance();
 
-        // ajouter jointure entre table 'manga_common' et 'manga_volume' pour ne recuperer que les manga correspondant a la série choisie
+        $title = htmlspecialchars($_GET['title']);
 
         $mangaVolumeList = $db->prepare ("  SELECT volume_number
-                                            FROM manga_volume
+                                            FROM manga_common, manga_volume
+                                            WHERE manga_common.title = :title
+                                            AND manga_common.common_id = manga_volume.common_id
                                         ");
+
+        $mangaVolumeList->bindParam("title", $title);
         $mangaVolumeList->execute();
 
         $mangaVolumeList = $mangaVolumeList->fetchAll();
