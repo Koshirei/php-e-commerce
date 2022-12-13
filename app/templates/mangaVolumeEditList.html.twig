@@ -59,14 +59,14 @@
         </form>
     </div>
 
-    <button type="button" class="btn btn-primary">Ajouter nouveau volume</button>
+        <button type="button" class="btn btn-success">Nouveau volume</button>
 
     <div id="list_manga" class="mb-3 col-8">
         <table class="table table-striped">
             {% for manga in mangas %}
                 <tr>
                     <td>{{ manga.volume_number }}</td>
-                    <td><a href="/mangaVolumeEdit?title={{manga.title}}&volume_number={{manga.volume_number}}">Modifier (volume)</a></td>
+                    <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">Modifier (volume)</a></td>
                 </tr>
             {% endfor %}
         </table>

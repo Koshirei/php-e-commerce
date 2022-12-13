@@ -7,6 +7,7 @@ use App\Controller\MangaEdit;
 use App\Controller\MangaCommonEdit;
 use App\Controller\MangaVolumeEditList;
 use App\Controller\MangaVolumeEdit;
+use App\Controller\MangaAdd;
 use App\Controller\Logoff;
 use App\Controller\Register;
 use App\Controller\Manga;
@@ -23,6 +24,7 @@ return [
         new Route(['GET','POST'], '/mangaCommonEdit', MangaCommonEdit::class),
         new Route(['GET','POST'], '/mangaVolumeEditList', MangaVolumeEditList::class),
         new Route(['GET','POST'], '/mangaVolumeEdit', MangaVolumeEdit::class),
+        new Route(['GET','POST'], '/mangaAdd', MangaAdd::class),
         new Route(['GET','POST'], '/register', Register::class),
         new Route(['GET','POST'], '/logoff', Logoff::class),
         new Route(['GET','POST'], '/manga', Manga::class),

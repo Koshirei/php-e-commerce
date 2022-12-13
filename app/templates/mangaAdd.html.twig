@@ -1,49 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit manga{% endblock %}
+{% block title %}Add manga{% endblock %}
 
 {% block body %}
-    
     Retour à la page de <a href="/mangaEdit">modification des mangas</a>
+    
+    <h1>Création de manga</h1>
+    <small>Cette page permet à un administrateur la création d'un nouveau manga (série).</small>
 
-    {% for manga in mangas %}
-
-    <section class="container-fluid">
-        <h1>Modification série ({{manga.title}})</h1>
-
-        <div>
-            <form>
-                <div class="mb-3 col-3">
-                    <button type="button" class="btn btn-danger">Rendre la série invisible</button>
-                </div>
-            </form>
-        </div>
-
-        <form action="" method="post" class="row g-3">
-            <label for="title">Modification titre</label>
+    <form action="" method="post" class="row g-3">
+            <label for="title">Titre</label>
                 <input class="form-control" type="text" id="title" name="title" value="{{manga.title}}">
 
-            <label for="common_cover">Modification couverture</label>
+            <label for="common_cover">Couverture</label>
                 <input class="form-control" type="text" id="common_cover" name="common_cover" value="{{manga.common_cover}}">
 
-            <label for="description">Modification description</label>
+            <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="4" cols="50" required>
                     {{manga.description}}
                 </textarea>
 
-            <label for="category">Modification categorie</label>
+            <label for="category">Categorie</label>
                 <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
 
-            <label for="author">Modification auteur</label>
+            <label for="author">Auteur</label>
                 <input class="form-control" type="text" id="author" name="author" value="{{manga.author}}">
 
-            <label for="artist">Modification artiste</label>
+            <label for="artist">Artiste</label>
                 <input class="form-control" type="text" id="artist" name="artist" value="{{manga.artist}}">
 
             <input type="submit" class="btn btn-primary"></input>
         </form>
-    </section>
-
-    {% endfor %}
 
 {% endblock %}
