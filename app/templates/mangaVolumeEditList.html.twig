@@ -6,7 +6,8 @@
     
     Retour à la page de <a href="/mangaEdit">modification des mangas</a>
 
-    <h1>Modification manga (choix volume)</h1>
+
+    <h1>Modification manga {{title}} (choix volume)</h1>
     <small>Cette page permet à un administrateur de selectionner le volume d'un manga à modifier.</small>
 
     <div>
@@ -64,6 +65,7 @@
     <div id="list_manga" class="mb-3 col-8">
         <table class="table table-striped">
             {% for manga in mangas %}
+
                 <tr>
                     <td>{{ manga.volume_number }}</td>
                     <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">Modifier (volume)</a></td>
