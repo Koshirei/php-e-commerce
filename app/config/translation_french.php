@@ -45,6 +45,7 @@ return [
         "onlyAvailable" => "Ne montrer que les produits disponibles",
         "quantity" => "Quantité",
         "searchManga" => "Rechercher un manga",
-        "cancel" => "Annuler"
+        "cancel" => "Annuler",
+        "orderHistory"=> "Mon historique de commandes"
     ]
 ];

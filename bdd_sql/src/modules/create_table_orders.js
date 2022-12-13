@@ -2,10 +2,10 @@ export function create_table(connection) {
 
     return new Promise((resolve, reject) => {
 
-        connection.query('create table orders ( ' +
+        connection.query('create table orders_details ( ' +
 
             'id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-            'id_order INT,' +
+            'id_order_common INT,' +
             // 'id_user INT,' +
             'id_manga INT,' +
             'quantity_manga INT,' + 

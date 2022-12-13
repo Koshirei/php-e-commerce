@@ -45,6 +45,7 @@ return [
         "onlyAvailable" => "Show only available products",
         "quantity" => "Quantity",
         "searchManga"=> "Search for a manga",
-        "cancel"=>"Cancel"
+        "cancel"=>"Cancel",
+        "orderHistory"=> "My order history"
     ]
 ];

@@ -61,7 +61,7 @@ class Register
     public function registerUser($register, $username, $email, $password){
 
         $password = password_hash($password, PASSWORD_BCRYPT);
-        $user = new User($username, $email, $password);
+        $user = new User("0",$username, $email, $password);
         $result_insert = $register->registerNewUser($user);
         var_dump($result_insert);
     }
