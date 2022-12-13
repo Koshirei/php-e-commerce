@@ -4,22 +4,29 @@ namespace Entity;
 
 class User {
 
+    protected int $id;
     protected string $username;
     protected string $email;
     protected string $password;
     protected string $role;
 
     function __construct(
+        $id,
         $username,
         $email,
         $password,
         $role="USER"
     )
     {
+        $this->id = $id;
         $this->username = htmlspecialchars($username);
         $this->email = htmlspecialchars($email);
         $this->password = $password;
         $this->role = $role;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 
     public function getUsername(){

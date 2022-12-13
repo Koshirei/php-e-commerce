@@ -6,7 +6,8 @@ export function create_table(connection) {
 
             'id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
             'id_user INT,' +
-            'price_full_order DOUBLE(7,2)' +
+            'price_full_order DOUBLE(7,2),' +
+            'status enum("PAID","DELIVERED")' +
 
             ')', function (error, results, fields) {
                 if (error) {
