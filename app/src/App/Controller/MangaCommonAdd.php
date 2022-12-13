@@ -17,13 +17,10 @@ class MangaCommonAdd
       $MangaCommonCreated = new MangaCommonAddService;
       $mangaCommonCreated = $MangaCommonCreated->MangaCommonAddService($_POST['title'], $_POST['common_cover'], $_POST['description'], $_POST['category'], $_POST['author'], $_POST['artist']);
 
-      // var_dump($mangaEdited);
+      $error = false;
 
-      // $error = false;
-
-      // header("Location:/mangaCommonEdit?title=".$_GET['title']);
-
-      // return new Response('mangaCommonEditOk.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+      header("Location:/mangaEdit");
+      
       return new Response('mangaCommonAdd.html.twig', ['error' => $error, 'mangas' => $mangaCommonList]);
     }
     
