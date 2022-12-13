@@ -4,8 +4,11 @@
 
 {% block body %}
     
-    <h1>Modification de manga</h1>
-    <small>Cette page permet à un administrateur la modification de manga.</small>
+    Retour à la page de <a href="/mangaEdit">modification des mangas</a>
+
+
+    <h1>Modification manga {{title}} (choix volume)</h1>
+    <small>Cette page permet à un administrateur de selectionner le volume d'un manga à modifier.</small>
 
     <div>
         <form>
@@ -57,17 +60,15 @@
         </form>
     </div>
 
-    <a href="/mangaCommonAdd" class="btn btn-success">Nouveau manga</a>
+        <a href="/mangaVolumeAdd?title={{title}}" class="btn btn-success">Nouveau volume</a>
 
     <div id="list_manga" class="mb-3 col-8">
         <table class="table table-striped">
             {% for manga in mangas %}
+
                 <tr>
-                    <td>{{ manga.title }}</td>
-                    <td><a href="/mangaCommonEdit?title={{manga.title}}">Modifier (série)</a></td>
-                    <td><a href="/mangaVolumeEditList?title={{manga.title}}">Modifier (volume)</a></td>
-                    {# <td><a href="/mangaCommonDelete">Supprimer</a></td> #}
-                    {# <button type="button" class="btn btn-danger">Danger</button> #}
+                    <td>{{ manga.volume_number }}</td>
+                    <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">Modifier (volume)</a></td>
                 </tr>
             {% endfor %}
         </table>

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit manga{% endblock %}
+
+{% block body %}
+    {% for manga in mangas %}
+
+    Retour à la page de <a href="/mangaVolumeEditList?title={{manga.title}}">modification des mangas (choix volume)</a>
+
+    <section class="container-fluid">
+        <h1>Modification volume ({{manga.title}})</h1>
+
+        <div>
+            <form>
+                <div class="mb-3 col-3">
+                    <button type="button" class="btn btn-danger">Rendre le volume invisible</button>
+                </div>
+            </form>
+        </div>
+
+        <form action="" method="post" class="row g-3">
+            <label for="volume">Modification volume</label>
+                <input class="form-control" type="text" id="volume" name="volume" value="{{manga.volume_number}}">
+
+            <label for="cover_url">Modification couverture</label>
+                <input class="form-control" type="text" id="cover_url" name="cover_url" value="{{manga.cover_url}}">
+
+            <label for="stock">Modification stock</label>
+                <input class="form-control" type="text" id="stock" name="stock" value="{{manga.stock}}">
+
+            <label for="price">Modification prix</label>
+                <input class="form-control" type="text" id="price" name="price" value="{{manga.price}}">
+
+            <input type="submit" class="btn btn-primary"></input>
+        </form>
+    </section>
+
+    {% endfor %}
+
+{% endblock %}

@@ -5,12 +5,11 @@ namespace Services\mysql_PDO;
 use PDO;
 use Database\Database;
 
-class MangaCommonEditService{
+class MangaCommonAddService{
 
-    public function MangaCommonEditService(){
+    public function MangaCommonAddService(){
         $db = Database::getInstance($_POST);
         
-        $oldTitle = htmlspecialchars($_GET['title']);
         $title = htmlspecialchars($_POST['title']);
         $common_cover = htmlspecialchars($_POST['common_cover']);
         $description = htmlspecialchars($_POST['description']);
@@ -18,15 +17,8 @@ class MangaCommonEditService{
         $author = htmlspecialchars($_POST['author']);
         $artist = htmlspecialchars($_POST['artist']);
 
-
-        $editManga = $db->prepare ("    UPDATE manga_common
-                                        SET title = :title,
-                                            common_cover = :common_cover,
-                                            description = :description,
-                                            category = :category,
-                                            author = :author,
-                                            artist = :artist
-                                        WHERE title = :oldTitle
+        $editManga = $db->prepare ("    INSERT INTO manga_common (title, common_cover, description, category, author, artist)
+                                        VALUES (:title, :common_cover, :description, :category, :author, :artist)
                                         ");
         
         $editManga->bindParam("title", $title);
@@ -35,7 +27,6 @@ class MangaCommonEditService{
         $editManga->bindParam("category", $category);
         $editManga->bindParam("author", $author);
         $editManga->bindParam("artist", $artist);
-        $editManga->bindParam("oldTitle", $oldTitle);
         $editManga->execute();
 
         $editManga = $editManga->fetch();

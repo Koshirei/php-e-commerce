@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Controller;
+
+use Framework\Response\Response;
+use Services\mysql_PDO\getMangaVolume;
+use Services\mysql_PDO\MangaVolumeEditService;
+use Database\Database;
+
+class MangaVolumeEdit
+{
+  public function __invoke()
+  {
+      
+    if(isset($_GET)){
+      
+      if(sizeof($_POST)<=0){
+
+        echo("IF aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br>");
+
+        $MangaVolume = new getMangaVolume;
+        $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
+
+        return new Response('mangaVolumeEdit.html.twig', ['error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
+      }
+      else{
+        echo("ELSE BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB <br>");
+
+        $MangaVolumeEdit = new MangaVolumeEditService;
+        $editVolumeManga = $MangaVolumeEdit->MangaVolumeEditService($_POST['volume_number'], $_POST['cover_url'], $_POST['stock'], $_POST['price']);
+  
+        var_dump($editVolumeManga);
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        // die;
+  
+        $MangaVolume = new getMangaVolume;
+        $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
+
+        var_dump($mangaVolume);
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        die;
+  
+        $error = false;
+  
+        header("Location:/mangaVolumeEdit?title=".$_GET['title']."&volume_number=".$_GET['volume_number']);
+  
+        return new Response('mangaVolumeEditList.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+      }
+
+    }
+    
+  }
+}
