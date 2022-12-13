@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{language["orderHistory"]}}{% endblock %}
+
+{% block body %}
+
+<div class="container" id="historyPage">
+
+    <h1>{{language["orderHistory"]}}</h1>
+
+    {% for item in history %}
+
+    <div class="history_item">
+
+        ID: {{item.id}} ○ {{item.username}} ○ {{item.full_price}}€ ○ {{item.status}} ○
+
+        <button class="btn btn-dark" data-bs-toggle="collapse" href="#detailsCollapse{{item.id}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+            </svg>
+        </button>
+
+        <div class="collapse" id="detailsCollapse{{item.id}}">
+            <ul>
+            {% for details in item.order_details%}
+                <li>{{details.title}} {{details.volume_number}}
+                    <ul><li>{{details.quantity}} x {{details.price}}€</li></ul>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+  
+   
+
+{% endblock %}

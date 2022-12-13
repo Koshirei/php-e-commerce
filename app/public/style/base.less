@@ -24,13 +24,14 @@ body {
         display: flex;
         justify-content: space-between;
 
-        form{
+        form {
             width: 25vw;
         }
     }
 
     #img_home_anchor {
-        width:180px;
+        width: 180px;
+
         img {
             height: 100%;
         }
@@ -43,20 +44,20 @@ body {
             &hover {
                 color: white;
             }
+
             &:first-of-type {
                 color: white;
-                
+
             }
         }
 
         a,
-        span
-        {
+        span {
             margin-right: 20px;
         }
 
-        select{
-            height:40px
+        select {
+            height: 40px
         }
 
         .dropdown_trigger {
@@ -88,6 +89,13 @@ body {
     border-bottom: none;
     background-color: @blanc-clair;
 
+
+    h1 {
+        padding-top: 10px;
+        text-align: center;
+    }
+
+
     #login_form,
     #register_form {
         background-color: @form;
@@ -106,11 +114,6 @@ body {
 }
 
 #mangaPage {
-
-    h1 {
-        text-align: center;
-        padding: 20px
-    }
 
     .flexbox {
         @media (min-width:992px) {
@@ -153,11 +156,6 @@ body {
 
 #cartPage {
 
-    h1 {
-        text-align: center;
-        padding: 20px
-    }
-
     .cartItem {
         outline: black solid 2px;
         padding: 10px;
@@ -184,10 +182,6 @@ body {
 }
 
 #productPage {
-    h1 {
-        padding-top: 10px;
-        text-align: center;
-    }
 
     form {
         width: 80%;
@@ -198,17 +192,17 @@ body {
         }
     }
 
-    .custom_filter_btn{
-        height:50px;
+    .custom_filter_btn {
+        height: 50px;
         width: 50px;
         border-radius: 50%;
         background-color: transparent;
 
-        svg{
+        svg {
             margin-bottom: 10px;
         }
 
-        &:hover{
+        &:hover {
             background-color: lightgrey;
         }
     }
@@ -280,6 +274,15 @@ body {
             }
         }
 
+    }
+}
+
+#historyPage{
+
+    .history_item{
+        border: solid lightgrey 2px;
+        padding: 10px;
+        margin-bottom: 20px;
     }
 }
 

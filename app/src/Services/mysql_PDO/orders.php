@@ -32,7 +32,7 @@ class orders implements interface_orders{
 
         $db = Database::getInstance();
 
-        $sql = 'INSERT into orders ( id_order, id_manga, quantity_manga, price_manga) VALUES (:id_order, :id_manga, :quantity_manga, :price_manga)';
+        $sql = 'INSERT into orders_details ( id_order_common, id_manga, quantity_manga, price_manga) VALUES (:id_order, :id_manga, :quantity_manga, :price_manga)';
         $insertOrder = $db->prepare($sql);
 
         $insertOrder->bindParam("id_order", $id_order);
