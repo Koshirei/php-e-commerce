@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add manga{% endblock %}
+{% block title %}Add manga (série){% endblock %}
 
 {% block body %}
     Retour à la page de <a href="/mangaEdit">modification des mangas</a>
-    
-    <h1>Création de manga</h1>
+
+    <h1>Création de manga (série)</h1>
     <small>Cette page permet à un administrateur la création d'un nouveau manga (série).</small>
 
     <form action="" method="post" class="row g-3">
@@ -20,7 +20,7 @@
                     {{manga.description}}
                 </textarea>
 
-            <label for="category">Categorie</label>
+            <label for="category">Catégorie</label>
                 <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
 
             <label for="author">Auteur</label>

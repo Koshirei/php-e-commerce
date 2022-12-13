@@ -5,9 +5,9 @@ namespace Services\mysql_PDO;
 use PDO;
 use Database\Database;
 
-class MangaCommonAdd{
+class MangaCommonAddService{
 
-    public function MangaCommonAdd(){
+    public function MangaCommonAddService(){
         $db = Database::getInstance($_POST);
         
         $title = htmlspecialchars($_POST['title']);
