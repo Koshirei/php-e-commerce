@@ -45,10 +45,14 @@ class RegisterUser implements interface_RegisterUser{
         $email = $user-> getEmail();
         $password = $user->getPassword();
         $role = $user-> getRole();
+        $address = $user->getAddress();
+        $city = $user->getCity();
+        $postal_code = $user->getPostal_Code();
+        $phone_number = $user->getPhone_Number();
 
         $db = Database::getInstance();
 
-        $sql = 'INSERT into users (username, email, password, role) VALUES (:username, :email, :password, :role)';
+        $sql = 'INSERT into users (username, email, password, role, address, city, postal_code, phone_number) VALUES (:username, :email, :password, :role, :address, :city, :postal_code, :phone_number)';
 
         $query = $db->prepare($sql);
 
@@ -56,6 +60,10 @@ class RegisterUser implements interface_RegisterUser{
         $query->bindParam("email", $email);
         $query->bindParam("password", $password);
         $query->bindParam("role", $role);
+        $query->bindParam("address", $address);
+        $query->bindParam("city", $city);
+        $query->bindParam("postal_code", $postal_code);
+        $query->bindParam("phone_number", $phone_number);
 
         $query->execute();
 
