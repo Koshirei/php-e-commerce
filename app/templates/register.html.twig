@@ -15,10 +15,10 @@
 
             <div>
                 <label class="form-label">{{language["username"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username"><br/>
+                <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username" value="{{post["username"]}}"><br/>
 
                 <label class="form-label">{{language["email"]}} : </label><br/>
-                <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email"><br/>
+                <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email" value="{{post["email"]}}"><br/>
 
                 <label class="form-label">{{language["password"]}} : </label><br/>
                 <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password"><br/>
@@ -29,16 +29,16 @@
 
             <div>
                 <label class="form-label">{{language["address"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["address"]}}" name="address"><br/>
+                <input class="form-control" type="text" placeholder="{{language["address"]}}" name="address" value="{{post["address"]}}"><br/>
 
                 <label class="form-label">{{language["city"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["city"]}}" name="city"><br/>
+                <input class="form-control" type="text" placeholder="{{language["city"]}}" name="city" value="{{post["city"]}}"><br/>
 
                 <label class="form-label">{{language["postal_code"]}} : </label><br/>
-                <input class="form-control" type="number" placeholder="{{language["postal_code"]}}" name="postal_code"><br/>
+                <input class="form-control" type="number" placeholder="{{language["postal_code"]}}" name="postal_code" value="{{post["postal_code"]}}"><br/>
 
                 <label class="form-label">{{language["phone_number"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["phone_number"]}}" name="phone_number"><br/>
+                <input class="form-control" type="text" placeholder="{{language["phone_number"]}}" name="phone_number" value="{{post["phone_number"]}}"><br/>
             </div>
 
         </div>
@@ -55,6 +55,10 @@
                         {{language["empty_user"]}}.<br/>
                     {% endif %}
 
+                    {% if errors["username_size"] %}
+                        {{language["error_username_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
                     {% if errors["empty_email"] %}
                         {{language["empty_email"]}}.<br/>
                     {% endif %}
@@ -63,8 +67,28 @@
                         {{language["empty_password"]}}.<br/>
                     {% endif %}
 
+                    {% if errors["password_size"] %}
+                        {{language["error_password_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
                     {% if errors["empty_pass2"] %}
                         {{language["empty_password2"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_address"] %}
+                        {{language["empty_address"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_city"] %}
+                        {{language["empty_city"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_postal_code"] %}
+                        {{language["empty_postal_code"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_phone_number"] %}
+                        {{language["empty_phone_number"]}}.<br/>
                     {% endif %}
 
                     {% if errors["match_password"] %}
