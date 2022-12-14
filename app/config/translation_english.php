@@ -34,7 +34,7 @@ return [
         'notifiedRestock' => "Get a notification when the manga is available to purchase.",
         'cartNoStock' => "Error: trying to add to the cart despite being no stock available.",
         'cartAdded' => "Successfully added the item to the cart.",
-        'alreadyInCart' => "Error: Product already in the cart.",
+        'alreadyInCart' => "Warning: Product already in the cart. Please check your cart to increase the quantity of this product to order.",
         'yourCart' => "Your cart",
         'totalCost' => "Total cost",
         'buyCart' => "Buy this cart",
