@@ -46,6 +46,7 @@ return [
         "quantity" => "Quantity",
         "searchManga"=> "Search for a manga",
         "cancel"=>"Cancel",
-        "orderHistory"=> "My order history"
+        "orderHistory"=> "My order history",
+        "seeProducts"=>"Check out our products!"
     ]
 ];

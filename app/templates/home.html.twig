@@ -4,19 +4,24 @@
 
 {% block body %}
     
-    {{get.abc}} <br/> bonjour : <br/>
+    <div class="container" id="homePage">
+    &nbsp;
+        <div id="logoimg">
+            <img src="https://cdn.discordapp.com/attachments/891090590048075786/1052374499884015616/anga_mob_opm.png">
+        </div>
 
-    {# {% for volume in volumes %}
-        {{volume.id}} + {{volume.volume_number}}
-        <img src="{{volume.cover_url}}">
-        <br/>
-    {% endfor %} #}
+        <div id="homeContent">
+        <a href="/products">
+            <button class="btn btn-primary">
+                {{language["seeProducts"]}}
+            </button><br/>
+        </a>
 
-    <form action="test" method="post">
-        <input type="text" name="abc"/>
-        <input type="submit" > 
-    </form>
-<a href="/login">{{language["login"]}}</a>
-    <a href="/logoff">{{language["logoff"]}}</a>
+        {% if not user %}
+            <a href="/login">{{language["login"]}}</a> - 
+            <a href="/register">{{language["register"]}}</a>
+        </div>
+        {% endif %}
+    </div>
 
 {% endblock %}

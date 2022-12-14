@@ -46,6 +46,7 @@ return [
         "quantity" => "Quantité",
         "searchManga" => "Rechercher un manga",
         "cancel" => "Annuler",
-        "orderHistory"=> "Mon historique de commandes"
+        "orderHistory"=> "Mon historique de commandes",
+        "seeProducts" => "Parcourez nos produits!"
     ]
 ];
