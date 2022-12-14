@@ -11,6 +11,9 @@ class Products
   public function initFilters(){
 
     $available = $_GET["available"] ? $_GET["available"] : "false";
+
+    $_GET["title"] = trim($_GET["title"]);
+    $_GET["volume"] = trim($_GET["volume"]);
   
     $filters = [
       "title" => $_GET["title"],
