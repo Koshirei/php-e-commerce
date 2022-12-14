@@ -8,7 +8,9 @@ return [
         'register' => 'Register',
         'username' => "Username",
         'password' => "Password",
+        'new_password' => "New Password",
         'confirm_password' => "Confirm Password",
+        'new_confirm_password' => "Confirm new Password",
         'email' => "Email Address",
         'submit' => "Submit",
         'fail_login' => "Wrong credentials",
@@ -25,6 +27,7 @@ return [
         'error_dupe_email' => 'The Email Address is already in use',
         'error_username_size' => 'The Username is too short',
         'error_password_size' => 'The Password is too short',
+        'error_new_password_size' => 'The new Password is too short',
         '8char_minimum' => "minimum 8 characters", 
         'artist' => "Artist",
         'author' => "Author",
@@ -59,6 +62,10 @@ return [
         "address" => "Address",
         "city" => "City",
         "postal_code" => "Postal code",
-        "phone_number" => "Phone number"
+        "phone_number" => "Phone number",
+        "profile" => "My profile",
+        "confirmUpdate" => "Save the new information",
+        "wrong_password" => "Wrong password",
+        "successUpdate" => "Successfully updated your profile."
     ]
 ];

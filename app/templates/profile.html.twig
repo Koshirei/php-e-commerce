@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{language["register"]}}{% endblock %}
+
+{% block body %}
+
+<div class="container" >
+        &nbsp;
+        <form method="post" action="/profile">
+        <div class="text-center">
+            <h1>{{language["profile"]}}</h1><br/>
+        </div>
+
+        {% if get["success"] == true and not get["error"]%}
+            <div class="alert alert-success" role="alert">
+                {{language["successUpdate"]}}
+            </div>
+        {% endif %}
+
+        <div id="flex_register">
+
+            <div>
+                <label class="form-label">{{language["username"]}} : </label><br/>
+                <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username" value="{{user.username}}"><br/>
+
+                <label class="form-label">{{language["email"]}} : </label><br/>
+                <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email" value="{{user.email}}"><br/>
+
+                <label class="form-label">{{language["new_password"]}} : </label><br/>
+                <input class="form-control" type="password" placeholder="{{language["new_password"]}}" name="new_password"><br/>
+
+                <label class="form-label">{{language["new_confirm_password"]}} : </label><br/>
+                <input class="form-control" type="password" placeholder="{{language["new_confirm_password"]}}" name="new_password2"><br/>
+            </div>
+
+            <div>
+                <label class="form-label">{{language["address"]}} : </label><br/>
+                <input class="form-control" type="text" placeholder="{{language["address"]}}" name="address" value="{{user.address}}"><br/>
+
+                <label class="form-label">{{language["city"]}} : </label><br/>
+                <input class="form-control" type="text" placeholder="{{language["city"]}}" name="city" value="{{user.city}}"><br/>
+
+                <label class="form-label">{{language["postal_code"]}} : </label><br/>
+                <input class="form-control" type="number" placeholder="{{language["postal_code"]}}" name="postal_code" value="{{user.postal_code}}"><br/>
+
+                <label class="form-label">{{language["phone_number"]}} : </label><br/>
+                <input class="form-control" type="text" placeholder="{{language["phone_number"]}}" name="phone_number" value="{{user.phone_number}}"><br/>
+            </div>
+
+        </div>
+
+            <div class="text-center">
+                <label class="form-label">{{language["password"]}} :</label>
+                <input class="form-control currentpassword" type="password" placeholder="{{language["password"]}}" name="password"><br/>
+                <input type="submit" class="btn btn-primary" value="{{language["confirmUpdate"]}}">
+            </div>
+
+            {% if errors %}
+            <br/><br/>
+                <div class="alert alert-danger" role="alert">
+
+                    {% if errors["empty_user"] %}
+                        {{language["empty_user"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["username_size"] %}
+                        {{language["error_username_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
+                    {% if errors["empty_email"] %}
+                        {{language["empty_email"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_pass1"] %}
+                        {{language["empty_password"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["password_size"] %}
+                        {{language["error_password_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
+                    {% if errors["new_password_size"] %}
+                        {{language["error_new_password_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
+                    {% if errors["empty_pass2"] %}
+                        {{language["empty_password2"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_address"] %}
+                        {{language["empty_address"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_city"] %}
+                        {{language["empty_city"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_postal_code"] %}
+                        {{language["empty_postal_code"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["empty_phone_number"] %}
+                        {{language["empty_phone_number"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["match_password"] %}
+                        {{language["error_match_password"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["dupe_username"] %}
+                        {{language["error_dupe_username"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["dupe_email"] %}
+                        {{language["error_dupe_email"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["wrong_password"] %}
+                        {{language["wrong_password"]}}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </form>
+
+</div>
+
+{% endblock %}

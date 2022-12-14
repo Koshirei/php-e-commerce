@@ -8,7 +8,9 @@ return [
         'register' => 'Inscription',
         'username' => "Nom d'Utilisateur",
         'password' => "Mot de Passe",
+        'new_password' => "Nouveau Mot de Passe",
         'confirm_password' => "Confirmer le mot de passe",
+        'new_confirm_password' => "Confirmer le nouveau Mot de Passe",
         'email' => "Adresse Mail",
         'submit' => "Soumettre",
         'fail_login' => "Identifiants incorrectes",
@@ -25,6 +27,7 @@ return [
         'error_dupe_email' => 'L\'Adresse Email est déjà utilisée',
         'error_username_size' => 'Le Nom d\'Utilisateur est trop court',
         'error_password_size' => 'Le Mot de Passe est trop court',
+        'error_new_password_size' => 'Le nouveau Mot de Passe est trop court',
         '8char_minimum' => "8 caractères minimum", 
         'artist' => "Artiste",
         'author' => "Auteur",
@@ -59,6 +62,10 @@ return [
         "address" => "Adresse",
         "city" => "Ville",
         "postal_code" => "Code postal",
-        "phone_number" => "Numéro de téléphone"
+        "phone_number" => "Numéro de téléphone",
+        "profile" => "Mon profil",
+        "confirmUpdate" => "Enregistrer les nouvelles données",
+        "wrong_password" => "Mauvais Mot de Passe",
+        "successUpdate" => "Profil mis à jour avec succès."
     ]
 ];
