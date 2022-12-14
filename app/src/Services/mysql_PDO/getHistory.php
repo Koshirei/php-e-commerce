@@ -9,6 +9,29 @@ use Interfaces\interface_history;
 
 class getHistory implements interface_history{
 
+    public function generateOrderEntity($history){
+
+        $orders_array = [];
+
+        foreach($history as $order_common){
+
+            $details = $this->selectHistoryDataByOrderId($order_common["id"]);
+
+            $order = new order(
+                $order_common["id"],
+                $order_common["id_user"],
+                $order_common["username"],
+                $order_common["price_full_order"],
+                $order_common["status"],
+                $details);
+
+            array_push($orders_array, $order);
+        }
+
+        return $orders_array;
+
+    }
+
     public function selectHistoryDataByOrderId($order_id){
         $db = Database::getInstance();
 
@@ -54,24 +77,27 @@ class getHistory implements interface_history{
 
         $history = $getHistory->fetchAll();
 
-        $orders_array = [];
+        $orders_array = $this->generateOrderEntity($history);
 
-        foreach($history as $order_common){
-
-            $details = $this->selectHistoryDataByOrderId($order_common["id"]);
-
-            $order = new order(
-                $order_common["id"],
-                $order_common["id_user"],
-                $order_common["username"],
-                $order_common["price_full_order"],
-                $order_common["status"],
-                $details);
-
-            array_push($orders_array, $order);
-        }
 
         return $orders_array;
+    }
+
+    public function selectAllHistoryCommon(){
+
+        $db = Database::getInstance();  
+
+        $sql = 'SELECT username, orders_common.* from users, orders_common where users.id = orders_common.id_user order by orders_common.id desc';
+        $getHistory = $db->prepare($sql);
+
+        $getHistory->execute();
+
+        $history = $getHistory->fetchAll();
+
+        $orders_array = $this->generateOrderEntity($history);
+
+        return $orders_array;
+
     }
 
 }

@@ -42,7 +42,19 @@ class orders implements interface_orders{
 
         $insertOrder->execute();
 
+    }
 
+    public function updateOrderStatus($order_id, $new_status)
+    {
+        $db = Database::getInstance();
+
+        $sql = 'UPDATE orders_common SET status = :status WHERE id=:id';
+        $updateOrder = $db->prepare($sql);
+
+        $updateOrder->bindParam("status", $new_status);
+        $updateOrder->bindParam("id", $order_id);
+
+        $updateOrder->execute();
     }
 
 }

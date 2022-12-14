@@ -5,8 +5,9 @@ namespace App\Controller;
 use Entity\User;
 use Framework\Response\Response;
 use Services\mysql_PDO\RegisterUser;
+use Services\mysql_PDO\updateUser;
 
-class Register
+class Profile
 {
 
     public function checkRegister($register){
@@ -17,7 +18,6 @@ class Register
         
         $username = htmlspecialchars($_POST["username"]);
         $password = htmlspecialchars($_POST["password"]);
-        $password2 = htmlspecialchars($_POST["password2"]);
         $email = htmlspecialchars($_POST["email"]);
         $address = htmlspecialchars($_POST["address"]);
         $city = htmlspecialchars($_POST["city"]);
@@ -28,7 +28,7 @@ class Register
             $error["empty_user"] = true;
         }else if (strlen($username) < 8){
             $error["username_size"] = true;
-        }else{
+        }else if ($_SESSION["user"]->getUsername() !== $username ){
             $count = $register->checkUsernameAlreadyInDB($username);
             if ($count === 1){
                 $error["dupe_username"] = true;
@@ -41,17 +41,19 @@ class Register
             $error["password_size"] = true;
         }
 
-        if (empty($password2)){
-            $error["empty_pass2"] = true;
-        }
+        if ($_POST["new_password"]!==""){
+            if(strlen($_POST["new_password"]) < 8){
+                $error["new_password_size"] = true;
+            }
 
-        if ($password !== $password2){
-            $error["match_password"] = true;
+            if ($_POST["new_password"] !== $_POST["new_password2"]){
+                $error["match_password"] = true;
+            }
         }
 
         if (empty($email)){
             $error["empty_email"] = true;
-        }else{
+        }else if ($_SESSION["user"]->getEmail() !== $email){
             $count = $register->checkEmailAlreadyInDB($email);
             if ($count === 1){
                 $error["dupe_email"] = true;
@@ -74,19 +76,28 @@ class Register
             $error["empty_phone_number"] = true;
         }
 
+        if (!password_verify($password, $_SESSION["user"]->getPassword())){
+            $error["wrong_password"] = true;
+        }
+
         if (empty($error)){
-            $this->registerUser($register, $username, $email, $password, $address, $city, $postal_code, $phone_number);
-            header("Location: /login");
+
+            if ($_POST["new_password"] !== "" ){
+                $password = $_POST["new_password"];
+            }
+
+            $this->updateUser($register, $username, $email, $password, $address, $city, $postal_code, $phone_number);
+            header("Location: /profile?success=true");
         }
 
         return $error;
     }
 
-    public function registerUser($register, $username, $email, $password, $address, $city, $postal_code, $phone_number){
+    public function updateUser($register, $username, $email, $password, $address, $city, $postal_code, $phone_number){
 
         $password = password_hash($password, PASSWORD_BCRYPT);
         $user = new User(
-            "0",
+            $_SESSION["user"]->getId(),
             $username, 
             $email, 
             $password,
@@ -96,22 +107,26 @@ class Register
             $postal_code,
             $phone_number
         );
-        $result_insert = $register->registerNewUser($user);
-        var_dump($result_insert);
+
+        $_SESSION["user"] = $user;
+
+        $updateUser = new updateUser();
+        $updateUser->updateUser($user);
+        
     }
 
     public function __invoke()
     {
         require './init_session.php';
         
-        if (isset($_SESSION["user"])) header("Location: /");
+        if (!isset($_SESSION["user"])) header("Location: /");
 
         $register = new RegisterUser;
 
         $error = $this->checkRegister($register);
 
             
-        return new Response('register.html.twig', ['errors' => $error, 'language'=>$traductions, 'user'=>$_SESSION["user"], "post"=>$_POST]);
+        return new Response('profile.html.twig', ['errors' => $error, 'get'=>$_GET, 'language'=>$traductions, 'user'=>$_SESSION["user"]]);
         
     }
 }

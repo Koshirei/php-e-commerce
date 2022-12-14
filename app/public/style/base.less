@@ -40,6 +40,8 @@ body {
 
     .action_icons {
         display: flex;
+        
+
 
         a {
             &hover {
@@ -68,6 +70,9 @@ body {
 
             .svg_dropdown {
 
+                width:max(40px,100%);
+                margin-right: 40px;
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -94,23 +99,25 @@ body {
         padding-top: 10px;
         text-align: center;
     }
+    
+    #flex_register{
+        display: flex;
 
-
-    #login_form,
-    #register_form {
-        background-color: @form;
-        box-shadow: 3px 3px 3px black;
-        border-radius: 20px;
-        padding: 20px;
-        width: 80%;
-        margin: 0 auto;
-        margin-bottom: 5vh;
-
-        h1,
-        .alert {
-            .center()
+        div{
+            flex:1;
+            padding: 20px;
         }
     }
+
+    .currentpassword{
+        width:25%;
+        margin: 0 auto;
+    }
+
+    .pagination{
+        padding: 20px 0 20px 0;
+    }
+
 }
 
 #mangaPage {
@@ -207,6 +214,13 @@ body {
         }
     }
 
+    .product_flexbox2{
+        display: flex;
+        div{
+            flex:1;
+            padding: 10px;
+        }
+    }
     .product_flexbox {
         display: flex;
         justify-content: space-between;

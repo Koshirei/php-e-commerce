@@ -24,7 +24,11 @@ class Login
                   $userinfo["username"],
                   $userinfo["email"],
                   $userinfo["password"],
-                  $userinfo["role"]);
+                  $userinfo["role"],
+                  $userinfo["address"],
+                  $userinfo["city"],
+                  $userinfo["postal_code"],
+                  $userinfo["phone_number"]);
                   
               $_SESSION["user"] = $user;
           }else{

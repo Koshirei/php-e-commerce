@@ -4,47 +4,55 @@
 
 {% block body %}
 
-<div class="container" id="register_form">
+<div class="container" >
         &nbsp;
-        <form method="post" action="/register">
+        <form method="post" action="/profile">
         <div class="text-center">
-            <h1>{{language["register"]}}</h1><br/>
+            <h1>{{language["profile"]}}</h1><br/>
         </div>
+
+        {% if get["success"] == true and not get["error"]%}
+            <div class="alert alert-success" role="alert">
+                {{language["successUpdate"]}}
+            </div>
+        {% endif %}
 
         <div id="flex_register">
 
             <div>
                 <label class="form-label">{{language["username"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username" value="{{post["username"]}}"><br/>
+                <input class="form-control" type="text" placeholder="{{language["username"]}}" name="username" value="{{user.username}}"><br/>
 
                 <label class="form-label">{{language["email"]}} : </label><br/>
-                <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email" value="{{post["email"]}}"><br/>
+                <input class="form-control" type="email" placeholder="{{language["email"]}}" name="email" value="{{user.email}}"><br/>
 
-                <label class="form-label">{{language["password"]}} : </label><br/>
-                <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password"><br/>
+                <label class="form-label">{{language["new_password"]}} : </label><br/>
+                <input class="form-control" type="password" placeholder="{{language["new_password"]}}" name="new_password"><br/>
 
-                <label class="form-label">{{language["confirm_password"]}} : </label><br/>
-                <input class="form-control" type="password" placeholder="{{language["password"]}}" name="password2"><br/>
+                <label class="form-label">{{language["new_confirm_password"]}} : </label><br/>
+                <input class="form-control" type="password" placeholder="{{language["new_confirm_password"]}}" name="new_password2"><br/>
             </div>
 
             <div>
                 <label class="form-label">{{language["address"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["address"]}}" name="address" value="{{post["address"]}}"><br/>
+                <input class="form-control" type="text" placeholder="{{language["address"]}}" name="address" value="{{user.address}}"><br/>
 
                 <label class="form-label">{{language["city"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["city"]}}" name="city" value="{{post["city"]}}"><br/>
+                <input class="form-control" type="text" placeholder="{{language["city"]}}" name="city" value="{{user.city}}"><br/>
 
                 <label class="form-label">{{language["postal_code"]}} : </label><br/>
-                <input class="form-control" type="number" placeholder="{{language["postal_code"]}}" name="postal_code" value="{{post["postal_code"]}}"><br/>
+                <input class="form-control" type="number" placeholder="{{language["postal_code"]}}" name="postal_code" value="{{user.postal_code}}"><br/>
 
                 <label class="form-label">{{language["phone_number"]}} : </label><br/>
-                <input class="form-control" type="text" placeholder="{{language["phone_number"]}}" name="phone_number" value="{{post["phone_number"]}}"><br/>
+                <input class="form-control" type="text" placeholder="{{language["phone_number"]}}" name="phone_number" value="{{user.phone_number}}"><br/>
             </div>
 
         </div>
 
             <div class="text-center">
-                <input type="submit" class="btn btn-primary" value="{{language["submit"]}}">
+                <label class="form-label">{{language["password"]}} :</label>
+                <input class="form-control currentpassword" type="password" placeholder="{{language["password"]}}" name="password"><br/>
+                <input type="submit" class="btn btn-primary" value="{{language["confirmUpdate"]}}">
             </div>
 
             {% if errors %}
@@ -69,6 +77,10 @@
 
                     {% if errors["password_size"] %}
                         {{language["error_password_size"]}} ( {{language["8char_minimum"]}} ).<br/>
+                    {% endif %}
+
+                    {% if errors["new_password_size"] %}
+                        {{language["error_new_password_size"]}} ( {{language["8char_minimum"]}} ).<br/>
                     {% endif %}
 
                     {% if errors["empty_pass2"] %}
@@ -101,6 +113,10 @@
 
                     {% if errors["dupe_email"] %}
                         {{language["error_dupe_email"]}}.<br/>
+                    {% endif %}
+
+                    {% if errors["wrong_password"] %}
+                        {{language["wrong_password"]}}
                     {% endif %}
                 </div>
             {% endif %}
