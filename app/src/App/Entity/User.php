@@ -15,7 +15,11 @@ class User {
         $username,
         $email,
         $password,
-        $role="USER"
+        $role="USER",
+        $address,
+        $city,
+        $postal_code,
+        $phone_number
     )
     {
         $this->id = $id;
@@ -23,6 +27,10 @@ class User {
         $this->email = htmlspecialchars($email);
         $this->password = $password;
         $this->role = $role;
+        $this->address = htmlspecialchars($address);
+        $this->city = htmlspecialchars($city);
+        $this->postal_code = htmlspecialchars($postal_code);
+        $this->phone_number = htmlspecialchars($phone_number);
     }
 
     public function getId(){
@@ -59,5 +67,37 @@ class User {
 
     public function setRole($role){
         $this->role = $role;
+    }
+
+    public function getAddress(){
+        return $this->address;
+    }
+
+    public function setAddress($address){
+        $this->$address = $address;
+    }
+
+    public function getCity(){
+        return $this->city;
+    }
+
+    public function setCity($city){
+        $this->$city = $city;
+    }
+
+    public function getPostal_Code(){
+        return $this->postal_code;
+    }
+
+    public function setPostal_Code($postal_code){
+        $this->$postal_code = $postal_code;
+    }
+
+    public function getPhone_Number(){
+        return $this->phone_number;
+    }
+
+    public function setPhone_Number($phone_number){
+        $this->phone_number = $phone_number;
     }
 }
