@@ -8,7 +8,11 @@ export function create_table(connection) {
             'username VARCHAR(32),' +
             'email VARCHAR(255),' +
             'password VARCHAR(255),' +
-            'role enum("ADMIN","USER")' + 
+            'role enum("ADMIN","USER"),' + 
+            'address VARCHAR(255),' +
+            'city VARCHAR(255),' +
+            'postal_code INT,' +
+            'phone_number VARCHAR(60)' +
 
             ')', function (error, results, fields) {
                 if (error) {

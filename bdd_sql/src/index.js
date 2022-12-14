@@ -17,12 +17,20 @@ const USERS = [
         username: "admin",
         email: "admin@admin.admin",
         password: "$2y$10$0.7z3e.tLtbNZWzqZKqMcOr/.Nm/cuLujInTj2H5Gt8Qugwe5M/um", // "adminpassword" hashé
-        role: "ADMIN"
+        role: "ADMIN",
+        address: "159 rue de metz",
+        city: "talange",
+        postal_code: 57525,
+        phone_number: "0123456789"
     },{
         username: "user",
         email: "user@user.user",
         password: "$2y$10$iQ2DsW3qHU0ZKeoZUOqYk.4KGJdvQ5OC8BLRfVmMjM3oPMgvjo2QS", //"userpassword" hashé
-        role: "USER"
+        role: "USER",
+        address: "159 rue de talange",
+        city: "metz",
+        postal_code: 52575,
+        phone_number: "9876543210"
     }
 ]
 
