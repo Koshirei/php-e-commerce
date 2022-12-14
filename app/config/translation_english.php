@@ -46,7 +46,12 @@ return [
         "quantity" => "Quantity",
         "searchManga"=> "Search for a manga",
         "cancel"=>"Cancel",
-        "orderHistory"=> "My order history",
-        "seeProducts"=>"Check out our products!"
+        "seeProducts"=>"Check out our products!",
+        "seeManga" => "Check the product page",
+        "changeStatus" => "Change the order's status",
+        "address" => "Address",
+        "city" => "City",
+        "postal_code" => "Postal code",
+        "phone_number" => "Phone number"
     ]
 ];

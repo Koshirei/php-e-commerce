@@ -15,6 +15,7 @@ use App\Controller\Manga;
 use App\Controller\Cart;
 use App\Controller\Products;
 use App\Controller\History;
+use App\Controller\adminHistory;
 use Framework\Routing\Route;
 
 return [
@@ -33,6 +34,7 @@ return [
         new Route(['GET','POST'], '/manga', Manga::class),
         new Route(['GET','POST'], '/cart', Cart::class),
         new Route(['GET','POST'], '/products', Products::class),
-        new Route(['GET','POST'], '/history', History::class)
+        new Route(['GET','POST'], '/history', History::class),
+        new Route(['GET','POST'], '/admin/history', adminHistory::class)
     ]
 ];

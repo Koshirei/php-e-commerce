@@ -46,7 +46,12 @@ return [
         "quantity" => "Quantité",
         "searchManga" => "Rechercher un manga",
         "cancel" => "Annuler",
-        "orderHistory"=> "Mon historique de commandes",
-        "seeProducts" => "Parcourez nos produits!"
+        "seeProducts" => "Parcourez nos produits!",
+        "seeManga" => "Voir la fiche produit",
+        "changeStatus" => "Changer le statut de la commande",
+        "address" => "Adresse",
+        "city" => "Ville",
+        "postal_code" => "Code postal",
+        "phone_number" => "Numéro de téléphone"
     ]
 ];
