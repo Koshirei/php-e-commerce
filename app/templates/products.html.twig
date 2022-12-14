@@ -16,12 +16,18 @@
 
     <form action="" method="get" id="filterCollapse" class="collapse">
 
-        <label class="form-label">{{language["title"]}} : </label><br/>
-        <input class="form-control" type="text" value="{{get["title"]}}" placeholder="{{language["title"]}}" name="title"><br/>
+        <div class="product_flexbox2">
 
-        <label class="form-label">{{language["volume"]}} : </label><br/>
-        <input class="form-control" type="text" value="{{get["volume"]}}" placeholder="{{language["volume"]}}" name="volume"><br/>
+            <div>
+                <label class="form-label">{{language["title"]}} : </label><br/>
+                <input class="form-control" type="text" value="{{get["title"]}}" placeholder="{{language["title"]}}" name="title"><br/>
+            </div>
+            <div>
+                <label class="form-label">{{language["volume"]}} : </label><br/>
+                <input class="form-control" type="number" value="{{get["volume"]}}" placeholder="{{language["volume"]}}" name="volume"><br/>
+            </div>
 
+        </div>
         <div class="product_flexbox">
             <div>
                 <label class="form-label">{{language["price"]}} : </label><br/>
@@ -107,7 +113,7 @@
                             <div class="bottom">
                                 {{manga.stock}} {{language["available"]}}<br/>
                                 {{manga.price}}€<br/>
-                                <a href="/manga?id={{manga.id}}"><button class="btn btn-primary">Voir page produit</button></a>
+                                <a href="/manga?id={{manga.id}}"><button class="btn btn-primary">{{language["seeManga"]}}</button></a>
                             </div>
                         </div>
                     </div>
