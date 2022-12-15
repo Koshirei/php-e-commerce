@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Entity\CartItem;
 use Framework\Response\Response;
+use Services\mysql_PDO\cartManagement;
 use Services\mysql_PDO\getManga;
 use Services\mysql_PDO\stockManagement;
 use Services\mysql_PDO\getNbVolume;
@@ -40,6 +41,9 @@ class Manga
         $newStock = strval($currentDBstock-1);
         $stockManagement->decrementStock($manga->getId());
         $manga->setStock($newStock);
+
+        $cartManagement = new cartManagement();
+        $cartManagement->insertNewCart($cartItem->getCartId(),$cartItem->getId());
   
         array_push($_SESSION["cart"], $cartItem);
 

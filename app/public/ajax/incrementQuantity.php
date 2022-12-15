@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
 require '../../vendor/autoload.php';
 
+use Services\mysql_PDO\cartManagement;
 use Services\mysql_PDO\stockManagement;
 
 session_start();
@@ -22,6 +23,9 @@ if ($currentStock == 0){
 
     $item->setQuantity($currentQuantity+1);
     $stockManagement->decrementStock($item->getId());
+
+    $cartManagement = new cartManagement();
+    $cartManagement->updateCartQuantity($item->getCartId(), $item->getQuantity());
 
     echo '{"error": false}';
 }

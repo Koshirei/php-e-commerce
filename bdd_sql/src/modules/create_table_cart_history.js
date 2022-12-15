@@ -2,14 +2,13 @@ export function create_table(connection) {
 
     return new Promise((resolve, reject) => {
 
-        connection.query('create table orders_details ( ' +
+        connection.query('create table cart_history ( ' +
 
             'id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-            'id_order_common INT,' +
-            // 'id_user INT,' +
+            'id_cart VARCHAR(75),' +
             'id_manga INT,' +
             'quantity_manga INT,' + 
-            'price_manga DOUBLE(6,2)' +
+            'date datetime' +
 
             ')', function (error, results, fields) {
                 if (error) {
@@ -17,7 +16,7 @@ export function create_table(connection) {
                     reject(false);
                 }
                 else {
-                    console.log("table users créé")
+                    console.log("table cart_history créé")
                     resolve(true)
                 }
             })

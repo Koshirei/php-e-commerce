@@ -10,6 +10,7 @@ class CartItem {
     protected string $unique_cover;
     protected string $price;
     protected int $quantity;
+    protected string $cartId;
 
     function __construct(
         $id,
@@ -26,6 +27,7 @@ class CartItem {
         $this->unique_cover = $unique_cover;
         $this->price = $price;
         $this->quantity = $quantity;
+        $this->cartId = password_hash("cartId", PASSWORD_BCRYPT) . date("Ymd");
     }
 
     public function getId(){
@@ -74,6 +76,14 @@ class CartItem {
 
     public function setQuantity($quantity){
         $this->quantity = $quantity;
+    }
+
+    public function getCartId(){
+        return $this->cartId;
+    }
+
+    public function setCartId($cartId){
+        $this->cartId = $cartId;
     }
 
 }

@@ -5,6 +5,7 @@
 
 require '../../vendor/autoload.php';
 
+use Services\mysql_PDO\cartManagement;
 use Services\mysql_PDO\stockManagement;
 
 session_start();
@@ -21,6 +22,8 @@ for ($i = 0; $i < count($_SESSION["cart"]); $i++){
         array_push($temp_cart, $_SESSION["cart"][$i]);
     }else{
         $updateStock = $_SESSION["cart"][$i];
+        $cartManagement = new cartManagement();
+        $cartManagement->deleteCart($_SESSION["cart"][$i]->getCartId());
     }
 }
 

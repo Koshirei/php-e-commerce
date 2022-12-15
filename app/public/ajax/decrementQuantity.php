@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
 require '../../vendor/autoload.php';
 
+use Services\mysql_PDO\cartManagement;
 use Services\mysql_PDO\stockManagement;
 
 session_start();
@@ -24,6 +25,9 @@ if ($currentQuantity <= 1){
 
         if ($i !== intval($id)){
             array_push($temp_array, $_SESSION["cart"][$i]);
+        }else{
+            $cartManagement = new cartManagement();
+            $cartManagement->deleteCart($_SESSION["cart"][$i]->getCartId());
         }
     }
 
