@@ -40,7 +40,7 @@ return [
         'alreadyInCart' => "Attention: Ce produit est déjà dans le panier. Accédez à votre panier pour augmenter la quantité du produit à commander.",
         'yourCart' => "Votre panier",
         'totalCost' => "Prix total",
-        'buyCart' => "Acheter ce panier",
+        'buyCart' => "Commander",
         'removeFromCart' => "Supprimer du panier",
         'profile' => "Mon profil",
         'orders' => "Historique des commandes",
@@ -68,6 +68,8 @@ return [
         "wrong_password" => "Mauvais Mot de Passe",
         "successUpdate" => "Profil mis à jour avec succès.",
         "updateOrders" => "Mettre à jour le statut des commandes",
-        "discover" => "Découvrir"
+        "discover" => "Découvrir",
+        "delivering" => "En transit",
+        "delivered" => "Livré"
     ]
 ];

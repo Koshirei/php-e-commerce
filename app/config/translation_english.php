@@ -40,7 +40,7 @@ return [
         'alreadyInCart' => "Warning: Product already in the cart. Please check your cart to increase the quantity of this product to order.",
         'yourCart' => "Your cart",
         'totalCost' => "Total cost",
-        'buyCart' => "Buy this cart",
+        'buyCart' => "Order",
         'removeFromCart' => "Remove from cart",
         'profile' => "My profile",
         'orders' => "Order history",
@@ -68,6 +68,8 @@ return [
         "wrong_password" => "Wrong password",
         "successUpdate" => "Successfully updated your profile.",
         "updateOrders" => "Update orders status",
-        "discover" => "Discover"
+        "discover" => "Discover",
+        "delivering" => "In transit",
+        "delivered" => "Delivered"
     ]
 ];
