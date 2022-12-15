@@ -69,7 +69,7 @@ class getHistory implements interface_history{
     {
         $db = Database::getInstance();  
 
-        $sql = 'SELECT username, orders_common.* from users, orders_common where orders_common.id_user=:user_id and users.id = orders_common.id_user';
+        $sql = 'SELECT username, orders_common.* from users, orders_common where orders_common.id_user=:user_id and users.id = orders_common.id_user order by orders_common.id desc';
         $getHistory = $db->prepare($sql);
 
         $getHistory->bindParam("user_id", $user_id);

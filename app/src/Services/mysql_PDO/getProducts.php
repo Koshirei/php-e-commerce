@@ -48,12 +48,22 @@ class getProducts implements interface_getProducts{
         $sort_volume = $filters["sort_volume"] !== "no" ? "manga_volume.volume_number ".$filters["sort_volume"] : "";
 
         $comma = "";
-        if ($price !== "" && $sort_volume !== "") $comma = " , ";
-
-        $order = $sort_volume.$comma.$price;
+        $order= "order by manga_volume.id asc";
+        
+        if ($price !== "" && $sort_volume !== ""){
+            $comma = " , ";
+        } 
+        
+        if ($price !=="" || $sort_volume!==""){
+            $order = "order by ".$sort_volume.$comma.$price;
+        }
 
         $available = "";
 
+        if ($price !== "" && $sort_volume !== ""){
+            $comma = " , ";
+        } 
+        
         if ($filters["available"] === "true"){
             $available = "and manga_volume.stock > 0 "; 
         }
@@ -65,8 +75,8 @@ class getProducts implements interface_getProducts{
             where manga_volume.common_id = manga_common.common_id
             and manga_common.title like :title
             and manga_volume.volume_number like :volume '.
-            $available.'
-            order by '.$order.'
+            $available.
+            $order.'
             ';
 
         $getProducts = $db->prepare($sql);
