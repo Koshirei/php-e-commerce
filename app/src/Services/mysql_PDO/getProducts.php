@@ -156,4 +156,20 @@ class getProducts implements interface_getProducts{
         return $this->generateMangas($products);
     }
 
+    public function getProductsVolume1(){
+        $db = Database::getInstance();
+
+        $sql = 'SELECT * 
+            from manga_volume, manga_common 
+            where manga_volume.volume_number = 1
+            and manga_volume.common_id = manga_common.common_id';
+
+        $getInitialProducts = $db->prepare($sql);
+        $getInitialProducts->execute();
+
+        $products = $getInitialProducts->fetchAll();
+
+        return $this->generateMangas($products);
+    }
+
 }

@@ -67,6 +67,7 @@ return [
         "confirmUpdate" => "Save the new information",
         "wrong_password" => "Wrong password",
         "successUpdate" => "Successfully updated your profile.",
-        "updateOrders" => "Update orders status"
+        "updateOrders" => "Update orders status",
+        "discover" => "Discover"
     ]
 ];

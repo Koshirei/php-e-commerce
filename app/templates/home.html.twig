@@ -6,8 +6,45 @@
     
     <div class="container" id="homePage">
     &nbsp;
+
         <div id="logoimg">
             <img src="https://cdn.discordapp.com/attachments/891090590048075786/1052374499884015616/anga_mob_opm.png">
+        </div>
+
+        <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for manga in mangas %}
+
+                    {% if loop.index == 1 %}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+                    <div class="card mb-3" >
+                        <div class="row g-0">
+                                    <h5 class="card-title">{{manga.title}}</h5>
+                            <div class="col-md-4">
+                                <img src="{{manga.unique_cover}}" class="card-img-top" alt="Image Manga">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text manga_card_description">{{manga.description|raw}}</p>
+                                </div>
+                            </div>
+                                    <a href="/manga?id={{manga.id}}"><button class="btn btn-primary discover">{{language["discover"]}}</button></a>
+                        </div>
+                        </div>
+                    </div>      
+        {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
         <div id="homeContent">
