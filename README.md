@@ -7,7 +7,7 @@ Ouvrir un terminal dans ./bdd_sql
 Une fois terminé    
 ```cd src```    
 Changer la configuration dans ```config.js```.    
-```node index.js```
+```node index.js```  
 Et prier que tout fonctionne.    
 
 NODE DOIT ETRE EN VERSION 15.0 MINIMUM POUR QUE LES FONCTIONS ReplaceAll() S'EXECUTENT
@@ -19,10 +19,13 @@ Ouvrir un terminal dans ./app.
 
 Si la configuration dans ```./bdd_sql/src/config.js``` à été modifiée, mettre à jour le fichier ```./app/config/database.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql   
 
-# Paypal
+# Comptes  
 
-Compte client sandbox email : mot de passe ;      
-sb-pyoiw23430305@personal.example.com : Ip0hWr&(  
+Les comptes définis sont au format " identifiant : motDePasse "    
+
+Compte Administrateur du site : " admin : adminpassword "  
+Compte Client du site : " user : userpassword "   
+Compte Client PayPal Sandbox : " sb-pyoiw23430305@personal.example.com : Ip0hWr&( "   
 
 # Cron
 
