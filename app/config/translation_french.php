@@ -66,6 +66,7 @@ return [
         "profile" => "Mon profil",
         "confirmUpdate" => "Enregistrer les nouvelles données",
         "wrong_password" => "Mauvais Mot de Passe",
-        "successUpdate" => "Profil mis à jour avec succès."
+        "successUpdate" => "Profil mis à jour avec succès.",
+        "updateOrders" => "Mettre à jour le statut des commandes"
     ]
 ];
