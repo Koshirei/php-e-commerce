@@ -81,6 +81,14 @@ return [
         "MangaVolumeAdd" => "Manga creation (volume)",
         "MangaCommonAdd" => "Manga creation (series)",
         "cover" => "Cover",
-        "description" => "Description"
-    ]
+        "description" => "Description",
+        "modification" => "Modification ",
+        "modify" => "Modify ",
+        "new_manga" => "New manga",
+        "help" => "Help",
+        "btn_explanation" => "Buttons explanation",
+        "series" => "Series",
+        "modal_modify_series" => "Allows you to modify the information related to the manga series (manga title, cover, etc.)",
+        "modal_modify_volume" => "Allows you to modify the information related to the volumes of the manga (price, cover, etc.)"
+    ]   
 ];
