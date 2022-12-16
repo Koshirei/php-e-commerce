@@ -28,28 +28,28 @@ class MangaVolumeAddService{
 
         // // die;
 
-        $volume_number = htmlspecialchars($_POST['volume_number']);
-        $cover_url = htmlspecialchars($_POST['cover_url']);
-        $stock = htmlspecialchars($_POST['stock']);
-        $price = htmlspecialchars($_POST['price']);
+        // $volume_number = htmlspecialchars($_POST['volume_number']);
+        // $cover_url = htmlspecialchars($_POST['cover_url']);
+        // $stock = htmlspecialchars($_POST['stock']);
+        // $price = htmlspecialchars($_POST['price']);
 
-        $common_id = htmlspecialchars($_POST['common_id']);
+        // $common_id = htmlspecialchars($_POST['common_id']);
 
-        $addedVolumeManga = $db->prepare (" INSERT INTO manga_volume (common_id, volume_number, cover_url, stock, price)
-                                            VALUES (:common_id, :volume_number, :cover_url, :stock, :price)
-                                            WHERE manga_common.title = :title
-                                            AND manga_common.common_id = :common_id
-                                        ");
+        // $addedVolumeManga = $db->prepare (" INSERT INTO manga_volume (common_id, volume_number, cover_url, stock, price)
+        //                                     VALUES (:common_id, :volume_number, :cover_url, :stock, :price)
+        //                                     WHERE manga_common.title = :title
+        //                                     AND manga_common.common_id = :common_id
+        //                                 ");
         
-        $addedVolumeManga->bindParam("title", $title);
-        $addedVolumeManga->bindParam("common_id", $mangaCommonId);
-        $addedVolumeManga->bindParam("volume_number", $volume_number);
-        $addedVolumeManga->bindParam("cover_url", $cover_url);
-        $addedVolumeManga->bindParam("stock", $stock);
-        $addedVolumeManga->bindParam("price", $price);
-        $addedVolumeManga->execute();
+        // $addedVolumeManga->bindParam("title", $title);
+        // $addedVolumeManga->bindParam("common_id", $mangaCommonId);
+        // $addedVolumeManga->bindParam("volume_number", $volume_number);
+        // $addedVolumeManga->bindParam("cover_url", $cover_url);
+        // $addedVolumeManga->bindParam("stock", $stock);
+        // $addedVolumeManga->bindParam("price", $price);
+        // $addedVolumeManga->execute();
 
-        $addedVolumeManga = $addedVolumeManga->fetch();
+        // $addedVolumeManga = $addedVolumeManga->fetch();
 
         return $addedVolumeManga;
     }
