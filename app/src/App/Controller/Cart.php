@@ -35,9 +35,15 @@ class Cart
         $this->updateCart();
 
         $full_price = 0;
+        $quantity = 0;
 
         foreach($_SESSION["cart"] as $item){
             $full_price+= floatval($item->getPrice()) * $item->getQuantity();
+            $quantity += $item->getQuantity();
+        }
+
+        if (count($_SESSION["cart"]) !== 0){
+          $full_price += $quantity + 1;
         }
 
         return new Response('cart.html.twig', ['get' => $_POST, "language" => $traductions, 'cartItems' => $_SESSION["cart"], 'cartPrice' => $full_price, "user" => $_SESSION["user"]] );

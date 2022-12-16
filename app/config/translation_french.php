@@ -91,6 +91,7 @@ return [
         "series" => "Série",
         "modal_modify_series" => "Permet de modifier les informations liés à la série du manga. (titre manga, couverture, etc.)",
         "modal_modify_volume" => "Permet de modifier les informations liés aux volumes du manga. (prix, couverture, etc.)",
-        "stock" => "Stock"
+        "stock" => "Stock",
+        "shippingIncluded" => "Livraison comprise"
     ]
 ];

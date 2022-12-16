@@ -48,7 +48,7 @@
         {% endfor %}
 
         {% if cartPrice > 0 %}
-            {{language["totalCost"]}} : <span id="total_cost">{{cartPrice}}</span>€<br/>
+            {{language["totalCost"]}} : <span id="total_cost">{{cartPrice}}</span>€ ( {{language["shippingIncluded"]}} ) <br/>
 
          {% if user %}
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paypalModal">
