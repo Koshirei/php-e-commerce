@@ -15,7 +15,7 @@ NODE DOIT ETRE EN VERSION 15.0 MINIMUM POUR QUE LES FONCTIONS ReplaceAll() S'EXE
 # Lancer le projet
 Ouvrir un terminal dans ./app.
 
-```composer install```
+```composer install```   
 ```php -S 0.0.0.0:3000 -t public```
 
 Si la configuration dans ```./bdd_sql/src/config.js``` à été modifiée, mettre à jour le fichier ```./app/config/database.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql/src.   
