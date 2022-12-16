@@ -17,37 +17,26 @@ class MangaVolumeEdit
       
       if(sizeof($_POST)<=0){
 
-        echo("IF aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br>");
-
         $MangaVolume = new getMangaVolume;
         $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
 
         return new Response('mangaVolumeEdit.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
       }
       else{
-        echo("ELSE BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB <br>");
 
         $MangaVolumeEdit = new MangaVolumeEditService;
         $editVolumeManga = $MangaVolumeEdit->MangaVolumeEditService($_POST['volume_number'], $_POST['cover_url'], $_POST['stock'], $_POST['price']);
   
         var_dump($editVolumeManga);
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
+        echo("<br><br>");
         // die;
   
         $MangaVolume = new getMangaVolume;
         $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
 
         var_dump($mangaVolume);
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
-        echo("<br>");
-        die;
+        echo("<br><br><br><br>");
+        // die;
   
         $error = false;
   

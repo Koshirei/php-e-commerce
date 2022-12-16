@@ -24,19 +24,19 @@ class MangaVolumeEditList
       return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
     }
     else{
-      // $MangaCommonEdit = new MangaCommonEditService;
-      // $mangaEdited = $MangaCommonEdit->MangaCommonEditService($_POST['title'], $_POST['common_cover'], $_POST['description'], $_POST['category'], $_POST['author'], $_POST['artist']);
+      $MangaCommonEdit = new MangaCommonEditService;
+      $mangaEdited = $MangaCommonEdit->MangaCommonEditService($_POST['title'], $_POST['common_cover'], $_POST['description'], $_POST['category'], $_POST['author'], $_POST['artist']);
 
-      // var_dump($mangaEdited);
+      var_dump($mangaEdited);
 
-      // $MangaCommon = new getMangaCommon;
-      // $mangaCommon = $MangaCommon->getMangaCommon($_POST['title']);
+      $MangaCommon = new getMangaCommon;
+      $mangaCommon = $MangaCommon->getMangaCommon($_POST['title']);
 
-      // $error = false;
+      $error = false;
 
-      // header("Location:/mangaCommonEdit?title=".$_GET['title']);
+      header("Location:/mangaCommonEdit?title=".$_GET['title']);
 
-      // return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'error' => $error, 'user'=>$_SESSION["user"], 'mangas' => $mangas, 'title' => $title]);
+      return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangas, 'title' => $title]);
     }
     
   }

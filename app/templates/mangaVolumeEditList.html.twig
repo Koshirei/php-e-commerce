@@ -51,7 +51,6 @@
         <div id="list_manga" class="mb-3 col-8">
             <table class="table table-striped">
                 {% for manga in mangas %}
-
                     <tr>
                         <td>{{ manga.volume_number }}</td>
                         <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">{{language["modify"]}} ({{language["volume"]}})</a></td>
