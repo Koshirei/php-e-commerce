@@ -8,12 +8,12 @@
     {% for manga in mangas %}
 
     <section class="container-fluid">
-        <h1>Modification série ({{manga.title}})</h1>
+        <h1>{{language["MangaCommonEdit"]}} ({{manga.title}})</h1>
 
         <div>
             <form>
                 <div class="mb-3 col-3">
-                    <button type="button" class="btn btn-danger">Rendre la série invisible</button>
+                    <button type="button" class="btn btn-danger">{{language["Hide"]}}</button>
                 </div>
             </form>
         </div>

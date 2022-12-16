@@ -73,7 +73,11 @@ return [
         "delivering" => "In transit",
         "delivered" => "Delivered",
         "returnTo" => "Return to ",
-        "MangaEdit" => "manga modification",
-        "MangaEditVolumeChoice" => "manga modification (volume choice)"
+        "MangaEdit" => "Manga modification",
+        "MangaCommonEdit" => "Manga modification (series)",
+        "MangaEditVolumeChoice" => "Manga modification (volume choice)",
+        "VolumeEdit" => "Volume modification ",
+        "Hide" => "Make invisible",
+        "MangaVolumeAdd" => "Manga creation (volume)"
     ]
 ];

@@ -11,7 +11,8 @@ class MangaVolumeEdit
 {
   public function __invoke()
   {
-      
+    require './init_session.php';
+    
     if(isset($_GET)){
       
       if(sizeof($_POST)<=0){

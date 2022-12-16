@@ -10,7 +10,8 @@ class MangaEdit
 {
   public function __invoke()
   {
-
+    require './init_session.php';
+    
     $MangaCommonList = new getMangaCommonList;
     $mangaCommonList = $MangaCommonList->getMangaCommonList();
 

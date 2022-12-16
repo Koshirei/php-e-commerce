@@ -11,6 +11,8 @@ class MangaCommonEdit
 {
   public function __invoke()
   {
+    require './init_session.php';
+    
     if(sizeof($_POST)<=0){
 
       $MangaCommon = new getMangaCommon;

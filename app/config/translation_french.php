@@ -73,7 +73,11 @@ return [
         "delivering" => "En transit",
         "delivered" => "Livré",
         "returnTo" => "Retour à la page ",
-        "MangaEdit" => "modification des mangas",
-        "MangaEditVolumeChoice" => "modification des mangas (choix du volume)"
+        "MangaEdit" => "Modification des mangas",
+        "MangaCommonEdit" => "Modification de manga (série)",
+        "MangaEditVolumeChoice" => "Modification des mangas (choix du volume)",
+        "VolumeEdit" => "Modification volume ",
+        "Hide" => "Rendre invisible",
+        "MangaVolumeAdd" => "Création de manga (volume)"
     ]
 ];

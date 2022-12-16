@@ -10,6 +10,8 @@ class MangaVolumeEditList
 {
   public function __invoke()
   {
+    require './init_session.php';
+    
     if(sizeof($_POST)<=0){
 
       $title = $_GET['title'];

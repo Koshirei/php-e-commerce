@@ -9,7 +9,9 @@ use Database\Database;
 class MangaCommonAdd
 {
   public function __invoke()
-  {    
+  {
+    require './init_session.php';
+
     if(sizeof($_POST)<=0){
 
       $error = false;

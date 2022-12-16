@@ -9,7 +9,9 @@ use Database\Database;
 class MangaVolumeAdd
 {
   public function __invoke()
-  {    
+  {
+    require './init_session.php';
+    
     if(sizeof($_POST)<=0){
       return new Response('mangaVolumeAdd.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommonList]);
     }
