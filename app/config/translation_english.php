@@ -78,6 +78,9 @@ return [
         "MangaEditVolumeChoice" => "Manga modification (volume choice)",
         "VolumeEdit" => "Volume modification ",
         "Hide" => "Make invisible",
-        "MangaVolumeAdd" => "Manga creation (volume)"
+        "MangaVolumeAdd" => "Manga creation (volume)",
+        "MangaCommonAdd" => "Manga creation (series)",
+        "cover" => "Cover",
+        "description" => "Description"
     ]
 ];

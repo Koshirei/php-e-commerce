@@ -5,28 +5,27 @@
 {% block body %}
     <p>{{language["returnTo"]}}<a href="/mangaEdit">{{language["MangaEdit"]}}</a></p>
 
-    <h1>Création de manga (série)</h1>
-    <small>Cette page permet à un administrateur la création d'un nouveau manga (série).</small>
-
+    <h1>{{language["MangaCommonAdd"]}}</h1>
+    
     <form action="" method="post" class="row g-3">
-            <label for="title">Titre</label>
+            <label for="title">{{language["title"]}}</label>
                 <input class="form-control" type="text" id="title" name="title" value="{{manga.title}}">
 
-            <label for="common_cover">Couverture</label>
+            <label for="common_cover">{{language["cover"]}}</label>
                 <input class="form-control" type="text" id="common_cover" name="common_cover" value="{{manga.common_cover}}">
 
-            <label for="description">Description</label>
+            <label for="description">{{language["description"]}}</label>
                 <textarea class="form-control" id="description" name="description" rows="4" cols="50" required>
                     {{manga.description}}
                 </textarea>
 
-            <label for="category">Catégorie</label>
+            <label for="category">{{language["category"]}}</label>
                 <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
 
-            <label for="author">Auteur</label>
+            <label for="author">{{language["author"]}}</label>
                 <input class="form-control" type="text" id="author" name="author" value="{{manga.author}}">
 
-            <label for="artist">Artiste</label>
+            <label for="artist">{{language["artist"]}}</label>
                 <input class="form-control" type="text" id="artist" name="artist" value="{{manga.artist}}">
 
             <input type="submit" class="btn btn-primary"></input>
