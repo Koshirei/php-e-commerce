@@ -1,4 +1,4 @@
-# php-e-commerce
+# php-e-commerce CLAUSE Axel, MAROTTA Titouan
 Projet de vente de manga sur un site e-commerce, voir PDF pour sujet plus complet  
 
 # Créer la base de données
@@ -17,7 +17,7 @@ Ouvrir un terminal dans ./app.
 
 ```php -S 0.0.0.0:3000 -t public```
 
-Si la configuration dans ```./bdd_sql/src/config.js``` à été modifiée, mettre à jour le fichier ```./app/config/database.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql   
+Si la configuration dans ```./bdd_sql/src/config.js``` à été modifiée, mettre à jour le fichier ```./app/config/database.php``` avec le même contenu que ```config.js``` du répertoire ./bdd_sql/src   
 
 # Comptes  
 
