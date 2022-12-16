@@ -3,12 +3,12 @@
 {% block title %}{{language["MangaVolumeAdd"]}}{% endblock %}
 
 {% block body %}
+    {% if user.role == "ADMIN" %}
+        <p>{{language["returnTo"]}}<a href="/mangaVolumeEditList?title={{manga.title}}">{{language["MangaEditVolumeChoice"]}}</a></p>
 
-    <p>{{language["returnTo"]}}<a href="/mangaVolumeEditList?title={{manga.title}}">{{language["MangaEditVolumeChoice"]}}</a></p>
-
-    <h1>{{language["MangaVolumeAdd"]}}</h1>
-    
-    <form action="" method="post" class="row g-3">
+        <h1>{{language["MangaVolumeAdd"]}}</h1>
+        
+        <form action="" method="post" class="row g-3">
             <label for="volume">{{language["volume"]}}</label>
                 <input class="form-control" type="text" id="volume" name="volume" value="{{manga.volume_number}}">
 
@@ -23,5 +23,5 @@
 
             <input type="submit" class="btn btn-primary"></input>
         </form>
-
+    {% endif %}
 {% endblock %}

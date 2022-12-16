@@ -21,7 +21,7 @@ class MangaVolumeEditList
 
       $error = false;
 
-      return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
+      return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
     }
     else{
       // $MangaCommonEdit = new MangaCommonEditService;
@@ -36,7 +36,7 @@ class MangaVolumeEditList
 
       // header("Location:/mangaCommonEdit?title=".$_GET['title']);
 
-      // return new Response('mangaCommonEditOk.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+      // return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'error' => $error, 'user'=>$_SESSION["user"], 'mangas' => $mangas, 'title' => $title]);
     }
     
   }

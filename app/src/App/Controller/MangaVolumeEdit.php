@@ -12,7 +12,7 @@ class MangaVolumeEdit
   public function __invoke()
   {
     require './init_session.php';
-    
+
     if(isset($_GET)){
       
       if(sizeof($_POST)<=0){
@@ -22,7 +22,7 @@ class MangaVolumeEdit
         $MangaVolume = new getMangaVolume;
         $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
 
-        return new Response('mangaVolumeEdit.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
+        return new Response('mangaVolumeEdit.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
       }
       else{
         echo("ELSE BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB <br>");
@@ -53,7 +53,7 @@ class MangaVolumeEdit
   
         header("Location:/mangaVolumeEdit?title=".$_GET['title']."&volume_number=".$_GET['volume_number']);
   
-        return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangas, 'title' => $title]);
+        return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangas, 'title' => $title]);
       }
 
     }

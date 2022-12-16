@@ -3,61 +3,61 @@
 {% block title %}{{language["MangaEditVolumeChoice"]}}{% endblock %}
 
 {% block body %}
-    
-    <p>{{language["returnTo"]}}<a href="/mangaEdit">{{language["MangaEdit"]}}</a></p>
+    {% if user.role == "ADMIN" %}
+        <p>{{language["returnTo"]}}<a href="/mangaEdit">{{language["MangaEdit"]}}</a></p>
 
-    <h1>{{language["MangaEditVolumeChoice"]}} {{title}}</h1>
-    
-    <div>
-        <form>
-            <div class="mb-3 col-3">
-                <label for="searchedManga" class="form-label" hidden="true">{{language["searchManga"]}}</label>
-                <input type="text" class="form-control" id="searchedManga" placeholder="{{language["searchManga"]}}">
-                
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">{{language["help"]}}</button>
+        <h1>{{language["MangaEditVolumeChoice"]}} {{title}}</h1>
+        
+        <div>
+            <form>
+                <div class="mb-3 col-3">
+                    <label for="searchedManga" class="form-label" hidden="true">{{language["searchManga"]}}</label>
+                    <input type="text" class="form-control" id="searchedManga" placeholder="{{language["searchManga"]}}">
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">{{language["help"]}}</button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="helpModal">{{language["btn_explanation"]}}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="helpModal">{{language["btn_explanation"]}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li>
+                                    <h5>{{language["modify"]}} ({{language["volume"]}}) :</h5>
+                                    <ul>
+                                        <li>{{language["modal_modify_volume"]}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <ul>
-                            <li>
-                                <h5>{{language["modify"]}} ({{language["volume"]}}) :</h5>
-                                <ul>
-                                    <li>{{language["modal_modify_volume"]}}</li>
-                                </ul>
-                            </li>
-                        </ul>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                    </div>
+
                 </div>
-                </div>
+            </form>
+        </div>
 
-            </div>
-        </form>
-    </div>
+            <a href="/mangaVolumeAdd?title={{title}}" class="btn btn-success">{{language["new_volume"]}}</a>
 
-        <a href="/mangaVolumeAdd?title={{title}}" class="btn btn-success">{{language["new_volume"]}}</a>
+        <div id="list_manga" class="mb-3 col-8">
+            <table class="table table-striped">
+                {% for manga in mangas %}
 
-    <div id="list_manga" class="mb-3 col-8">
-        <table class="table table-striped">
-            {% for manga in mangas %}
-
-                <tr>
-                    <td>{{ manga.volume_number }}</td>
-                    <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">{{language["modify"]}} ({{language["volume"]}})</a></td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-
+                    <tr>
+                        <td>{{ manga.volume_number }}</td>
+                        <td><a href="/mangaVolumeEdit?title={{title}}&volume_number={{manga.volume_number}}">{{language["modify"]}} ({{language["volume"]}})</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -20,7 +20,7 @@ class MangaCommonEdit
 
       $error = false;
 
-      return new Response('mangaCommonEdit.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommon]);
+      return new Response('mangaCommonEdit.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaCommon]);
     }
     else{
       $MangaCommonEdit = new MangaCommonEditService;
@@ -35,7 +35,7 @@ class MangaCommonEdit
 
       header("Location:/mangaCommonEdit?title=".$_GET['title']);
 
-      return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangas]);
+      return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangas]);
     }
     
   }
