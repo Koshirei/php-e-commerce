@@ -101,7 +101,7 @@ class Profile
             $username, 
             $email, 
             $password,
-            "USER",
+            $_SESSION["user"]->getRole(),
             $address,
             $city,
             $postal_code,
