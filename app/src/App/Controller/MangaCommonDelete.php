@@ -9,7 +9,8 @@ class MangaCommonDelete
 {
   public function __invoke()
   {
-
+    require './init_session.php';
+    
     return new Response('mangaCommonDelete.html.twig');
       
   }

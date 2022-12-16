@@ -9,9 +9,14 @@ use Database\Database;
 class MangaCommonAdd
 {
   public function __invoke()
-  {    
+  {
+    require './init_session.php';
+
     if(sizeof($_POST)<=0){
-      return new Response('mangaCommonAdd.html.twig', ['error' => $error, 'mangas' => $mangaCommonList]);
+
+      $error = false;
+
+      return new Response('mangaCommonAdd.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error]);
     }
     else{
       $MangaCommonCreated = new MangaCommonAddService;
@@ -21,7 +26,7 @@ class MangaCommonAdd
 
       header("Location:/mangaEdit");
       
-      return new Response('mangaCommonAdd.html.twig', ['error' => $error, 'mangas' => $mangaCommonList]);
+      return new Response('mangaCommonAdd.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaCommonList]);
     }
     
   }

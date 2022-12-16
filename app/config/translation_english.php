@@ -68,8 +68,29 @@ return [
         "wrong_password" => "Wrong password",
         "successUpdate" => "Successfully updated your profile.",
         "updateOrders" => "Update orders status",
+        "updateMangas" => "Update mangas",
         "discover" => "Discover",
         "delivering" => "In transit",
-        "delivered" => "Delivered"
-    ]
+        "delivered" => "Delivered",
+        "returnTo" => "Return to ",
+        "MangaEdit" => "Manga modification",
+        "MangaCommonEdit" => "Manga modification (series)",
+        "MangaEditVolumeChoice" => "Manga modification (volume choice)",
+        "VolumeEdit" => "Volume modification ",
+        "Hide" => "Make invisible",
+        "MangaVolumeAdd" => "Manga creation (volume)",
+        "MangaCommonAdd" => "Manga creation (series)",
+        "cover" => "Cover",
+        "description" => "Description",
+        "modification" => "Modification ",
+        "modify" => "Modify ",
+        "new_manga" => "New manga",
+        "new_volume" => "New volume",
+        "help" => "Help",
+        "btn_explanation" => "Buttons explanation",
+        "series" => "Series",
+        "modal_modify_series" => "Allows you to modify the information related to the manga series (manga title, cover, etc.)",
+        "modal_modify_volume" => "Allows you to modify the information related to the volumes of the manga (price, cover, etc.)",
+        "stock" => "Stock"
+    ]   
 ];

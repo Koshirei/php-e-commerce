@@ -1,76 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit manga{% endblock %}
+{% block title %}{{language["MangaEdit"]}}{% endblock %}
 
 {% block body %}
-    
-    <h1>Modification de manga</h1>
-    <small>Cette page permet à un administrateur la modification de manga.</small>
+    {% if user.role == "ADMIN" %}
+        <h1>{{language["MangaEdit"]}}</h1>
 
-    <div>
-        <form>
-            <div class="mb-3 col-3">
-                <label for="searchedManga" class="form-label">Manga à modifier</label>
-                <input type="text" class="form-control" id="searchedManga" placeholder="Manga à rechercher">
-                
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">Aide</button>
+        <div>
+            <form>
+                <div class="mb-3 col-3">
+                    <label for="searchedManga" class="form-label" hidden="true">{{language["searchManga"]}}</label>
+                    <input type="text" class="form-control" id="searchedManga" placeholder="{{language["searchManga"]}}">
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">{{language["help"]}}</button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="helpModal">Explication des boutons</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <ul>
-                            <li>
-                                <h5>Modifier (série) :</h5>
-                                <ul>
-                                    <li>Permet de modifier les informations liés à la série du manga. (titre manga, couverture, etc.)</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h5>Modifier (volume) :</h5>
-                                <ul>
-                                    <li>Permet de modifier les informations liés aux volumes du manga. (prix, couverture, etc.)</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h5>Supprimer (série):</h5>
-                                <ul>
-                                    <li>Permet de supprimer la visibilité de la série du manga.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="helpModal">{{language["btn_explanation"]}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li>
+                                    <h5>{{language["modify"]}} ({{language["series"]}}) :</h5>
+                                    <ul>
+                                        <li>{{language["modal_modify_series"]}}</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h5>{{language["modify"]}} ({{language["volume"]}}) :</h5>
+                                    <ul>
+                                        <li>{{language["modal_modify_volume"]}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
                     </div>
                     </div>
+
                 </div>
-                </div>
+            </form>
+        </div>
 
-            </div>
-        </form>
-    </div>
+        <a href="/mangaCommonAdd" class="btn btn-success">{{language["new_manga"]}}</a>
 
-    <a href="/mangaCommonAdd" class="btn btn-success">Nouveau manga</a>
-
-    <div id="list_manga" class="mb-3 col-8">
-        <table class="table table-striped">
-            {% for manga in mangas %}
-                <tr>
-                    <td>{{ manga.title }}</td>
-                    <td><a href="/mangaCommonEdit?title={{manga.title}}">Modifier (série)</a></td>
-                    <td><a href="/mangaVolumeEditList?title={{manga.title}}">Modifier (volume)</a></td>
-                    {# <td><a href="/mangaCommonDelete">Supprimer</a></td> #}
-                    {# <button type="button" class="btn btn-danger">Danger</button> #}
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-
+        <div id="list_manga" class="mb-3 col-8">
+            <table class="table table-striped">
+                {% for manga in mangas %}
+                    <tr>
+                        <td>{{ manga.title }}</td>
+                        <td><a href="/mangaCommonEdit?title={{manga.title}}">{{language["modify"]}} ({{language["series"]}})</a></td>
+                        <td><a href="/mangaVolumeEditList?title={{manga.title}}">{{language["modify"]}} ({{language["volume"]}})</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
 {% endblock %}

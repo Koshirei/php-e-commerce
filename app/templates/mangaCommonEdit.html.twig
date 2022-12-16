@@ -1,49 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit manga{% endblock %}
+{% block title %}{{language["MangaCommonEdit"]}}{% endblock %}
 
 {% block body %}
-    
-    Retour à la page de <a href="/mangaEdit">modification des mangas</a>
+    {% if user.role == "ADMIN" %}
+        <p>{{language["returnTo"]}}<a href="/mangaEdit">{{language["MangaEdit"]}}</a></p>
 
-    {% for manga in mangas %}
+        {% for manga in mangas %}
 
-    <section class="container-fluid">
-        <h1>Modification série ({{manga.title}})</h1>
+            <section class="container-fluid">
+                <h1>{{language["MangaCommonEdit"]}} ({{manga.title}})</h1>
 
-        <div>
-            <form>
-                <div class="mb-3 col-3">
-                    <button type="button" class="btn btn-danger">Rendre la série invisible</button>
+                <div>
+                    <form>
+                        <div class="mb-3 col-3">
+                            <button type="button" class="btn btn-danger">{{language["Hide"]}}</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
 
-        <form action="" method="post" class="row g-3">
-            <label for="title">Modification titre</label>
-                <input class="form-control" type="text" id="title" name="title" value="{{manga.title}}">
+                <form action="" method="post" class="row g-3">
+                    <label for="title">{{language["modification"]}}{{language["title"]}}</label>
+                        <input class="form-control" type="text" id="title" name="title" value="{{manga.title}}">
 
-            <label for="common_cover">Modification couverture</label>
-                <input class="form-control" type="text" id="common_cover" name="common_cover" value="{{manga.common_cover}}">
+                    <label for="common_cover">{{language["modification"]}}{{language["cover"]}}</label>
+                        <input class="form-control" type="text" id="common_cover" name="common_cover" value="{{manga.common_cover}}">
 
-            <label for="description">Modification description</label>
-                <textarea class="form-control" id="description" name="description" rows="4" cols="50" required>
-                    {{manga.description}}
-                </textarea>
+                    <label for="description">{{language["modification"]}}{{language["description"]}}</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" cols="50" required>
+                            {{manga.description}}
+                        </textarea>
 
-            <label for="category">Modification categorie</label>
-                <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
+                    <label for="category">{{language["modification"]}}{{language["category"]}}</label>
+                        <input class="form-control" type="text" id="category" name="category" value="{{manga.category}}">
 
-            <label for="author">Modification auteur</label>
-                <input class="form-control" type="text" id="author" name="author" value="{{manga.author}}">
+                    <label for="author">{{language["modification"]}}{{language["author"]}}</label>
+                        <input class="form-control" type="text" id="author" name="author" value="{{manga.author}}">
 
-            <label for="artist">Modification artiste</label>
-                <input class="form-control" type="text" id="artist" name="artist" value="{{manga.artist}}">
+                    <label for="artist">{{language["modification"]}}{{language["artist"]}}</label>
+                        <input class="form-control" type="text" id="artist" name="artist" value="{{manga.artist}}">
 
-            <input type="submit" class="btn btn-primary"></input>
-        </form>
-    </section>
+                    <input type="submit" class="btn btn-primary"></input>
+                </form>
+            </section>
 
-    {% endfor %}
+        {% endfor %}
 
+    {% endif %}
 {% endblock %}

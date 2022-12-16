@@ -11,12 +11,16 @@ class MangaCommonEdit
 {
   public function __invoke()
   {
+    require './init_session.php';
+    
     if(sizeof($_POST)<=0){
 
       $MangaCommon = new getMangaCommon;
       $mangaCommon = $MangaCommon->getMangaCommon($_POST['title']);
 
-      return new Response('mangaCommonEdit.html.twig', ['error' => $error, 'mangas' => $mangaCommon, 'title' => $title]);
+      $error = false;
+
+      return new Response('mangaCommonEdit.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangaCommon]);
     }
     else{
       $MangaCommonEdit = new MangaCommonEditService;
@@ -31,7 +35,7 @@ class MangaCommonEdit
 
       header("Location:/mangaCommonEdit?title=".$_GET['title']);
 
-      return new Response('mangaCommonEditOk.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+      return new Response('mangaCommonEditOk.html.twig', ['language'=>$traductions, 'user'=>$_SESSION["user"], 'error' => $error, 'mangas' => $mangas]);
     }
     
   }

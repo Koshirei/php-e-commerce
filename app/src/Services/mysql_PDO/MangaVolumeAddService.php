@@ -16,17 +16,20 @@ class MangaVolumeAddService{
         $stock = htmlspecialchars($_POST['stock']);
         $price = htmlspecialchars($_POST['price']);
 
-        $addedVolumeManga = $db->prepare ("    INSERT INTO manga_volume (title, common_cover, description, category, author, artist)
-                                        VALUES (:title, :common_cover, :description, :category, :author, :artist)
-                                        WHERE manga_common.title = :title
+        $common_id = htmlspecialchars($_POST['common_id']);
+
+        $addedVolumeManga = $db->prepare (" INSERT INTO manga_volume (title, volume_number, cover_url, stock, price)
+                                            VALUES (:common_id, :volume_number, :cover_url, :stock, :price)
+                                            WHERE manga_common.title = :title
+                                            -- AND manga_common.common_id = 
                                         ");
         
         $addedVolumeManga->bindParam("title", $title);
-        $addedVolumeManga->bindParam("common_cover", $common_cover);
-        $addedVolumeManga->bindParam("description", $description);
-        $addedVolumeManga->bindParam("category", $category);
-        $addedVolumeManga->bindParam("author", $author);
-        $addedVolumeManga->bindParam("artist", $artist);
+        $addedVolumeManga->bindParam("common_id", $common_cover);
+        $addedVolumeManga->bindParam("volume_number", $description);
+        $addedVolumeManga->bindParam("cover_url", $category);
+        $addedVolumeManga->bindParam("stock", $author);
+        $addedVolumeManga->bindParam("price", $artist);
         $addedVolumeManga->execute();
 
         $addedVolumeManga = $addedVolumeManga->fetch();

@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add manga (volume){% endblock %}
+{% block title %}{{language["MangaVolumeAdd"]}}{% endblock %}
 
 {% block body %}
-    Retour à la page de <a href="/mangaVolumeEditList?title={{manga.title}}">modification des mangas (choix volume)</a>
+    {% if user.role == "ADMIN" %}
+        <p>{{language["returnTo"]}}<a href="/mangaVolumeEditList?title={{manga.title}}">{{language["MangaEditVolumeChoice"]}}</a></p>
 
-    <h1>Création de manga (volume)</h1>
-    <small>Cette page permet à un administrateur la création d'un nouveau manga (volume).</small>
-
-    <form action="" method="post" class="row g-3">
-            <label for="volume">Volume</label>
+        <h1>{{language["MangaVolumeAdd"]}}</h1>
+        
+        <form action="" method="post" class="row g-3">
+            <label for="volume">{{language["volume"]}}</label>
                 <input class="form-control" type="text" id="volume" name="volume" value="{{manga.volume_number}}">
 
-            <label for="cover_url">Couverture</label>
+            <label for="cover_url">{{language["cover"]}}</label>
                 <input class="form-control" type="text" id="cover_url" name="cover_url" value="{{manga.cover_url}}">
 
-            <label for="stock">Stock</label>
+            <label for="stock">{{language["stock"]}}</label>
                 <input class="form-control" type="text" id="stock" name="stock" value="{{manga.stock}}">
 
-            <label for="price">Prix</label>
+            <label for="price">{{language["price"]}}</label>
                 <input class="form-control" type="text" id="price" name="price" value="{{manga.price}}">
 
             <input type="submit" class="btn btn-primary"></input>
         </form>
-
+    {% endif %}
 {% endblock %}
