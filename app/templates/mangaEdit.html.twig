@@ -9,8 +9,8 @@
     <div>
         <form>
             <div class="mb-3 col-3">
-                <label for="searchedManga" class="form-label">Manga à modifier</label>
-                <input type="text" class="form-control" id="searchedManga" placeholder="Manga à rechercher">
+                <label for="searchedManga" class="form-label" hidden="true">{{language["searchManga"]}}</label>
+                <input type="text" class="form-control" id="searchedManga" placeholder="{{language["searchManga"]}}">
                 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">{{language["help"]}}</button>
@@ -28,13 +28,13 @@
                             <li>
                                 <h5>{{language["modify"]}} ({{language["series"]}}) :</h5>
                                 <ul>
-                                    <li>Permet de modifier les informations liés à la série du manga. (titre manga, couverture, etc.)</li>
+                                    <li>{{language["modal_modify_series"]}}</li>
                                 </ul>
                             </li>
                             <li>
                                 <h5>{{language["modify"]}} ({{language["volume"]}}) :</h5>
                                 <ul>
-                                    <li>Permet de modifier les informations liés aux volumes du manga. (prix, couverture, etc.)</li>
+                                    <li>{{language["modal_modify_volume"]}}</li>
                                 </ul>
                             </li>
                         </ul>
@@ -57,10 +57,8 @@
             {% for manga in mangas %}
                 <tr>
                     <td>{{ manga.title }}</td>
-                    <td><a href="/mangaCommonEdit?title={{manga.title}}">Modifier (série)</a></td>
-                    <td><a href="/mangaVolumeEditList?title={{manga.title}}">Modifier (volume)</a></td>
-                    {# <td><a href="/mangaCommonDelete">Supprimer</a></td> #}
-                    {# <button type="button" class="btn btn-danger">Danger</button> #}
+                    <td><a href="/mangaCommonEdit?title={{manga.title}}">{{language["modify"]}} ({{language["series"]}})</a></td>
+                    <td><a href="/mangaVolumeEditList?title={{manga.title}}">{{language["modify"]}} ({{language["volume"]}})</a></td>
                 </tr>
             {% endfor %}
         </table>
