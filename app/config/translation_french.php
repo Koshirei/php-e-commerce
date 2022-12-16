@@ -68,6 +68,7 @@ return [
         "wrong_password" => "Mauvais Mot de Passe",
         "successUpdate" => "Profil mis à jour avec succès.",
         "updateOrders" => "Mettre à jour le statut des commandes",
+        "updateMangas" => "Mettre à jour les mangas",
         "discover" => "Découvrir",
         "delivering" => "En transit",
         "delivered" => "Livré"

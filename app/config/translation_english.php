@@ -68,6 +68,7 @@ return [
         "wrong_password" => "Wrong password",
         "successUpdate" => "Successfully updated your profile.",
         "updateOrders" => "Update orders status",
+        "updateMangas" => "Update mangas",
         "discover" => "Discover",
         "delivering" => "In transit",
         "delivered" => "Delivered"
