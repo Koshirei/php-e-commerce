@@ -13,11 +13,9 @@ class MangaEdit
 
     $MangaCommonList = new getMangaCommonList;
     $mangaCommonList = $MangaCommonList->getMangaCommonList();
-    
-    // echo(var_dump($mangaCommonList));
 
     $error = false;
 
-    return new Response('mangaEdit.html.twig', ['error' => $error, 'mangas' => $mangaCommonList] );
+    return new Response('mangaEdit.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommonList] );
   }
 }

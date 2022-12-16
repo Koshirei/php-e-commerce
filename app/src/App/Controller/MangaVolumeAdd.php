@@ -11,7 +11,7 @@ class MangaVolumeAdd
   public function __invoke()
   {    
     if(sizeof($_POST)<=0){
-      return new Response('mangaVolumeAdd.html.twig', ['error' => $error, 'mangas' => $mangaCommonList]);
+      return new Response('mangaVolumeAdd.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommonList]);
     }
     else{
       $MangaVolumeCreated = new MangaVolumeAddService;
@@ -21,7 +21,7 @@ class MangaVolumeAdd
 
       header("Location:/mangaEdit");
       
-      return new Response('mangaVolumeAdd.html.twig', ['error' => $error, 'mangas' => $mangaCommonList]);
+      return new Response('mangaVolumeAdd.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommonList]);
     }
     
   }

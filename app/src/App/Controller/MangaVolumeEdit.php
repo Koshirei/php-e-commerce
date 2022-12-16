@@ -21,7 +21,7 @@ class MangaVolumeEdit
         $MangaVolume = new getMangaVolume;
         $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
 
-        return new Response('mangaVolumeEdit.html.twig', ['error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
+        return new Response('mangaVolumeEdit.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
       }
       else{
         echo("ELSE BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB <br>");
@@ -52,7 +52,7 @@ class MangaVolumeEdit
   
         header("Location:/mangaVolumeEdit?title=".$_GET['title']."&volume_number=".$_GET['volume_number']);
   
-        return new Response('mangaVolumeEditList.html.twig', ['error' => $error, 'mangas' => $mangas, 'title' => $title]);
+        return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangas, 'title' => $title]);
       }
 
     }

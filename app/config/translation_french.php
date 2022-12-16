@@ -71,6 +71,9 @@ return [
         "updateMangas" => "Mettre à jour les mangas",
         "discover" => "Découvrir",
         "delivering" => "En transit",
-        "delivered" => "Livré"
+        "delivered" => "Livré",
+        "returnTo" => "Retour à la page ",
+        "MangaEdit" => "modification des mangas",
+        "MangaEditVolumeChoice" => "modification des mangas (choix du volume)"
     ]
 ];

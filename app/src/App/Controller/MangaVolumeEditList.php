@@ -19,7 +19,7 @@ class MangaVolumeEditList
 
       $error = false;
 
-      return new Response('mangaVolumeEditList.html.twig', ['error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
+      return new Response('mangaVolumeEditList.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaVolume, 'title' => $title]);
     }
     else{
       // $MangaCommonEdit = new MangaCommonEditService;

@@ -3,8 +3,7 @@
 {% block title %}Edit manga{% endblock %}
 
 {% block body %}
-    
-    Retour à la page de <a href="/mangaEdit">modification des mangas</a>
+    <p>{{language["returnTo"]}}<a href="/mangaEdit">{{language["MangaEdit"]}}</a></p>
 
     {% for manga in mangas %}
 

@@ -71,6 +71,9 @@ return [
         "updateMangas" => "Update mangas",
         "discover" => "Discover",
         "delivering" => "In transit",
-        "delivered" => "Delivered"
+        "delivered" => "Delivered",
+        "returnTo" => "Return to ",
+        "MangaEdit" => "manga modification",
+        "MangaEditVolumeChoice" => "manga modification (volume choice)"
     ]
 ];
