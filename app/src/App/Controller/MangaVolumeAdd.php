@@ -17,7 +17,7 @@ class MangaVolumeAdd
     }
     else{
       $MangaVolumeCreated = new MangaVolumeAddService;
-      $mangaVolumeCreated = $MangaVolumeCreated->MangaVolumeAddService($_POST['volume_number'], $_POST['cover_url'], $_POST['stock'], $_POST['price']);
+      $mangaVolumeCreated = $MangaVolumeCreated->MangaVolumeAddService($_GET['title']);
 
       $error = false;
 

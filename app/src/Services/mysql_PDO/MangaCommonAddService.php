@@ -17,10 +17,16 @@ class MangaCommonAddService{
         $author = htmlspecialchars($_POST['author']);
         $artist = htmlspecialchars($_POST['artist']);
 
-        $editManga = $db->prepare ("    INSERT INTO manga_common (title, common_cover, description, category, author, artist)
-                                        VALUES (:title, :common_cover, :description, :category, :author, :artist)
+        // Génération d'un common_id unique
+        $time = time();
+        $common_id = password_hash($time, PASSWORD_DEFAULT );
+        $common_id = $time.$common_id;
+
+        $editManga = $db->prepare ("    INSERT INTO manga_common (common_id, title, common_cover, description, category, author, artist)
+                                        VALUES (:common_id, :title, :common_cover, :description, :category, :author, :artist)
                                         ");
         
+        $editManga->bindParam("common_id", $common_id);
         $editManga->bindParam("title", $title);
         $editManga->bindParam("common_cover", $common_cover);
         $editManga->bindParam("description", $description);
