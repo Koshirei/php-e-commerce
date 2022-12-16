@@ -27,15 +27,15 @@ class MangaVolumeEdit
         $MangaVolumeEdit = new MangaVolumeEditService;
         $editVolumeManga = $MangaVolumeEdit->MangaVolumeEditService($_POST['volume_number'], $_POST['cover_url'], $_POST['stock'], $_POST['price']);
   
-        var_dump($editVolumeManga);
-        echo("<br><br>");
+        // var_dump($editVolumeManga);
+        // echo("<br><br>");
         // die;
   
         $MangaVolume = new getMangaVolume;
         $mangaVolume = $MangaVolume->getMangaVolume($_GET['title'], $_GET['volume_number']);
 
-        var_dump($mangaVolume);
-        echo("<br><br><br><br>");
+        // var_dump($mangaVolume);
+        // echo("<br><br><br><br>");
         // die;
   
         $error = false;
