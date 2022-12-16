@@ -35,5 +35,5 @@ Si une entrée est supprimée, le stock du manga s'incrémentera de 1, autant de
 
 ```php ./app/src/cron/deleteOutdatedCarts.php```  
 
-Temps de 30 minutes modifiable sur le script cron en changeant la variable $outdated_timer .  
+Temps de 30 minutes modifiable sur le script en changeant la variable $outdated_timer .  
 Avoir une version de MySql/MariaDB qui possède la fonction TIMESTAMPDIFF (https://mariadb.com/kb/en/timestampdiff/). 
