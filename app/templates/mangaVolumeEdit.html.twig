@@ -5,7 +5,7 @@
 {% block body %}
     {% for manga in mangas %}
 
-    Retour à la page de <a href="/mangaVolumeEditList?title={{manga.title}}">modification des mangas (choix volume)</a>
+    <p>{{language["returnTo"]}}<a href="/mangaVolumeEditList?title={{manga.title}}">{{language["MangaEditVolumeChoice"]}}</a></p>
 
     <section class="container-fluid">
         <h1>Modification volume ({{manga.title}})</h1>

@@ -11,7 +11,10 @@ class MangaCommonAdd
   public function __invoke()
   {    
     if(sizeof($_POST)<=0){
-      return new Response('mangaCommonAdd.html.twig', ['language'=>$traductions, 'error' => $error, 'mangas' => $mangaCommonList]);
+
+      $error = false;
+
+      return new Response('mangaCommonAdd.html.twig', ['language'=>$traductions, 'error' => $error]);
     }
     else{
       $MangaCommonCreated = new MangaCommonAddService;
